@@ -1,15 +1,5 @@
 /* src/assets/styles/tailwind.css */
 
-/* Define your CSS variables here */
-:root {
-  --aw-color-primary: #0a60a7; /* Updated primary color */
-  --aw-color-secondary: #35a5c2; /* Updated secondary color */
-  --aw-color-text-default: #000000; /* Updated default text color (black) */
-  --aw-color-text-muted: #6c757d; /* Remains the same */
-  --aw-color-bg-page: #ffffff; /* Updated page background color (white) */
-  --aw-color-bg-page-dark: #333; /* Remains the same */
-  --aw-color-text-page: #222; /* Remains the same */
-}
 
 
 /* Import Tailwind CSS */

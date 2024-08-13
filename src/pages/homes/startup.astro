@@ -26,9 +26,8 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
       {
         variant: 'primary',
         target: '_blank',
-        text: 'Get templates',
+        text: 'Join DECA',
         href: 'https://github.com/onwidget/astrowind',
-        icon: 'tabler:download',
       },
       { text: 'Learn more', href: '#features' },
     ]}
@@ -56,61 +55,103 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
     subtitle="We believe in the magic of turning dreams into stunning realities. Founded by passionate developers with a shared vision, we set out to simplify the website creation process. Our templates bring together the innovation of Astro 4.0 and the versatility of Tailwind CSS, enabling you to express your unique brand identity like never before."
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-blue-30 dark:bg-transparent"></div>
     </Fragment>
   </Features2>
 
 
   <!-- Features2 Widget ************** -->
 
-  <Features2
-    title="What services do we provide?"
-    subtitle="We offer a wide range of website templates that suit various industries and purposes such as business, portfolio, e-commerce, blog, etc."
-    items={[
-      {
-        title: 'Installation Instructions',
-        description:
-          'Offer clear instructions on how to download the purchased templates and install them on various website platforms or content management systems.',
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Demo and Previews',
-        description:
-          'Provide interactive demos and previews that allow customers to see how their chosen template will look and function before making a purchase.',
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Technical Support',
-        description:
-          'Providing customer support for any technical issues related to the templates or their implementation.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+<Features2
+  items={[
+    {
+      title: 'Join Email List',
+      description:
+        'Offer clear instructions on how to download the purchased templates and install them on various website platforms or content management systems.',
+      icon: 'tabler:mail',
+      callToAction: {
+        text: 'Email List',
+        variant: 'primary',
+        href: ''
+      }
+    },
+    {
+      title: 'DECA 101',
+      description:
+        'Provide interactive demos and previews that allow customers to see how their chosen template will look and function before making a purchase.',
+      icon: 'tabler:calendar',
+      callToAction: {
+        text: 'Learn More',
+        variant: 'primary',
+        href: '/demos'
+      }
+    },
+    {
+      title: 'Join our Discord Server',
+      description:
+        'Providing customer support for any technical issues related to the templates or their implementation.',
+      icon: 'tabler:message',
+      callToAction: {
+        text: 'Join',
+        variant: 'primary',
+        href: 'https://discord.gg/Gp3YmpDzQd'
+      }
+    },
+  ]}
+>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Features2>
 
+
+<div class="flex justify-center items-start">
   <Steps
     id="resume"
-    title="Upcoming Events"
+    title="Upcoming Meetings"
     items={[
       {
         title:
-          'Freshman BBQ <br /> <span class="font-normal">Agusut 23rd, 2024</span>',
+          'Freshman BBQ <br /> <span class="font-normal">August 23rd, 2024</span> <br /> <span class="text-sm font-normal">RM Parking Lot</span>',
         description: ``,
-        icon: 'tabler:briefcase',
+        icon: 'tabler:calendar',
       },
       {
         title:
-          'Interest Meeting <br /> <span class="font-normal">TBD</span> <br /></span>',
+          'Interest Meeting <br /> <span class="font-normal">TBD</span> <br /> <span class="text-sm font-normal">Auditorium</span>',
         description: ``,
-        icon: 'tabler:briefcase',
+        icon: 'tabler:calendar',
       },
     ]}
     classes={{ container: 'max-w-3xl' }}
   />
+  
+  <Steps
+    id="resume"
+    title="Competition Dates"
+    items={[
+      {
+        title:
+        '<span class="text-primary">Regionals</span> <br /> <span class="font-normal">January 4th, 2025</span> <br /> <span class="text-sm font-normal">Montgomery Blair High School</span>',
+        description: ``,
+      },
+      {
+        title:
+          '<span class="text-primary">SCDC - States</span> <br /> <span class="font-normal">February</span> <br /> <span class="text-sm font-normal">College Park Marriot</span>',
+        description: ``,
+      },
+      {
+        title:
+          '<span class="text-primary">ICDC - Internationals</span> <br /> <span class="font-normal">April 26-29</span> <br /> <span class="text-sm font-normal">Orlando, Florida</span>',
+        description: ``,
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+</div>
+
+
+  
 
   <!-- FAQs Widget ******************* -->
 
