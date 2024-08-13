@@ -1,11 +1,15 @@
-/* src/assets/styles/tailwind.css */
-
-
-
 /* Import Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --aw-color-text-page: #2d3748;
+  --aw-color-text-muted: #718096;
+  --aw-color-primary: #2979a2;
+  --aw-color-secondary: #35a5c2;
+}
+
 
 /* Define additional utilities using the variables */
 @layer utilities {
@@ -23,6 +27,12 @@
   }
   .text-muted {
     color: var(--aw-color-text-muted);
+  }
+    .bg-gradient-title {
+    background: linear-gradient(to right, #07377e, #2979a2);
+    -webkit-background-clip: text; /* For Chrome/Safari */
+    -webkit-text-fill-color: transparent; /* For Chrome/Safari */
+    display: inline;
   }
 }
 

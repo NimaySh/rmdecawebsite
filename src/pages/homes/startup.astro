@@ -24,16 +24,18 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
     backgroundImage={heroBackgroundImage}
     actions={[
       {
+        style: { background: 'linear-gradient(to right, #07377e, #2979a2)' },
         variant: 'primary',
         target: '_blank',
         text: 'Join DECA',
         href: 'https://github.com/onwidget/astrowind',
       },
     ]}
-  >
-    <Fragment slot="title">
-      Richard <span class="hidden sm:inline">Montgomery </span> <span class="dark:text-white highlight">DECA</span>
+    >
+    <Fragment slot="title" >
+    Richard Montgomery <span class="bg-gradient-title">DECA</span>
     </Fragment>
+
     
     <Fragment slot="additionalContent">
       <Stats
@@ -50,7 +52,7 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Why DECA?"
+    title='Why <span class="bg-gradient-title">DECA</span>?'
     subtitle="We believe in the magic of turning dreams into stunning realities. Founded by passionate developers with a shared vision, we set out to simplify the website creation process. Our templates bring together the innovation of Astro 4.0 and the versatility of Tailwind CSS, enabling you to express your unique brand identity like never before."
   >
     <Fragment slot="bg">
@@ -124,7 +126,7 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
     ]}
     classes={{ container: 'max-w-3xl' }}
   />
-  
+   
   <Steps
     id="resume"
     title="Competition Dates"
