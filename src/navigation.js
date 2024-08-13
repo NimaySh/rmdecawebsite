@@ -4,11 +4,11 @@ export const headerData = {
   links: [
     {
       text: 'Home',
-      href: getPermalink('/homes/startup'),
+      href: ['/']
     },
     
     {
-      text: 'About Us',
+      text: 'About',
       href: ['/about']
     },
     {
@@ -25,6 +25,10 @@ export const headerData = {
         {
           text: 'Personal',
           href: getPermalink('/homes/personal'),
+        },
+        {
+          text: 'Alt Home',
+          href: getPermalink('/alt'),
         },
         {
           text: 'Features (Anchor Link)',
