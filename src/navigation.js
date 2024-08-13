@@ -6,6 +6,11 @@ export const headerData = {
       text: 'Home',
       href: getPermalink('/homes/startup'),
     },
+    
+    {
+      text: 'About Us',
+      href: ['/about']
+    },
     {
       text: 'Extra',
       links: [
@@ -21,11 +26,6 @@ export const headerData = {
           text: 'Personal',
           href: getPermalink('/homes/personal'),
         },
-      ],
-    },
-    {
-      text: 'Pages',
-      links: [
         {
           text: 'Features (Anchor Link)',
           href: getPermalink('/#features'),
@@ -39,20 +39,16 @@ export const headerData = {
           href: getPermalink('/pricing'),
         },
         {
-          text: 'About us',
-          href: getPermalink('/about'),
-        },
-        {
-          text: 'Contact',
-          href: getPermalink('/contact'),
-        },
-        {
           text: 'Terms',
           href: getPermalink('/terms'),
         },
         {
           text: 'Privacy policy',
           href: getPermalink('/privacy'),
+        },
+        {
+          text: 'Contact',
+          href: getPermalink('/contact'),
         },
       ],
     },
