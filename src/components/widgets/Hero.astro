@@ -16,10 +16,11 @@ const {
 
   id,
   bg = await Astro.slots.render('bg'),
+  backgroundImage, // Added for background image URL
 } = Astro.props;
 ---
-
-<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
+ 
+<section class="relative md:-mt-[76px] not-prose" style={`background-image: url(${backgroundImage}); background-color: #f0f0f0;`}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
@@ -89,3 +90,10 @@ const {
     </div>
   </div>
 </section>
+
+<style>
+section {
+  background-size: cover;
+  background-position: center;
+}
+</style>

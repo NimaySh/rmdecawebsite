@@ -1,28 +1,27 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-
 import Features2 from '~/components/widgets/Features2.astro';
 import Features from '~/components/widgets/Features.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Brands from '~/components/widgets/Brands.astro';
-
 import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'Startup Landing Page',
+  title: 'RM DECA',
 };
+
+const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1gbqKgOhPwlItgErgCwUXw5qXoOUTgUkGh_5Sj5i-nIFZ0wS-3QAEISS4qQLk6e_VdBRsZbW0Jf7VVx797xl-XLg2MV3nWykO6Hvow1cY7I4xM7hi-MmkY63B90DFZRaE4j1JzCVAs6_M2RFw=w671-h839-s-no-gm?authuser=0"; // Assuming 'assets' is in your public directory
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
+  <!-- Hero Widget -->
   <Hero
-    tagline="Startup Web Demo"
+    tagline="#1 Chapter in Maryland"
+    backgroundImage={heroBackgroundImage}
     actions={[
       {
         variant: 'primary',
@@ -35,9 +34,7 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      Improve <span class="hidden sm:inline">the online presence of</span> your <span
-        class="text-accent dark:text-white highlight">Startup</span
-      > with Astrowind templates
+      Richard <span class="hidden sm:inline">Montgomery </span> <span class="text-accent dark:text-white highlight">DECA</span>
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -55,6 +52,9 @@ const metadata = {
       </style>
     </Fragment>
   </Hero>
+
+
+
 
   <!-- Features2 Widget ************** -->
 
