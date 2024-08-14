@@ -75,13 +75,12 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
 
 
   <!-- Features2 Widget ************** -->
-
 <Features2
   items={[
     {
       title: 'Join Email List',
       description:
-        'Receive updates about registration, meetings, and competitions to your email!  ',
+        'Make sure you get every update about registration, meetings, and competitions.',
       icon: '',
       callToAction: {
         text: 'Email List',
@@ -90,7 +89,6 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
         class: 'bg-primary hover:bg-secondary text-white py-2 px-6 rounded-md',
         icon: 'tabler:mail'
       }
-
     },
     {
       title: 'DECA 101',
@@ -114,6 +112,7 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
         text: 'Join',
         variant: 'primary',
         class: 'bg-primary hover:bg-secondary text-white py-2 px-6 rounded-md',
+        href: '',
         icon: 'tabler:message'
       }
     },
@@ -169,68 +168,37 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
     ]}
     classes={{ container: 'max-w-3xl' }}
   />
-  
 </div>
       
   <!-- CallToAction Widget *********** -->
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        target: '_blank',
-        text: 'Register',
-        href: '',
-      },
-    ]}
-  >
-    <Fragment slot="title"><span class="bg-gradient-title">Join DECA Now</span></Fragment>
-    <Fragment slot="subtitle">
-      Fly to Orlando and Disney World. <br> Make friends and build your business skills. 
-    </Fragment>
-  </CallToAction>
 
-  <!-- Features Widget *************** -->
-<!
+
+<!-- 
+Features Widget ***************
   <Features
     id="features"
-    title="Main features of our templates"
-    subtitle="Possess several key characteristics to effectively cater to the needs of startups and entrepreneurs."
+    title="Competition Dates"
     columns={3}
     items={[
       {
-        title: 'Modern and Professional Design',
+        title: 'Regionals',
         description:
-          'Have a contemporary design that reflects current design trends and gives a professional impression.',
+          'January 4th, 2025 <br> Montgomery Blair High School',
         icon: 'tabler:artboard',
       },
       {
-        title: 'Responsive and Mobile-Friendly',
-        description: 'Adapt seamlessly to different screen sizes and devices to ensure a consistent experience.',
-        icon: 'tabler:picture-in-picture',
+        title: 'SCDC - States',
+        description: 'February <br> College Park Marriot',
+        icon: 'tabler:map',
       },
       {
-        title: 'Customizability',
+        title: 'ICDC - Internationals',
         description:
-          'Easily customizable, allowing users to adapt the design, colors, typography, and content to match their brand identity.',
-        icon: 'tabler:adjustments-horizontal',
-      },
-      {
-        title: 'Fast Loading Times',
-        description: 'Optimized for speed to ensure a smooth user experience and favorable search engine rankings.',
+          'April 26-29 <br> Orlando, Florida',
         icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          'Incorporate SEO best practices in template structure and code to improve visibility in search engine results.',
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Compatibility',
-        description: 'The templates work seamlessly across various content management systems and website builders.',
-        icon: 'tabler:plug-connected',
       },
     ]}
   />
+-->
 </Layout>
