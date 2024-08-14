@@ -86,18 +86,23 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
       callToAction: {
         text: 'Email List',
         variant: 'primary',
-        href: ''
+        href: '',
+        class: 'bg-primary hover:bg-secondary text-white py-2 px-6 rounded-md',
+        icon: 'tabler:mail'
       }
+
     },
     {
       title: 'DECA 101',
       description:
-        'Are you a first-year member? <br> Learn about everything about DECA from registration and competitions to choosing an event and practice.',
+        '<strong> <span class="bg-gradient-title">Are you a first-year member?</span></strong> <br> Learn everything about DECA from registration and competitions to choosing an event and practicing.',
       icon: '',
       callToAction: {
         text: 'Learn More',
         variant: 'primary',
-        href: '/demos'
+        href: '/demos',
+        class: 'bg-primary hover:bg-secondary text-white py-2 px-6 rounded-md',
+        icon: 'tabler:link'
       }
     },
     {
@@ -108,10 +113,12 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
       callToAction: {
         text: 'Join',
         variant: 'primary',
-        href: 'https://discord.gg/Gp3YmpDzQd'
+        class: 'bg-primary hover:bg-secondary text-white py-2 px-6 rounded-md',
+        icon: 'tabler:message'
       }
     },
-  ]}
+  ]
+  }
 >
   <Fragment slot="bg">
     <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>

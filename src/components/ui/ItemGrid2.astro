@@ -8,7 +8,6 @@ const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
 
 const {
   container: containerClass = '',
-  // container: containerClass = "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
   panel: panelClass = '',
   title: titleClass = '',
   description: descriptionClass = '',
@@ -39,10 +38,10 @@ const {
           )}
           <div class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</div>
           {description && (
-            <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
+            <p class={twMerge('text-muted mt-2 mb-5', descriptionClass, itemClasses?.description)} set:html={description} />
           )}
           {callToAction && (
-            <div class="mt-2">
+            <div class="mt-auto">
               <Button {...callToAction} />
             </div>
           )}
