@@ -52,21 +52,15 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
   </Hero>
 
 
-  <!-- Features2 Widget ************** -->
+<!-- Features2 Widget ************** -->
 
-  <Features2
-    title='Why <span class="bg-gradient-title">DECA</span>?'
-    subtitle={`DECA empowers you to develop <strong> <span class="bg-gradient-title"> business knowledge</span></strong>, leadership abilities, <br> and communication skills while having fun. Join us to learn, compete, and even <strong> <span class="bg-gradient-title"><br> travel to Orlando</span> </strong> for internationals. It's a great way to build your college resume.`}
-    >
-    actions={[
-      {
-        variant: 'primary',
-        target: '_blank',
-        text: 'Join DECA',
-        href: 'https://github.com/onwidget/astrowind',
-      },
-    ]}
-    <Fragment slot="image">
+<Features2
+  title='Why <span class="bg-gradient-title">DECA</span>?'
+  subtitle={`DECA empowers you to develop <strong><span class="bg-gradient-title">business knowledge</span></strong>, leadership abilities, <br> and communication skills while having fun and making friends. Join us to learn, compete, and even <strong><span class="bg-gradient-title">travel to Orlando</span></strong> for internationals. 
+  It's a great way to build your resume. <br> <br> <strong><span class="bg-gradient-title">NO prior experience is required.</span></strong> There is a place for <strong><span class="bg-gradient-title">EVERYONE.</span></strong> We provide training. You can compete in business roleplays, prepared presentations, or gamified simulations.`}
+  <br><br>
+  >
+  <Fragment slot="image">
     <YouTube id="m8bvnkiV_yo" title="DECA Membership Promo 2024-25" />
     <style is:inline>
       lite-youtube {
@@ -74,13 +68,12 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
         max-width: 80%;
       }
     </style>
-    </Fragment>
-    
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-30 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
+  </Fragment>
+  
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-30 dark:bg-transparent"></div>
+  </Fragment>
+</Features2>
 
   <!-- Features2 Widget ************** -->
 <Features2
@@ -178,8 +171,25 @@ const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1
   />
 </div>
       
-  <!-- CallToAction Widget *********** -->
+<!-- CallToAction Widget *********** -->
 
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Join DECA',
+        href: 'https://github.com/onwidget/astrowind',
+      },
+    ]}
+  >
+<Fragment slot="title"> 
+  <span class="bg-gradient-title">Join DECA Now</span>
+</Fragment>    
+<Fragment slot="subtitle">
+      Fly to Orlando and Disney world. <br> Learn, compete, and have fun!
+</Fragment>
+  </CallToAction>
 
 
 <!-- 
