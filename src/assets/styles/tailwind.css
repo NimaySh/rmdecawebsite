@@ -78,6 +78,11 @@
   padding: 0 5px;
 }
 
+.border-gradient {
+  border-image: linear-gradient(to right, #07377e, #35a5c2);
+  border-image-slice: 1;
+}
+
 .dropdown:focus .dropdown-menu,
 .dropdown:focus-within .dropdown-menu,
 .dropdown:hover .dropdown-menu {
