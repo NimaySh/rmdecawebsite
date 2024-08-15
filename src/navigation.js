@@ -124,9 +124,9 @@ export const footerData = {
     {
       title: 'About',
       links: [
-        { text: 'What we do', href: '#' },
-        { text: 'Our Team', href: '#' },
-        { text: 'FAQ', href: '#' },
+        { text: 'What we do', href: 'about' },
+        { text: 'Our Team', href: 'about' },
+        { text: 'FAQ', href: 'faq' },
       ],
     },
     {
@@ -140,15 +140,15 @@ export const footerData = {
     {
       title: 'Learn',
       links: [
-        { text: 'Resources', href: '#' },
+        { text: 'Resources', href: 'resources' },
         { text: 'DECA 101', href: '#' },
       ],
     },
     {
       title: 'Other',
       links: [
-        { text: 'Maryland DECA', href: '#' },
-        { text: 'National DECA', href: '#' },
+        { text: 'Maryland DECA', href: 'https://www.decamaryland.org/' },
+        { text: 'National DECA', href: 'https://www.deca.org/' },
       ],
     },
   ],
