@@ -34,6 +34,12 @@
     -webkit-text-fill-color: transparent; /* For Chrome/Safari */
     display: inline;
   }
+  .bg-gradient-icon {
+    background: linear-gradient(to right, #07377e, #2979a2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 }
 
 /* Define components using the variables */
