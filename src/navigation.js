@@ -19,6 +19,10 @@ export const headerData = {
       text: 'FAQ',
       href: ['/faq']
     },
+    {
+      text: 'Contact',
+      href: ['/contact']
+    },
 //    {
 //      text: 'Extra',
 //      links: [
