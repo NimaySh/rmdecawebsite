@@ -1,26 +1,31 @@
 ---
-// Sidebar.astro
+// src/components/ui/FilterSidebar.astro
+
+const filterOptions = ['Sample Roleplay', 'Practice Test', 'Quizlet', 'Other'];
+let selectedFilters = [];
+
+function toggleFilter(filter) {
+  if (selectedFilters.includes(filter)) {
+    selectedFilters = selectedFilters.filter((f) => f !== filter);
+  } else {
+    selectedFilters = [...selectedFilters, filter];
+  }
+}
 ---
 
-<aside style="width: 250px; padding: 1rem; background-color: #ffffff; border-radius: 15px; color: #000000;">
-    <h2 style="margin-bottom: 1rem; font-size: 1.5rem;">Filter</h2>
-
-    <div style="margin-bottom: 1rem;">
-      <label style="display: block; margin-bottom: 0.5rem;">Type</label>
-      <input type="checkbox" id="type-cluster-exam"><label for="type-cluster-exam"> Exam</label><br>
-      <input type="checkbox" id="type-roleplay"><label for="type-roleplay"> Roleplay</label><br>
-      <input type="checkbox" id="type-quizlet"><label for="type-quizlet"> Quizlet</label>
-    </div>
-
-    <div style="margin-bottom: 1rem;">
-      <label style="display: block; margin-bottom: 0.5rem;">Cluster</label>
-      <input type="checkbox" id="cluster-finance"><label for="cluster-finance"> Finance</label><br>
-      <input type="checkbox" id="cluster-marketing"><label for="cluster-marketing"> Marketing</label><br>
-      <input type="checkbox" id="cluster-hospitality"><label for="cluster-hospitality"> Hospitality and Tourism</label><br>
-      <input type="checkbox" id="cluster-business-management"><label for="cluster-business-management"> Business Management and Administration</label><br>
-      <input type="checkbox" id="cluster-entrepreneurship"><label for="cluster-entrepreneurship"> Entrepreneurship</label><br>
-      <input type="checkbox" id="cluster-personal-financial"><label for="cluster-personal-financial"> Personal Financial Literacy</label>
-    </div>
-    
-    <button style="margin-top: 1rem; padding: 0.5rem 1rem; background: linear-gradient(to right, #07377e, #2979a2); border: none; border-radius: 5px; cursor: pointer; color: #ffffff;">Apply</button>
-  </aside>
+<div class="bg-white shadow-md rounded-lg p-6">
+  <h3 class="text-lg font-bold mb-4">Type</h3>
+  <div class="space-y-2">
+    {filterOptions.map((filter) => (
+      <div class="flex items-center" key={filter}>
+        <input
+          type="checkbox"
+          class="mr-2 text-blue-500 focus:ring-blue-500"
+          checked={selectedFilters.includes(filter)}
+          on:change={() => toggleFilter(filter)}
+        />
+        <label class="text-gray-700">{filter}</label>
+      </div>
+    ))}
+  </div>
+</div>

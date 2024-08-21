@@ -1,0 +1,22 @@
+{
+  "Sheet1": [
+    {
+      "name": "ENT Sample Roleplay 2024 (1)",
+      "type": "Sample Roleplay",
+      "cluster": "Entrepreneurship",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcdc39f0df8b7a80fd8a04_DECA_ENT_2024_District_Event_1.pdf"
+    },
+    {
+      "name": "ENT Sample Roleplay 2024 (2)",
+      "type": "Sample Roleplay",
+      "cluster": "Entrepreneurship",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcdbdc9386043358922a77_DECA_ENT_2024_District_Event_2.pdf"
+    },
+    {
+      "name": "Entrepreneurship Cluster Exam 2024",
+      "type": "Practice Test",
+      "cluster": "Entrepreneurship",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df4655119eda9d94bed97e_HS_Entrepreneurship_Sample_Exam_24.pdf"
+    }
+  ]
+}
