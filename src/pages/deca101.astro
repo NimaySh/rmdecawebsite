@@ -1,244 +1,121 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import Prices from '~/components/widgets/Pricing.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'Pricing',
+  title: 'Stellar Pricing for Every Journey', // Updated title from the second code snippet
 };
+
+const competitionTypes = [
+  { title: "Written", color: "bg-blue-200", content: "Written competition details..." },
+  { title: "Role Play", color: "bg-green-200", content: "Role play competition details..." },
+  { title: "Presentation", color: "bg-yellow-200", content: "Presentation competition details..." }
+];
+
+const faqRows = [
+  { question: "What is DECA?", answer: "DECA is..." },
+  { question: "Who can join DECA?", answer: "DECA membership is..." },
+  { question: "What are the benefits of DECA?", answer: "DECA offers..." },
+  { question: "How do I prepare for DECA competitions?", answer: "To prepare for DECA competitions..." },
+  { question: "What career paths does DECA support?", answer: "DECA supports various career paths including..." }
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
+  
   <HeroText
-    tagline="Pricing"
-    title="Stellar Pricing for Every Journey"
-    subtitle="Choose the perfect plan that aligns with your cosmic goals."
-  />
+  tagline={<span class="bg-gradient-title">DECA 101</span>}  
+  title="What is DECA?"
+  subtitle="DECA is an organization that prepares emerging leaders and entrepreneurs in marketing, finance, hospitality, and management. [More filler text...]"
+/>
 
-  <!-- Pricing Widget ******************* -->
+  <div class="container mx-auto px-4">
 
-  <Prices
-    title="Our prices"
-    subtitle="Only pay for what you need"
-    prices={[
-      {
-        title: 'basic',
-        subtitle: 'Optimal choice for personal use',
-        price: 29,
-        period: 'per month',
-        items: [
-          {
-            description: 'Etiam in libero, et volutpat',
-          },
-          {
-            description: 'Aenean ac nunc dolor tristique',
-          },
-          {
-            description: 'Cras scelerisque accumsan lib',
-          },
-          {
-            description: 'In hac habitasse',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-      },
-      {
-        title: 'standard',
-        subtitle: 'Optimal choice for small teams',
-        price: 69,
-        period: 'Per Month',
-        items: [
-          {
-            description: 'Proin vel laoreet',
-          },
-          {
-            description: 'Ut efficitur habitasse egestas',
-          },
-          {
-            description: 'Volutpat hac curabitur',
-          },
-          {
-            description: 'Pellentesque blandit ut nibh',
-          },
-          {
-            description: 'Donec fringilla sem',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-        hasRibbon: true,
-        ribbonTitle: 'popular',
-      },
-      {
-        title: 'premium',
-        subtitle: 'Optimal choice for companies',
-        price: 199,
-        period: 'Per Month',
-        items: [
-          {
-            description: 'Curabitur suscipit risus',
-          },
-          {
-            description: 'Aliquam habitasse malesuada',
-          },
-          {
-            description: 'Suspendisse sit amet blandit',
-          },
-          {
-            description: 'Suspendisse auctor blandit dui',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-      },
-    ]}
-  />
+    <p class="mb-8"></p>
 
-  <!-- Features3 Widget ************** -->
+    <div class="mb-8">
+      <div class="tabs">
+        <ul>
+          <li><a href="#regional">Regional</a></li>
+          <li><a href="#state">State</a></li>
+          <li><a href="#international">International</a></li>
+        </ul>
+      </div>
+      <div id="regional" class="tab-content">
+        Regional competition information goes here...
+      </div>
+      <div id="state" class="tab-content hidden">
+        State competition information goes here...
+      </div>
+      <div id="international" class="tab-content hidden">
+        International competition information goes here...
+      </div>
+    </div>
 
-  <Features3
-    title="Price-related features"
-    subtitle="Discover the advantages of choosing our plans"
-    columns={2}
-    items={[
-      {
-        title: 'Tiered Pricing Plans',
-        description: 'Choose from a range of pricing plans designed to accommodate different budgets and requirements.',
-        icon: 'tabler:stairs',
-      },
-      {
-        title: 'Transparent Pricing',
-        description: 'Clearly displayed pricing details for each plan, with no hidden costs or unexpected charges.',
-        icon: 'tabler:flip-vertical',
-      },
-      {
-        title: 'Secure Payment Methods',
-        description: 'Secure payment gateways to protect your financial information during transactions.',
-        icon: 'tabler:shield-lock',
-      },
-      {
-        title: 'Instant Access',
-        description: `Immediate access to your chosen plan's features and templates upon subscription.`,
-        icon: 'tabler:accessible',
-      },
-      {
-        title: 'Upgrade Value',
-        description: 'Upgrade to higher-tier plans to unlock more features and benefits for an enhanced experience.',
-        icon: 'tabler:chevrons-up',
-      },
-      {
-        title: '24H support',
-        description: 'Questions answered via live chat, email or phone, every calendar day.',
-        icon: 'tabler:headset',
-      },
-    ]}
-    classes={{ container: 'max-w-5xl' }}
-  />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      {competitionTypes.map((type) => (
+        <div class={`p-4 ${type.color}`}>
+          <h3 class="text-xl font-bold mb-2">{type.title}</h3>
+          <p>{type.content}</p>
+        </div>
+      ))}
+    </div>
 
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="A guided journey from plans to creativity"
-    tagline="simplified process"
-    isReversed={true}
-    items={[
-      {
-        title: 'Explore plans',
-        icon: 'tabler:number-1',
-      },
-      {
-        title: 'Select a plan',
-        icon: 'tabler:number-2',
-      },
-      {
-        title: 'Sign Up / Log In',
-        icon: 'tabler:number-3',
-      },
-      {
-        title: 'Review order',
-        icon: 'tabler:number-4',
-      },
-      {
-        title: 'Enter payment details',
-        icon: 'tabler:number-5',
-      },
-      {
-        title: 'Confirmation',
-        icon: 'tabler:number-6',
-      },
-      {
-        title: 'Download and start using the template(s)',
-        icon: 'tabler:number-7',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Pricing FAQs"
-    subtitle="Choosing the right plan is important, and we're here to answer your questions. If you have queries about our pricing options, you're in the right place."
-    columns={1}
-    items={[
-      {
-        title: 'Do the plans come with customer support?',
-        description:
-          'Absolutely, all plans include access to our dedicated customer support to assist you with any queries or concerns.',
-      },
-      {
-        title: 'Is there a trial period for the different plans?',
-        description:
-          "Unfortunately, we don't offer trial periods for the plans. However, you can check out our demo section to preview the quality of our templates.",
-      },
-      {
-        title: 'Can I switch between plans?',
-        description:
-          'Certainly! You can easily upgrade or downgrade your plan, at any time, to find the one that best suits your evolving requirements.',
-      },
-      {
-        title: 'What payment methods do you accept?',
-        description:
-          'We accept major credit cards and online payment methods to ensure a convenient and secure transaction process.',
-      },
-      {
-        title: 'Are there any hidden fees beyond the displayed cost?',
-        description:
-          'No, the subscription cost covers all the features and templates listed under each plan. There are no hidden fees or extra charges.',
-      },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    title="Ready to boost your projects?"
-    subtitle="Join our community of satisfied customers who have transformed their work with our templates."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get started now',
-        href: '/',
-      },
-    ]}
-  />
+    <div class="faq-section">
+      {faqRows.map((row, index) => (
+        <div class="mb-2">
+          <button class="faq-question w-full text-left p-4 bg-gray-200 hover:bg-gray-300 flex justify-between items-center">
+            {row.question}
+            <Icon name="tabler:chevron-down" class="w-5 h-5" />
+          </button>
+          <div class="faq-answer p-4 bg-gray-100 hidden">
+            {row.answer}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .tab-content {
+    padding: 1rem;
+    background-color: #f3f4f6;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  // Tab functionality
+  const tabs = document.querySelectorAll('.tabs a');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = e.target.getAttribute('href').substring(1);
+      
+      tabContents.forEach(content => {
+        content.classList.add('hidden');
+      });
+      
+      document.getElementById(target).classList.remove('hidden');
+    });
+  });
+
+  // FAQ functionality
+  const faqQuestions = document.querySelectorAll('.faq-question');
+
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      const answer = question.nextElementSibling;
+      const icon = question.querySelector('svg');
+      
+      answer.classList.toggle('hidden');
+      icon.style.transform = answer.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  });
+</script>

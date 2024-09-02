@@ -30,12 +30,15 @@
   }
 
   
-    .bg-gradient-title {
+  .bg-gradient-title {
     background: linear-gradient(to right, #07377e, #2979a2);
     -webkit-background-clip: text; /* For Chrome/Safari */
     -webkit-text-fill-color: transparent; /* For Chrome/Safari */
-    display: inline;
+    background-clip: text; /* For other browsers */
+    color: transparent; /* Fallback for other browsers */
+    display: inline; /* Ensures the gradient text fits its content */
   }
+  
   .bg-gradient-icon {
     background: linear-gradient(to right, #07377e, #2979a2);
     -webkit-background-clip: text;
