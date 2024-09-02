@@ -20,6 +20,11 @@ export const headerData = {
       href: ['/faq']
     },
     {
+      text: 'DECA 101',
+      href: getPermalink('/deca101'),
+
+    },
+    {
       text: 'Contact',
       href: ['/contact']
     },
@@ -50,10 +55,7 @@ export const headerData = {
 //          text: 'Services',
 //          href: getPermalink('/services'),
 //        },
-//        {
-//          text: 'Pricing',
-//          href: getPermalink('/pricing'),
-//        },
+//        
 //        {
 //          text: 'Terms',
 //          href: getPermalink('/terms'),

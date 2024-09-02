@@ -28,6 +28,8 @@
   .text-muted {
     color: var(--aw-color-text-muted);
   }
+
+  
     .bg-gradient-title {
     background: linear-gradient(to right, #07377e, #2979a2);
     -webkit-background-clip: text; /* For Chrome/Safari */
@@ -44,6 +46,24 @@
 
 /* Define components using the variables */
 @layer components {
+  
+    .navbar {
+      @apply flex items-center justify-between;
+    }
+  
+    .navbar-links {
+      @apply flex gap-4; /* Adjust gap as needed */
+    }
+  
+    .navbar-link {
+      @apply whitespace-nowrap; /* Prevent line breaks */
+    }
+  
+    .navbar-item-deca {
+      @apply flex-shrink-0; /* Prevent shrinking */
+    }
+  
+  
   .btn {
     @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800 cursor-pointer;
   }
