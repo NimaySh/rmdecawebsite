@@ -1,0 +1,220 @@
+---
+import HeroText from '~/components/widgets/HeroText.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'DECA 101',
+};
+
+const competitionTypes = [
+  { title: "Written", color: "bg-blue-200", content: "Written competition details..." },
+  { title: "Role Play", color: "bg-green-200", content: "Role play competition details..." },
+  { title: "Presentation", color: "bg-yellow-200", content: "Presentation competition details..." },
+  { title: "Virtual Business Challenge", color: "bg-purple-200", content: "Virtual Business Challenge details..." }
+];
+
+const faqRows = [
+  { question: "Business Management and Administration", answer: "DECA is...", color: "bg-business-management" }, 
+  { question: "Entrepreneurship", answer: "DECA membership is...", color: "bg-entrepreneurship" },
+  { question: "Finance", answer: "DECA offers...", color: "bg-finance" }, 
+  { question: "Hospitality and Tourism", answer: "To prepare for DECA competitions...", color: "bg-hospitality-tourism" }, 
+  { question: "Marketing", answer: "DECA supports various career paths including...", color: "bg-marketing" }, 
+  { question: "Personal Financial Literacy", answer: "DECA provides resources for personal financial literacy...", color: "bg-personal-financial-literacy" }
+];
+
+const tabContent = [
+  { 
+    id: "regional", 
+    title: "Regional", 
+    content: [
+      "Registration process for regional competitions",
+      "Overview of regional event categories",
+      "Preparation tips for regional competitions",
+      "Regional awards and advancement opportunities"
+    ]
+  },
+  { 
+    id: "state", 
+    title: "State", 
+    content: [
+      "Qualification criteria for state competitions",
+      "State-level event structure and schedule",
+      "Networking opportunities at state conferences",
+      "State awards and national qualification process"
+    ]
+  },
+  { 
+    id: "international", 
+    title: "International", 
+    content: [
+      "Overview of the ICDC (International Career Development Conference)",
+      "International competition categories and formats",
+      "Cultural exchange and global networking events",
+      "International awards and recognition"
+    ]
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="DECA 101"
+    title="What is DECA?"
+    subtitle="DECA is an organization that prepares emerging leaders and entrepreneurs in marketing, finance, hospitality, and management. [More filler text...]"
+  />
+  <div class="container mx-auto px-4">
+    <div class="mb-8">
+      <div class="tabs flex justify-center border-b relative">
+        {tabContent.map((tab, index) => (
+          <button class={`tab-btn px-4 py-2 ${index === 0 ? 'active' : ''}`} data-tab={tab.id}>
+            {tab.title}
+          </button>
+        ))}
+        <div class="tab-indicator"></div>
+      </div>
+      <div class="tab-content-container relative">
+        {tabContent.map((tab, index) => (
+          <div id={tab.id} class={`tab-content p-4 ${index === 0 ? 'active' : ''}`}>
+            <div class="flex flex-col md:flex-row">
+              <div class="md:w-1/2 pr-4">
+                <h3 class="text-xl font-bold mb-4">{tab.title} Competition</h3>
+                <ol class="list-decimal pl-5">
+                  {tab.content.map((item, i) => (
+                    <li key={i} class="mb-2">{item}</li>
+                  ))}
+                </ol>
+              </div>
+              <div class="md:w-1/2 mt-4 md:mt-0">
+                <div class="bg-gray-200 h-64 flex items-center justify-center">
+                  <p class="text-gray-500">Image Placeholder</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold mb-4 text-center">Types of Competition</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      {competitionTypes.map((type) => (
+        <div class={`p-4 ${type.color} rounded-lg shadow`}>
+          <h3 class="text-xl font-bold mb-2">{type.title}</h3>
+          <p>{type.content}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="faq-section">
+      {faqRows.map((row, index) => (
+        <div class="mb-2 faq-item rounded-lg overflow-hidden">
+          <button class={`faq-question w-full text-left p-4 ${row.color} hover:bg-opacity-80 flex justify-between items-center font-bold`}>
+            {row.question}
+            <Icon name="tabler:chevron-down" class="w-5 h-5 transform transition-transform duration-300" />
+          </button>
+          <div class="faq-answer bg-white overflow-hidden">
+            <div class="faq-answer-content p-4">{row.answer}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+    </div>
+</Layout>
+
+<style>
+  .tabs {
+    position: relative;
+  }
+  .tab-btn {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s;
+  }
+  .tab-btn.active {
+    color: #4a90e2;
+  }
+  .tab-indicator {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: #4a90e2;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  .tab-content-container {
+    position: relative;
+    overflow: hidden;
+  }
+  .tab-content {
+    background-color: #f3f4f6;
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0;
+    transform: translateX(20px);
+    display: none;
+  }
+  .tab-content.active {
+    opacity: 1;
+    transform: translateX(0);
+    display: block;
+  }
+  .faq-answer {
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+  }
+  .faq-question.active + .faq-answer {
+    max-height: 500px; /* Adjust this value based on your content */
+    transition: max-height 0.5s ease-in;
+  }
+  .faq-answer-content {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+  .faq-question.active + .faq-answer .faq-answer-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+  }
+</style>
+
+<script>
+  // Tab functionality
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  const tabIndicator = document.querySelector('.tab-indicator');
+
+  function setIndicatorPosition(btn) {
+    tabIndicator.style.width = `${btn.offsetWidth}px`;
+    tabIndicator.style.left = `${btn.offsetLeft}px`;
+  }
+
+  tabBtns.forEach((btn, index) => {
+    if (index === 0) setIndicatorPosition(btn);
+    
+    btn.addEventListener('click', () => {
+      const tabId = btn.getAttribute('data-tab');
+      
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+      
+      btn.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+      
+      setIndicatorPosition(btn);
+    });
+  });
+
+  // FAQ functionality
+  const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+  question.addEventListener('click', () => {
+    const currentlyActive = document.querySelector('.faq-question.active');
+    if (currentlyActive && currentlyActive !== question) {
+      currentlyActive.classList.remove('active');
+    }
+
+    question.classList.toggle('active');
+  });
+});
+</script>
