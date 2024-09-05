@@ -119,7 +119,7 @@ export const headerData = {
 //    },
   ],
  actions: [{ text: 'Join DECA', 
-              href: ' ', 
+              href: 'https://docs.google.com/forms/d/e/1FAIpQLScon8NKldIHd9s-PYxtfF9g-AVJP51jail6gPO83FaG2rKL3Q/viewform', 
               target: '_blank' }],
 };
 
