@@ -12,17 +12,16 @@ export const headerData = {
       href: ['/about']
     },
     {
+      text: 'DECA',
+      href: getPermalink('/deca101'),
+    },
+    {
       text: 'Resources',
       href: ['/resources']
     },
     {
       text: 'FAQ',
       href: ['/faq']
-    },
-    {
-      text: 'DECA 101',
-      href: getPermalink('/deca101'),
-
     },
     {
       text: 'Contact',
