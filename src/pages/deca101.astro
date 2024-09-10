@@ -1,4 +1,26 @@
 ---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Coming Soon',
+};
+---
+
+<Layout metadata={metadata}>
+  <div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold mb-4">Coming Soon</h1>
+      <p class="text-xl mb-8">This is going to be a great informational page!</p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Add any custom styles here */
+</style>
+
+<!-- Original code commented out
+---
 import HeroText from '~/components/widgets/HeroText.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
@@ -218,3 +240,4 @@ faqQuestions.forEach(question => {
   });
 });
 </script>
+-->
