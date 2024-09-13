@@ -1,62 +1,89 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import '~/assets/styles/tailwind.css';
+// Import images and other necessary components
+import Layout from '../layouts/PageLayout.astro';
+import '../assets/styles/tailwind.css';
+import { Image } from 'astro:assets';
+
+// Import images
+import IMG_1812 from '../assets/images/IMG_1812.jpg';
+import IMG_7471 from '../assets/images/IMG_7471.jpeg';
+import IMG_5712 from '../assets/images/IMG_5712.jpg';
+import IMG_4086 from '../assets/images/IMG_4086.jpg';
+import IMG_4085 from '../assets/images/IMG_4085.jpg';
+
+import allisonHeadshot from '../assets/images/allison headshot.jpg';
+import carolineHeadshot from '../assets/images/caroline headshot.jpg';
+import daisyHeadshot from '../assets/images/daisy headshot.jpg';
+import gloriaHeadshot from '../assets/images/gloria headshot.jpg';
+import mariaHeadshot from '../assets/images/maria headshot.jpg';
+import jenniferHeadshot from '../assets/images/jennifer headshot.jpeg';
+import anyaHeadshot from '../assets/images/anya headshot.jpg';
 
 const metadata = {
   title: 'About',
 };
 
 const images = [
-  { src: "/assets/images/IMG_1812.jpg", alt: "Logo 1" },
-  { src: "/assets/images/IMG_7471.jpg", alt: "Logo 2" },
-  { src: "/assets/images/IMG_5712.jpg", alt: "Logo 3" },
-  { src: "/assets/images/IMG_4086.jpg", alt: "Logo 4" },
-  { src: "/assets/images/IMG_4085.jpg", alt: "Logo 5" }
+  { src: IMG_1812, alt: "Photo 1", objectPosition: "center 20%" },
+  { src: IMG_7471, alt: "Photo 2" },
+  { src: IMG_5712, alt: "Photo 3", objectPosition: "center 34%" },
+  { src: IMG_4086, alt: "Photo 4" },
+  { src: IMG_4085, alt: "Photo 5" }
 ];
 
 const presidents = [
-  { name: "John Doe", title: "President", image: "/path/to/president1.jpg", description: "John is a visionary leader with a passion for entrepreneurship and innovation." },
-  { name: "Jane Smith", title: "President", image: "/path/to/president2.jpg", description: "Jane brings years of experience in business management and strategic planning to our team." }
+  { name: "Allison Wong", title: "President", image: allisonHeadshot, description: "Allison is a visionary leader with a passion for entrepreneurship and innovation." },
+  { name: "Caroline Zhou", title: "President", image: carolineHeadshot, description: "Caroline brings years of experience in business management and strategic planning to our team." }
 ];
 
 const vicePresidents = [
-  { name: "Alice Johnson", title: "Vice President of Marketing", image: "/path/to/vp1.jpg", description: "Alice excels in digital marketing and brand development." },
-  { name: "Bob Williams", title: "Vice President of Finance", image: "/path/to/vp2.jpg", description: "Bob is an expert in financial planning and analysis." },
-  { name: "Charlie Brown", title: "Vice President of Operations", image: "/path/to/vp3.jpg", description: "Charlie ensures smooth day-to-day operations of our chapter." },
-  { name: "Diana Davis", title: "Vice President of Events", image: "/path/to/vp4.jpg", description: "Diana orchestrates our chapter's engaging events and competitions." },
-  { name: "Ethan Evans", title: "Vice President of Membership", image: "/path/to/vp5.jpg", description: "Ethan focuses on member recruitment and retention strategies." }
+  { name: "Daisy Wong", title: "Vice President of Training", image: daisyHeadshot, description: "Daisy excels in digital marketing and brand development." },
+  { name: "Gloria Lang", title: "Vice President of Public Relations", image: gloriaHeadshot, description: "Gloria is an expert in financial planning and analysis.", objectPosition: "center 30%" },
+  { name: "Maria Yu", title: "Vice President of Public Relations ", image: mariaHeadshot, description: "Maria ensures smooth day-to-day operations of our chapter.", objectPosition: "center 30%" },
+  { name: "Jennifer Wan", title: "Vice President of Outreach", image: jenniferHeadshot, description: "Jennifer orchestrates our chapter's engaging events and competitions.", objectPosition: "center 30%" },
+  { name: "Anya Kleinman", title: "Vice President of Operations", image: anyaHeadshot, description: "Anya focuses on member recruitment and retention strategies." }
 ];
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Section -->
-  <section class="text-center py-16 bg-blue-50">
+  <section class="text-center py-16 bg-[#f0f8ff]">
     <div class="inline-block relative">
-      <h1 class="text-5xl font-bold bg-gradient-title from-blue-800 to-blue-400 bg-clip-text text-transparent mb-1">
-        About Us
+      <h1 class="text-5xl font-bold bg-gradient-to-r from-[#07377e] to-[#35a5c2] bg-clip-text text-transparent mb-2">
+        About us
       </h1>
+      <hr class="border-0 h-[1px] bg-[#9e9e9e] w-full max-w-3xl mx-auto absolute bottom-[-5px] left-1/2 transform -translate-x-1/2" />
+    </div>
     <p class="text-[#555] max-w-2xl mx-auto my-4 leading-6">
-      RM DECA is the <strong><span class="bg-gradient-title">#1 Chapter</span></strong> in all of Maryland. <br>
-      Our team is dedicated to providing you with the best experiences and training. <br>
-      <strong><span class="bg-gradient-title">Over 50% </span></strong> of DECA members at SCDC qualified for ICDC and traveled to 
-      <strong><span class="bg-gradient-title">California</span></strong>.
+      RM DECA is one of the <strong><span class="bg-gradient-title">largest chapters</span></strong> in all of Maryland. 
+      Our team is dedicated to providing members with the most comprehensive list of resources and training to ensure their 
+      <strong><span class="bg-gradient-title">success</span></strong>. Last year, we had 
+      <strong><span class="bg-gradient-title">49 of our 90</span></strong> DECA members at SCDC qualify for ICDC and travel to 
+      <strong><span class="bg-gradient-title">Anaheim, California</span></strong>.
     </p>
   </section>
 
   <!-- Logo Carousel Section -->
-  <section class="py-16">
-    <div class="swiper-container max-w-3xl mx-auto">
+  <section class="py-16 bg-[#e6f2ff]">
+    <div class="swiper-container max-w-5xl mx-auto relative">
       <div class="swiper-wrapper">
         {images.map((image) => (
           <div class="swiper-slide">
-            <img src={image.src} alt={image.alt} class="w-full h-auto object-cover" />
+            <Image 
+              src={image.src} 
+              alt={image.alt} 
+              width={1200} 
+              height={800} 
+              class="w-full h-full object-cover" 
+              style={image.objectPosition ? `object-position: ${image.objectPosition};` : ''}
+            />
           </div>
         ))}
       </div>
-      <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
+    <div class="swiper-pagination mt-4"></div>
   </section>
 
   <!-- Team Section -->
@@ -72,7 +99,7 @@ const vicePresidents = [
             <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
               <div class="md:flex">
                 <div class="md:flex-shrink-0">
-                  <img class="h-48 w-full object-cover md:w-48" src={president.image} alt={president.name} />
+                  <Image class="h-48 w-full object-cover md:w-48" src={president.image} alt={president.name} width={200} height={200} />
                 </div>
                 <div class="p-8">
                   <div class="uppercase tracking-wide text-sm text-[#07377e] font-semibold">{president.title}</div>
@@ -88,10 +115,19 @@ const vicePresidents = [
       <!-- Vice Presidents -->
       <div>
         <h3 class="text-center text-2xl font-semibold text-[#35a5c2] mb-8">Vice Presidents</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center lg:justify-center">
           {vicePresidents.map((vp) => (
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-              <img class="h-48 w-full object-cover" src={vp.image} alt={vp.name} />
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 max-w-sm">
+              <div class="h-56 overflow-hidden">
+                <Image 
+                  class="w-full h-full object-cover object-center" 
+                  src={vp.image} 
+                  alt={vp.name} 
+                  width={300} 
+                  height={300}
+                  style={vp.objectPosition ? `object-position: ${vp.objectPosition};` : ''}
+                />
+              </div>
               <div class="p-6">
                 <div class="uppercase tracking-wide text-sm text-[#07377e] font-semibold">{vp.title}</div>
                 <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{vp.name}</a>
@@ -112,7 +148,7 @@ const vicePresidents = [
     new Swiper('.swiper-container', {
       loop: true,
       slidesPerView: 1,
-      spaceBetween: 30,
+      spaceBetween: 0,
       autoplay: {
         delay: 3000,
       },
@@ -131,19 +167,32 @@ const vicePresidents = [
 <style>
   .swiper-container {
     width: 100%;
-    height: 300px;
+    height: 600px;
   }
   .swiper-slide {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
   .swiper-slide img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .bg-gradient-title {
     @apply bg-gradient-to-r from-[#07377e] to-[#35a5c2] bg-clip-text text-transparent;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    border-radius: 5px;
+  }
+  .swiper-pagination {
+    position: relative;
+    bottom: 0;
+    margin-top: 10px;
   }
 </style>
