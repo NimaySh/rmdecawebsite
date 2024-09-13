@@ -1,33 +1,48 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import '~/assets/styles/tailwind.css';
+import Layout from '../layouts/PageLayout.astro';
+import '../assets/styles/tailwind.css';
+import { Image } from 'astro:assets';
+
+// Import images
+import IMG_1812 from '../public/imgs/IMG_1812.jpg';
+import IMG_7471 from '../public/imgs/IMG_7471.jpg';
+import IMG_5712 from '../public/imgs/IMG_5712.jpg';
+import IMG_4086 from '../public/imgs/IMG_4086.jpg';
+import IMG_4085 from '../public/imgs/IMG_4085.jpg';
+
+import allisonHeadshot from '../public/imgs/allison headshot.jpg';
+import carolineHeadshot from '../public/imgs/caroline headshot.jpg';
+import daisyHeadshot from '../public/imgs/daisy headshot.jpg';
+import gloriaHeadshot from '../public/imgs/gloria headshot.jpg';
+import mariaHeadshot from '../public/imgs/maria headshot.jpg';
+import jenniferHeadshot from '../public/imgs/jennifer headshot.jpg';
+import anyaHeadshot from '../public/imgs/anya headshot.jpg';
 
 const metadata = {
   title: 'About',
 };
 
 const images = [
-  { src: "/assets/images/IMG_1812.jpg", alt: "Logo 1" },
-  { src: "/assets/images/IMG_7471.jpg", alt: "Logo 2" },
-  { src: "/assets/images/IMG_5712.jpg", alt: "Logo 3" },
-  { src: "/assets/images/IMG_4086.jpg", alt: "Logo 4" },
-  { src: "/assets/images/IMG_4085.jpg", alt: "Logo 5" }
+  { src: IMG_1812, alt: "Photo 1" },
+  { src: IMG_7471, alt: "Photo 2" },
+  { src: IMG_5712, alt: "Photo 3" },
+  { src: IMG_4086, alt: "Photo 4" },
+  { src: IMG_4085, alt: "Photo 5" }
 ];
 
 const presidents = [
-  { name: "John Doe", title: "President", image: "/path/to/president1.jpg", description: "John is a visionary leader with a passion for entrepreneurship and innovation." },
-  { name: "Jane Smith", title: "President", image: "/path/to/president2.jpg", description: "Jane brings years of experience in business management and strategic planning to our team." }
+  { name: "Allison Wong", title: "President", image: allisonHeadshot, description: "Allison is a visionary leader with a passion for entrepreneurship and innovation." },
+  { name: "Caroline Zhou", title: "President", image: carolineHeadshot, description: "Caroline brings years of experience in business management and strategic planning to our team." }
 ];
 
 const vicePresidents = [
-  { name: "Alice Johnson", title: "Vice President of Marketing", image: "/path/to/vp1.jpg", description: "Alice excels in digital marketing and brand development." },
-  { name: "Bob Williams", title: "Vice President of Finance", image: "/path/to/vp2.jpg", description: "Bob is an expert in financial planning and analysis." },
-  { name: "Charlie Brown", title: "Vice President of Operations", image: "/path/to/vp3.jpg", description: "Charlie ensures smooth day-to-day operations of our chapter." },
-  { name: "Diana Davis", title: "Vice President of Events", image: "/path/to/vp4.jpg", description: "Diana orchestrates our chapter's engaging events and competitions." },
-  { name: "Ethan Evans", title: "Vice President of Membership", image: "/path/to/vp5.jpg", description: "Ethan focuses on member recruitment and retention strategies." }
+  { name: "Daisy Wong", title: "Vice President of Training", image: daisyHeadshot, description: "Daisy excels in digital marketing and brand development." },
+  { name: "Gloria Lang", title: "Vice President of Public Relations", image: gloriaHeadshot, description: "Gloria is an expert in financial planning and analysis." },
+  { name: "Maria Yu", title: "Vice President of Public Relations ", image: mariaHeadshot, description: "Maria ensures smooth day-to-day operations of our chapter." },
+  { name: "Jennifer Wan", title: "Vice President of Outreach", image: jenniferHeadshot, description: "Jennifer orchestrates our chapter's engaging events and competitions." },
+  { name: "Anya Kleinman", title: "Vice President of Operations", image: anyaHeadshot, description: "Anya focuses on member recruitment and retention strategies." }
 ];
 ---
-
 <Layout metadata={metadata}>
   <!-- Hero Section -->
   <section class="text-center py-16 bg-[#f0f8ff]">
@@ -52,7 +67,7 @@ const vicePresidents = [
       <div class="swiper-wrapper">
         {images.map((image) => (
           <div class="swiper-slide">
-            <img src={image.src} alt={image.alt} class="w-full h-auto object-cover" />
+            <Image src={image.src} alt={image.alt} width={800} height={600} class="w-full h-auto object-cover" />
           </div>
         ))}
       </div>
@@ -75,7 +90,7 @@ const vicePresidents = [
             <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
               <div class="md:flex">
                 <div class="md:flex-shrink-0">
-                  <img class="h-48 w-full object-cover md:w-48" src={president.image} alt={president.name} />
+                  <Image class="h-48 w-full object-cover md:w-48" src={president.image} alt={president.name} width={200} height={200} />
                 </div>
                 <div class="p-8">
                   <div class="uppercase tracking-wide text-sm text-[#07377e] font-semibold">{president.title}</div>
@@ -94,7 +109,7 @@ const vicePresidents = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {vicePresidents.map((vp) => (
             <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-              <img class="h-48 w-full object-cover" src={vp.image} alt={vp.name} />
+              <Image class="h-48 w-full object-cover" src={vp.image} alt={vp.name} width={300} height={200} />
               <div class="p-6">
                 <div class="uppercase tracking-wide text-sm text-[#07377e] font-semibold">{vp.title}</div>
                 <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{vp.name}</a>
