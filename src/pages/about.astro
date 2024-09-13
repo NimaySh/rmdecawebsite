@@ -47,24 +47,22 @@ const vicePresidents = [
 
 <Layout metadata={metadata}>
   <!-- Hero Section -->
-  <section class="text-center py-16 bg-[#f0f8ff]">
+  <section class="text-center py-16 bg-blue-50">
     <div class="inline-block relative">
-      <h1 class="text-5xl font-bold bg-gradient-to-r from-[#07377e] to-[#35a5c2] bg-clip-text text-transparent mb-2">
-        About us
+    <h1 class="text-5xl font-bold bg-gradient-title from-blue-800 to-blue-400 bg-clip-text text-transparent mb-1">
+        About Us
       </h1>
-      <hr class="border-0 h-[1px] bg-[#9e9e9e] w-full max-w-3xl mx-auto absolute bottom-[-5px] left-1/2 transform -translate-x-1/2" />
     </div>
     <p class="text-[#555] max-w-2xl mx-auto my-4 leading-6">
-      RM DECA is one of the <strong><span class="bg-gradient-title">largest chapters</span></strong> in all of Maryland. 
-      Our team is dedicated to providing members with the most comprehensive list of resources and training to ensure their 
-      <strong><span class="bg-gradient-title">success</span></strong>. Last year, we had 
-      <strong><span class="bg-gradient-title">49 of our 90</span></strong> DECA members at SCDC qualify for ICDC and travel to 
-      <strong><span class="bg-gradient-title">Anaheim, California</span></strong>.
+      RM DECA is the <strong><span class="bg-gradient-title">#1 Chapter</span></strong> in all of Maryland. <br>
+      Our team is dedicated to providing you with the best experiences and training. <br>
+      <strong><span class="bg-gradient-title">Over 50% </span></strong> of DECA members at SCDC qualified for ICDC and traveled to 
+      <strong><span class="bg-gradient-title">California</span></strong>.
     </p>
   </section>
 
   <!-- Logo Carousel Section -->
-  <section class="py-16 bg-[#e6f2ff]">
+  <section class="py-16">
     <div class="swiper-container max-w-5xl mx-auto relative">
       <div class="swiper-wrapper">
         {images.map((image) => (
@@ -73,7 +71,7 @@ const vicePresidents = [
               src={image.src} 
               alt={image.alt} 
               width={1200} 
-              height={800} 
+              height={600} 
               class="w-full h-full object-cover" 
               style={image.objectPosition ? `object-position: ${image.objectPosition};` : ''}
             />

@@ -140,71 +140,60 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
     updateResourceList();
   }
 
-  function initializeEventListeners() {
-    document.querySelectorAll('input[name="filter"]').forEach(checkbox => {
-      checkbox.addEventListener('change', (e) => {
-        if (e.target.checked) {
-          selectedFilters.push(e.target.value);
-        } else {
-          selectedFilters = selectedFilters.filter(f => f !== e.target.value);
-        }
-        applyFilters();
-      });
-    });
-
-    const tabContainer = document.getElementById('tabContainer');
-    if (!tabContainer) {
-      console.error('Tab container not found');
-      return;
-    }
-
-    tabContainer.addEventListener('click', (e) => {
-      if (e.target.classList.contains('tab-button')) {
-        selectedTab = e.target.dataset.tab;
-        document.querySelectorAll('.tab-button').forEach(btn => {
-          btn.classList.remove('border-current');
-          btn.classList.add('border-transparent');
-        });
-        e.target.classList.remove('border-transparent');
-        e.target.classList.add('border-current');
-        applyFilters();
-      }
-    });
-
-    // View toggle buttons
-    document.getElementById('listViewBtn').addEventListener('click', () => {
-      isBlockView = false;
-      updateResourceList();
-      document.getElementById('listViewBtn').classList.remove('bg-gray-300');
-      document.getElementById('listViewBtn').classList.add('bg-black', 'text-white');
-      document.getElementById('blockViewBtn').classList.remove('bg-black', 'text-white');
-      document.getElementById('blockViewBtn').classList.add('bg-gray-300', 'text-black');
-    });
-
-    document.getElementById('blockViewBtn').addEventListener('click', () => {
-      isBlockView = true;
-      updateResourceList();
-      document.getElementById('blockViewBtn').classList.remove('bg-gray-300', 'text-black');
-      document.getElementById('blockViewBtn').classList.add('bg-black', 'text-white');
-      document.getElementById('listViewBtn').classList.remove('bg-black', 'text-white');
-      document.getElementById('listViewBtn').classList.add('bg-gray-300', 'text-black');
-    });
-  }
-
-  // Initialize when DOM is ready
   document.addEventListener('DOMContentLoaded', () => {
-    // Fetch resources data
-    fetch('/data/resources.json')
-      .then(response => response.json())
-      .then(data => {
-        resources = Array.isArray(data.Sheet1) ? data.Sheet1 : [];
-        // Initially filter for Business Admin
-        filteredResources = resources.filter(resource => resource.cluster === 'Business Admin');
-        initializeEventListeners();
-        updateResourceList();
-      })
-      .catch(error => console.error('Error fetching resources:', error));
+  fetch('/data/resources.json')
+    .then(response => response.json())
+    .then(data => {
+      resources = Array.isArray(data.Sheet1) ? data.Sheet1 : [];
+      filteredResources = resources.filter(resource => resource.cluster === 'Business Admin');
+      initializeEventListeners(); // Initialize listeners after data is fetched
+      updateResourceList(); // Update list after initialization
+    })
+    .catch(error => console.error('Error fetching resources:', error));
+});
+
+function initializeEventListeners() {
+  document.querySelectorAll('input[name="filter"]').forEach(checkbox => {
+    checkbox.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        selectedFilters.push(e.target.value);
+      } else {
+        selectedFilters = selectedFilters.filter(f => f !== e.target.value);
+      }
+      applyFilters();
+    });
   });
+
+  const tabContainer = document.getElementById('tabContainer');
+  tabContainer.addEventListener('click', (e) => {
+    if (e.target.classList.contains('tab-button')) {
+      selectedTab = e.target.dataset.tab;
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('border-current');
+        btn.classList.add('border-transparent');
+      });
+      e.target.classList.remove('border-transparent');
+      e.target.classList.add('border-current');
+      applyFilters();
+    }
+  });
+
+  document.getElementById('listViewBtn').addEventListener('click', () => {
+    isBlockView = false;
+    updateResourceList();
+    document.getElementById('listViewBtn').classList.add('bg-black', 'text-white');
+    document.getElementById('blockViewBtn').classList.remove('bg-black', 'text-white');
+    document.getElementById('blockViewBtn').classList.add('bg-gray-300', 'text-black');
+  });
+
+  document.getElementById('blockViewBtn').addEventListener('click', () => {
+    isBlockView = true;
+    updateResourceList();
+    document.getElementById('blockViewBtn').classList.add('bg-black', 'text-white');
+    document.getElementById('listViewBtn').classList.remove('bg-black', 'text-white');
+    document.getElementById('listViewBtn').classList.add('bg-gray-300', 'text-black');
+  });
+}
 </script>
 
 <style>

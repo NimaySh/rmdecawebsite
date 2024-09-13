@@ -73,9 +73,6 @@ export default defineConfig({
       config: './src/config.yaml',
     }),
   ],
-  experimental: {
-    assets: true
-  },
 
   image: {
     service: squooshImageService(),
@@ -86,7 +83,7 @@ export default defineConfig({
     remarkPlugins: [readingTimeRemarkPlugin],
     rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
   },
- 
+
   vite: {
     resolve: {
       alias: {
