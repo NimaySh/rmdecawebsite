@@ -11,10 +11,19 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <!-- Hero Section -->
+  <section class="text-center py-16 bg-blue-50">
+    <div class="inline-block relative">
+      <h1 class="text-5xl font-bold bg-gradient-title from-blue-800 to-blue-400 bg-clip-text text-transparent mb-1">
+        Contact Us
+      </h1>
+    </div>
+    <h2 class="text-xl text-gray-600 max-w-2xl mx-auto mt-4 leading-relaxed">
+      If you have any questions, feel free to contact us!
+    </h2>
+  </section>
 
-  <HeroText tagline="Contact" title="Let's Connect!" taglineClassName="bg-gradient-title" />
-
+<!--
   <ContactUs
     id="form"
     title="Drop us a message today!"
@@ -39,6 +48,7 @@ const metadata = {
         'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
     }}
   />    
+  --!>
 
   <Features2
     items={[

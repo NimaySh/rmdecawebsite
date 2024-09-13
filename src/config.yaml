@@ -10,13 +10,13 @@ site:
 metadata:
   title:
     default: Richard Montgomery DECA
-    template: 'RM DECA'
+    template: 'RMHS DECA'
   description: "Information, resources, and updates for Richard Montgomery High School's DECA Chapter."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: RM DECA
+    site_name: RMHS DECA
     images:
       - url: '~/assets/images/default.png'
         width: 1200

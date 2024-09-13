@@ -31,8 +31,8 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
   <!-- Resource Filter System -->
   <div class="flex flex-col p-4" id="resourceFilterSystem">
     <div class="flex mb-4">
-      <!-- Filter checkboxes -->
-      <div class="w-1/4 bg-gray-100 p-4 rounded-lg">
+      <!-- Filter checkboxes and view toggle -->
+      <div class="w-1/4 p-4 rounded-lg">
         <h3 class="font-semibold mb-3">Resource Type</h3>
         {filterOptions.map(filter => (
           <div class="flex items-center mb-2">
@@ -46,6 +46,12 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
             <label for={filter} class="ml-2 text-gray-700">{filter}</label>
           </div>
         ))}
+        
+        <!-- View toggle moved here -->
+        <div class="flex text-sm mt-4">
+          <button id="listViewBtn" class="px-3 py-1 bg-black text-white rounded-l-md">List</button>
+          <button id="blockViewBtn" class="px-3 py-1 bg-gray-300 rounded-r-md">Block</button>
+        </div>
       </div>
 
       <!-- Main content area -->
@@ -54,7 +60,7 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
         <div class="flex mb-4 border-b" id="tabContainer">
           {tabOptions.map((tab, index) => (
             <button
-              class={`px-4 py-2 font-semibold transition-all duration-300 tab-button border-b-2 border-transparent ${tabColors[index]}`}
+              class={`px-4 py-2 font-semibold transition-all duration-300 tab-button border-b-2 border-transparent ${tabColors[index]} ${tab === 'Business Admin' ? 'border-current' : ''}`}
               data-tab={tab}
               data-color={tabColors[index]}
             >
@@ -65,11 +71,6 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
 
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-2xl bg-gradient-title font-bold"></h2>
-          <!-- View toggle -->
-          <div class="flex text-sm">
-            <button id="listViewBtn" class="px-3 py-1 bg-blue-500 text-white rounded-l-md">List</button>
-            <button id="blockViewBtn" class="px-3 py-1 bg-gray-300 rounded-r-md">Block</button>
-          </div>
         </div>
 
         <!-- Resource list -->
@@ -81,11 +82,12 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
   </div>
 </Layout>
 
-<script define:vars={{ resources, tabOptions, tabColors }}>
-  let filteredResources = [...resources];
+<script>
+  let filteredResources = [];
   let selectedFilters = [];
   let selectedTab = 'Business Admin';
   let isBlockView = false;
+  let resources = [];
 
   function updateResourceList() {
     const resourceList = document.getElementById('resourceList');
@@ -123,6 +125,8 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
   }
 
   function getTabColor(cluster) {
+    const tabOptions = ['Business Admin', 'Entrepreneurship', 'Finance', 'Hospitality & Tourism', 'Marketing', 'Personal Financial Literacy'];
+    const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-finance', 'text-hospitality-tourism', 'text-marketing', 'text-personal-financial-literacy'];
     const index = tabOptions.indexOf(cluster);
     return index !== -1 ? tabColors[index].replace('text-', 'bg-') : 'bg-gray-500';
   }
@@ -167,37 +171,39 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
       }
     });
 
-    // Set initial active tab
-    const initialTab = document.querySelector('.tab-button[data-tab="Business Admin"]');
-    if (initialTab) {
-      initialTab.classList.remove('border-transparent');
-      initialTab.classList.add('border-current');
-    }
-
     // View toggle buttons
     document.getElementById('listViewBtn').addEventListener('click', () => {
       isBlockView = false;
       updateResourceList();
       document.getElementById('listViewBtn').classList.remove('bg-gray-300');
-      document.getElementById('listViewBtn').classList.add('bg-blue-500', 'text-white');
-      document.getElementById('blockViewBtn').classList.remove('bg-blue-500', 'text-white');
-      document.getElementById('blockViewBtn').classList.add('bg-gray-300');
+      document.getElementById('listViewBtn').classList.add('bg-black', 'text-white');
+      document.getElementById('blockViewBtn').classList.remove('bg-black', 'text-white');
+      document.getElementById('blockViewBtn').classList.add('bg-gray-300', 'text-black');
     });
 
     document.getElementById('blockViewBtn').addEventListener('click', () => {
       isBlockView = true;
       updateResourceList();
-      document.getElementById('blockViewBtn').classList.remove('bg-gray-300');
-      document.getElementById('blockViewBtn').classList.add('bg-blue-500', 'text-white');
-      document.getElementById('listViewBtn').classList.remove('bg-blue-500', 'text-white');
-      document.getElementById('listViewBtn').classList.add('bg-gray-300');
+      document.getElementById('blockViewBtn').classList.remove('bg-gray-300', 'text-black');
+      document.getElementById('blockViewBtn').classList.add('bg-black', 'text-white');
+      document.getElementById('listViewBtn').classList.remove('bg-black', 'text-white');
+      document.getElementById('listViewBtn').classList.add('bg-gray-300', 'text-black');
     });
   }
 
   // Initialize when DOM is ready
   document.addEventListener('DOMContentLoaded', () => {
-    initializeEventListeners();
-    updateResourceList();
+    // Fetch resources data
+    fetch('/data/resources.json')
+      .then(response => response.json())
+      .then(data => {
+        resources = Array.isArray(data.Sheet1) ? data.Sheet1 : [];
+        // Initially filter for Business Admin
+        filteredResources = resources.filter(resource => resource.cluster === 'Business Admin');
+        initializeEventListeners();
+        updateResourceList();
+      })
+      .catch(error => console.error('Error fetching resources:', error));
   });
 </script>
 

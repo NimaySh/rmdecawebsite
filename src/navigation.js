@@ -19,10 +19,7 @@ export const headerData = {
       text: 'Resources',
       href: ['/resources']
     },
-    {
-      text: 'FAQ',
-      href: ['/faq']
-    },
+    
     {
       text: 'Contact',
       href: ['/contact']
