@@ -16,9 +16,6 @@
   .bg-page {
     background-color: var(--aw-color-bg-page);
   }
-  .bg-dark {
-    background-color: var(--aw-color-bg-page-dark);
-  }
   .bg-light {
     background-color: var(--aw-color-bg-page);
   }
