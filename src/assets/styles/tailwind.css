@@ -7,7 +7,8 @@
   --aw-color-text-page: #2d3748;
   --aw-color-text-muted: #718096;
   --aw-color-primary: #2979a2;
-  --aw-color-secondary: #35a5c2;
+  --aw-color-secondary:  #35a5c2;
+  --aw-color-text-default: #2d3748;
 }
 
 
@@ -54,6 +55,10 @@
     background-clip: text; /* For other browsers */
     color: transparent; /* Fallback for other browsers */
     display: inline; /* Ensures the gradient text fits its content */
+  }
+  
+  .text-secondary {
+    color: #35a5c2;
   }
   
   .bg-gradient-icon {
