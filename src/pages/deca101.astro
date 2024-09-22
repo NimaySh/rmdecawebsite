@@ -1,26 +1,4 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-
-const metadata = {
-  title: 'Coming Soon',
-};
----
-
-<Layout metadata={metadata}>
-  <div class="flex items-center justify-center min-h-screen bg-gray-100">
-    <div class="text-center">
-      <h1 class="text-4xl font-bold mb-4">Coming Soon</h1>
-      <p class="text-xl mb-8">This is going to be a great informational page!</p>
-    </div>
-  </div>
-</Layout>
-
-<style>
-  /* Add any custom styles here */
-</style>
-
-<!-- Original code commented out
----
 import HeroText from '~/components/widgets/HeroText.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
@@ -50,30 +28,30 @@ const tabContent = [
     id: "regional", 
     title: "Regional", 
     content: [
-      "Registration process for regional competitions",
-      "Overview of regional event categories",
-      "Preparation tips for regional competitions",
-      "Regional awards and advancement opportunities"
+      "Hosted @ Montgomery Blair High School on Jan 4th",
+      "You're automatically qualified for states so there are no stakes during this competition! (Try your best)",
+      "1st Years are strongly recommended to go to regionals!",
+      "A chance for you to get used to DECA (Roleplay or Written)",
+      "Your best chance to practice a strategy!"
     ]
   },
   { 
     id: "state", 
     title: "State", 
     content: [
-      "Qualification criteria for state competitions",
-      "State-level event structure and schedule",
-      "Networking opportunities at state conferences",
-      "State awards and national qualification process"
+      "Hosted at College Park Marriot in Febuary (More Details Coming Soon)",
+      "In order to qualify you must win Top 3 in your event (This will make sense just keep reading)",
+      "Always wear a suit or formal clothing and BRING A PEN!!",
     ]
   },
   { 
     id: "international", 
     title: "International", 
     content: [
-      "Overview of the ICDC (International Career Development Conference)",
-      "International competition categories and formats",
-      "Cultural exchange and global networking events",
-      "International awards and recognition"
+      "Hosted in Orlando Florida 😎 from April 26-29",
+      "A international competition with thousands of students from across the globe!",
+      "Practice your sales skills by trading pins for each state (You'll understand this when you get there)!",
+      "A chance for you to win RM the DECA Glass!"
     ]
   }
 ];
@@ -83,7 +61,7 @@ const tabContent = [
   <HeroText
     tagline="DECA 101"
     title="What is DECA?"
-    subtitle="DECA is an organization that prepares emerging leaders and entrepreneurs in marketing, finance, hospitality, and management. [More filler text...]"
+    subtitle="DECA prepares emerging leaders and entrepreneurs for careers in marketing, finance, hospitality and management. You'll learn how to speak business, act business, and do business. Keep reading to learn what DECA really is..."
   />
   <div class="container mx-auto px-4">
     <div class="mb-8">
@@ -135,13 +113,13 @@ const tabContent = [
             {row.question}
             <Icon name="tabler:chevron-down" class="w-5 h-5 transform transition-transform duration-300" />
           </button>
-          <div class="faq-answer bg-white overflow-hidden">
+          <div class="faq-answer bg-white">
             <div class="faq-answer-content p-4">{row.answer}</div>
           </div>
         </div>
       ))}
     </div>
-    </div>
+  </div>
 </Layout>
 
 <style>
@@ -181,63 +159,98 @@ const tabContent = [
   }
   .faq-answer {
     max-height: 0;
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+    overflow: hidden;
   }
   .faq-question.active + .faq-answer {
     max-height: 500px; /* Adjust this value based on your content */
-    transition: max-height 0.5s ease-in;
+    opacity: 1;
+    transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
   }
   .faq-answer-content {
-    opacity: 0;
     transform: translateY(-10px);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
   }
   .faq-question.active + .faq-answer .faq-answer-content {
-    opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+    transition: transform 0.3s ease-in;
+  }
+  .faq-question .tabler\:chevron-down {
+    transition: transform 0.3s ease-in-out;
+  }
+  .faq-question.active .tabler\:chevron-down {
+    transform: rotate(180deg);
   }
 </style>
 
 <script>
-  // Tab functionality
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
-  const tabIndicator = document.querySelector('.tab-indicator');
+  function initDynamicFeatures() {
+    // Tab functionality
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const tabIndicator = document.querySelector('.tab-indicator');
 
-  function setIndicatorPosition(btn) {
-    tabIndicator.style.width = `${btn.offsetWidth}px`;
-    tabIndicator.style.left = `${btn.offsetLeft}px`;
-  }
-
-  tabBtns.forEach((btn, index) => {
-    if (index === 0) setIndicatorPosition(btn);
-    
-    btn.addEventListener('click', () => {
-      const tabId = btn.getAttribute('data-tab');
-      
-      tabBtns.forEach(b => b.classList.remove('active'));
-      tabContents.forEach(content => content.classList.remove('active'));
-      
-      btn.classList.add('active');
-      document.getElementById(tabId).classList.add('active');
-      
-      setIndicatorPosition(btn);
-    });
-  });
-
-  // FAQ functionality
-  const faqQuestions = document.querySelectorAll('.faq-question');
-
-faqQuestions.forEach(question => {
-  question.addEventListener('click', () => {
-    const currentlyActive = document.querySelector('.faq-question.active');
-    if (currentlyActive && currentlyActive !== question) {
-      currentlyActive.classList.remove('active');
+    function setIndicatorPosition(btn) {
+      if (tabIndicator) {
+        tabIndicator.style.width = `${btn.offsetWidth}px`;
+        tabIndicator.style.left = `${btn.offsetLeft}px`;
+      }
     }
 
-    question.classList.toggle('active');
-  });
-});
+    tabBtns.forEach((btn, index) => {
+      if (index === 0) setIndicatorPosition(btn);
+      
+      btn.addEventListener('click', () => {
+        const tabId = btn.getAttribute('data-tab');
+        
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        btn.classList.add('active');
+        const activeContent = document.getElementById(tabId);
+        if (activeContent) activeContent.classList.add('active');
+        
+        setIndicatorPosition(btn);
+      });
+    });
+
+    // FAQ functionality
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector('.tabler\\:chevron-down');
+
+        if (question.classList.contains('active')) {
+          question.classList.remove('active');
+          answer.style.maxHeight = '0px';
+          answer.style.opacity = '0';
+          icon.style.transform = 'rotate(0deg)';
+        } else {
+          // Close any open FAQ items
+          faqQuestions.forEach(q => {
+            if (q !== question && q.classList.contains('active')) {
+              q.classList.remove('active');
+              q.nextElementSibling.style.maxHeight = '0px';
+              q.nextElementSibling.style.opacity = '0';
+              q.querySelector('.tabler\\:chevron-down').style.transform = 'rotate(0deg)';
+            }
+          });
+
+          question.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          answer.style.opacity = '1';
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  }
+
+  // Initialize dynamic features on page load
+  document.addEventListener('DOMContentLoaded', initDynamicFeatures);
+
+  // Re-initialize dynamic features when Astro swaps the page content
+  document.addEventListener('astro:page-load', initDynamicFeatures);
 </script>
--->
