@@ -1,5 +1,4 @@
 ---
-// Import images and other necessary components
 import Layout from '../layouts/PageLayout.astro';
 import '../assets/styles/tailwind.css';
 import { Image } from 'astro:assets';
@@ -47,8 +46,19 @@ const vicePresidents = [
 
 <Layout metadata={metadata}>
   <!-- Hero Section -->
-  <!-- ... (keep the existing hero section) -->
-
+  <section class="text-center py-16 bg-blue-50">
+    <div class="inline-block relative">
+    <h1 class="text-5xl font-bold bg-gradient-title from-blue-800 to-blue-400 bg-clip-text text-transparent mb-1">
+        About Us
+      </h1>
+    </div>
+    <p class="text-[#555] max-w-2xl mx-auto my-4 leading-6">
+      RM DECA is the <strong><span class="bg-gradient-title">#1 Chapter</span></strong> in all of Maryland. <br>
+      Our team is dedicated to providing you with the best experiences and training. <br>
+      <strong><span class="bg-gradient-title">Over 50% </span></strong> of DECA members at SCDC qualified for ICDC and traveled to 
+      <strong><span class="bg-gradient-title">California</span></strong>.
+    </p>
+  </section>
   <!-- Logo Carousel Section -->
   <section class="py-16">
     <div id="swiperContainer" class="swiper-container max-w-5xl mx-auto relative">
