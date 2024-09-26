@@ -1,18 +1,16 @@
 ---
-// pages/resources.astro
 import Layout from '~/layouts/PageLayout.astro';
-import resourcesData from 'data/resources.json';
-
-// Access the array inside the "Sheet1" property
-const resources = Array.isArray(resourcesData.Sheet1) ? resourcesData.Sheet1 : [];
+import { getResources } from '../data/resources'; // Assume this function exists to get resources
 
 const metadata = {
   title: 'Resources',
 };
 
+const resources = await getResources(); // Fetch resources at build time
+
 const filterOptions = ['Sample Roleplay', 'Practice Test', 'Quizlet', 'Other'];
-const tabOptions = ['Business Admin', 'Entrepreneurship', 'Finance', 'Hospitality & Tourism', 'Marketing', 'Personal Financial Literacy'];
-const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-finance', 'text-hospitality-tourism', 'text-marketing', 'text-personal-financial-literacy'];
+const tabOptions = ['All', 'Business Admin', 'Entrepreneurship', 'Finance', 'Hospitality & Tourism', 'Marketing', 'Personal Financial Literacy'];
+const tabColors = ['text-gray-800', 'text-business-management', 'text-entrepreneurship', 'text-finance', 'text-hospitality-tourism', 'text-marketing', 'text-personal-financial-literacy'];
 ---
 
 <Layout metadata={metadata}>
@@ -46,7 +44,7 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
         </div>
       ))}
       
-      <!-- View toggle moved here -->
+      <!-- View toggle -->
       <div class="flex text-sm mt-4">
         <button id="listViewBtn" class="px-3 py-1 bg-black text-white rounded-l-md">List</button>
         <button id="blockViewBtn" class="px-3 py-1 bg-gray-300 rounded-r-md">Block</button>
@@ -59,20 +57,14 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
       <div class="flex flex-wrap justify-center md:justify-start mb-4 border-b" id="tabContainer">
         {tabOptions.map((tab, index) => (
           <button
-            class={`px-4 py-2 font-semibold transition-all duration-300 tab-button border-b-2 border-transparent ${tabColors[index]} ${tab === 'Business Admin' ? 'border-current' : ''}`}
+            class={`px-4 py-2 font-semibold transition-all duration-300 tab-button border-b-2 ${tab === 'All' ? 'border-current' : 'border-transparent'} ${tabColors[index]}`}
             data-tab={tab}
-            data-color={tabColors[index]}
           >
             {tab}
           </button>
         ))}
       </div>
 
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="text-2xl bg-gradient-title font-bold"></h2>
-      </div>
-
-      <!-- Resource list -->
       <div id="resourceList" class="space-y-2">
         <!-- Resources will be populated here by JavaScript -->
       </div>
@@ -80,185 +72,135 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
   </div>
 </Layout>
 
-<script>
-  let filteredResources = [];
-  let selectedFilters = [];
-  let selectedTab = 'Business Admin';
-  let isBlockView = false;
-  let resources = [];
+<script define:vars={{ resources }}>
+  // Your client-side JavaScript here
+  function initializeResourcePage() {
+    let filteredResources = resources;
+    let selectedFilters = [];
+    let selectedTab = 'All';
+    let isBlockView = false;
 
-  function updateResourceList() {
     const resourceList = document.getElementById('resourceList');
-    if (!resourceList) {
-      console.error('Resource list element not found');
-      return;
-    }
-    resourceList.innerHTML = '';
+    const tabContainer = document.getElementById('tabContainer');
+    const listViewBtn = document.getElementById('listViewBtn');
+    const blockViewBtn = document.getElementById('blockViewBtn');
 
-    if (isBlockView) {
-      resourceList.classList.add('grid', 'grid-cols-1', 'sm:grid-cols-2', 'md:grid-cols-3', 'gap-4');
-      resourceList.classList.remove('space-y-2');
-    } else {
-      resourceList.classList.remove('grid', 'grid-cols-1', 'sm:grid-cols-2', 'md:grid-cols-3', 'gap-4');
-      resourceList.classList.add('space-y-2');
-    }
-
-    filteredResources.forEach(resource => {
-      const div = document.createElement('div');
-      if (isBlockView) {
-        div.className = 'p-4 border rounded shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden';
-        div.innerHTML = `
-          <div class="absolute top-0 left-0 w-1 h-full ${getTabColor(resource.cluster)}"></div>
-          <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="block mt-2 text-black">${resource.name}</a>
-        `;
-      } else {
-        div.className = 'flex items-center p-2 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 rounded relative overflow-hidden';
-        div.innerHTML = `
-          <div class="absolute top-0 left-0 w-1 h-full ${getTabColor(resource.cluster)}"></div>
-          <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="flex-grow ml-3 text-black">${resource.name}</a>
-        `;
+    function updateResourceList() {
+      if (!resourceList) {
+        console.error('Resource list element not found');
+        return;
       }
-      resourceList.appendChild(div);
-    });
-  }
+      resourceList.innerHTML = '';
 
-  function getTabColor(cluster) {
-    const tabOptions = ['Business Admin', 'Entrepreneurship', 'Finance', 'Hospitality & Tourism', 'Marketing', 'Personal Financial Literacy'];
-    const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-finance', 'text-hospitality-tourism', 'text-marketing', 'text-personal-financial-literacy'];
-    const index = tabOptions.indexOf(cluster);
-    return index !== -1 ? tabColors[index].replace('text-', 'bg-') : 'bg-gray-500';
-  }
-
-  function applyFilters() {
-    filteredResources = resources.filter(resource => {
-      const typeMatch = selectedFilters.length === 0 || selectedFilters.includes(resource.type);
-      const clusterMatch = resource.cluster === selectedTab;
-      return typeMatch && clusterMatch;
-    });
-    updateResourceList();
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-  let filteredResources = [];
-  let selectedFilters = [];
-  let selectedTab = 'Business Admin';
-  let isBlockView = false;
-  let resources = [];
-
-  const resourceList = document.getElementById('resourceList');
-  const tabContainer = document.getElementById('tabContainer');
-  const listViewBtn = document.getElementById('listViewBtn');
-  const blockViewBtn = document.getElementById('blockViewBtn');
-
-  function updateResourceList() {
-    if (!resourceList) {
-      console.error('Resource list element not found');
-      return;
-    }
-    resourceList.innerHTML = '';
-
-    if (isBlockView) {
-      resourceList.className = 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4';
-    } else {
-      resourceList.className = 'space-y-2';
-    }
-
-    filteredResources.forEach(resource => {
-      const div = document.createElement('div');
       if (isBlockView) {
-        div.className = 'p-4 border rounded shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden';
-        div.innerHTML = `
-          <div class="absolute top-0 left-0 w-1 h-full ${getTabColor(resource.cluster)}"></div>
-          <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="block mt-2 text-black">${resource.name}</a>
-        `;
+        resourceList.className = 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4';
       } else {
-        div.className = 'flex items-center p-2 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 rounded relative overflow-hidden';
-        div.innerHTML = `
-          <div class="absolute top-0 left-0 w-1 h-full ${getTabColor(resource.cluster)}"></div>
-          <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="flex-grow ml-3 text-black">${resource.name}</a>
-        `;
+        resourceList.className = 'space-y-2';
       }
-      resourceList.appendChild(div);
-    });
-  }
 
-  function getTabColor(cluster) {
-    const tabOptions = ['Business Admin', 'Entrepreneurship', 'Finance', 'Hospitality & Tourism', 'Marketing', 'Personal Financial Literacy'];
-    const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-finance', 'text-hospitality-tourism', 'text-marketing', 'text-personal-financial-literacy'];
-    const index = tabOptions.indexOf(cluster);
-    return index !== -1 ? tabColors[index].replace('text-', 'bg-') : 'bg-gray-500';
-  }
-
-  function applyFilters() {
-    filteredResources = resources.filter(resource => {
-      const typeMatch = selectedFilters.length === 0 || selectedFilters.includes(resource.type);
-      const clusterMatch = resource.cluster === selectedTab;
-      return typeMatch && clusterMatch;
-    });
-    updateResourceList();
-  }
-
-  function initializeEventListeners() {
-    document.querySelectorAll('input[name="filter"]').forEach(checkbox => {
-      checkbox.addEventListener('change', (e) => {
-        if (e.target.checked) {
-          selectedFilters.push(e.target.value);
+      filteredResources.forEach(resource => {
+        const div = document.createElement('div');
+        if (isBlockView) {
+          div.className = 'p-4 border rounded shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden';
+          div.innerHTML = `
+            <div class="absolute top-0 left-0 w-1 h-full ${getTabColor(resource.cluster)}"></div>
+            <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="block mt-2 text-black">${resource.name}</a>
+            <p class="text-sm text-gray-600 mt-1">${resource.cluster}</p>
+          `;
         } else {
-          selectedFilters = selectedFilters.filter(f => f !== e.target.value);
+          div.className = 'flex items-center p-2 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 rounded relative overflow-hidden';
+          div.innerHTML = `
+            <div class="absolute top-0 left-0 w-1 h-full ${getTabColor(resource.cluster)}"></div>
+            <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="flex-grow ml-3 text-black">${resource.name}</a>
+            <span class="text-sm text-gray-600 mr-2">${resource.cluster}</span>
+          `;
         }
-        applyFilters();
+        resourceList.appendChild(div);
       });
-    });
-
-    tabContainer.addEventListener('click', (e) => {
-      if (e.target.classList.contains('tab-button')) {
-        selectedTab = e.target.dataset.tab;
-        document.querySelectorAll('.tab-button').forEach(btn => {
-          btn.classList.remove('border-current');
-          btn.classList.add('border-transparent');
-        });
-        e.target.classList.remove('border-transparent');
-        e.target.classList.add('border-current');
-        applyFilters();
-      }
-    });
-
-    listViewBtn.addEventListener('click', () => {
-      isBlockView = false;
-      updateViewButtons();
-      updateResourceList();
-    });
-
-    blockViewBtn.addEventListener('click', () => {
-      isBlockView = true;
-      updateViewButtons();
-      updateResourceList();
-    });
-  }
-
-  function updateViewButtons() {
-    if (isBlockView) {
-      blockViewBtn.classList.add('bg-black', 'text-white');
-      blockViewBtn.classList.remove('bg-gray-300', 'text-black');
-      listViewBtn.classList.remove('bg-black', 'text-white');
-      listViewBtn.classList.add('bg-gray-300', 'text-black');
-    } else {
-      listViewBtn.classList.add('bg-black', 'text-white');
-      listViewBtn.classList.remove('bg-gray-300', 'text-black');
-      blockViewBtn.classList.remove('bg-black', 'text-white');
-      blockViewBtn.classList.add('bg-gray-300', 'text-black');
     }
+
+    function getTabColor(cluster) {
+      const tabOptions = ['All', 'Business Admin', 'Entrepreneurship', 'Finance', 'Hospitality & Tourism', 'Marketing', 'Personal Financial Literacy'];
+      const tabColors = ['bg-gray-500', 'bg-business-management', 'bg-entrepreneurship', 'bg-finance', 'bg-hospitality-tourism', 'bg-marketing', 'bg-personal-financial-literacy'];
+      const index = tabOptions.indexOf(cluster);
+      return index !== -1 ? tabColors[index] : 'bg-gray-500';
+    }
+
+    function applyFilters() {
+      filteredResources = resources.filter(resource => {
+        const typeMatch = selectedFilters.length === 0 || selectedFilters.includes(resource.type);
+        const clusterMatch = selectedTab === 'All' || resource.cluster === selectedTab;
+        return typeMatch && clusterMatch;
+      });
+      updateResourceList();
+    }
+
+    function initializeEventListeners() {
+      document.querySelectorAll('input[name="filter"]').forEach(checkbox => {
+        checkbox.addEventListener('change', (e) => {
+          if (e.target.checked) {
+            selectedFilters.push(e.target.value);
+          } else {
+            selectedFilters = selectedFilters.filter(f => f !== e.target.value);
+          }
+          applyFilters();
+        });
+      });
+
+      tabContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('tab-button')) {
+          selectedTab = e.target.dataset.tab;
+          document.querySelectorAll('.tab-button').forEach(btn => {
+            btn.classList.remove('border-current');
+            btn.classList.add('border-transparent');
+          });
+          e.target.classList.remove('border-transparent');
+          e.target.classList.add('border-current');
+          applyFilters();
+        }
+      });
+
+      listViewBtn.addEventListener('click', () => {
+        isBlockView = false;
+        updateViewButtons();
+        updateResourceList();
+      });
+
+      blockViewBtn.addEventListener('click', () => {
+        isBlockView = true;
+        updateViewButtons();
+        updateResourceList();
+      });
+    }
+
+    function updateViewButtons() {
+      if (isBlockView) {
+        blockViewBtn.classList.add('bg-black', 'text-white');
+        blockViewBtn.classList.remove('bg-gray-300', 'text-black');
+        listViewBtn.classList.remove('bg-black', 'text-white');
+        listViewBtn.classList.add('bg-gray-300', 'text-black');
+      } else {
+        listViewBtn.classList.add('bg-black', 'text-white');
+        listViewBtn.classList.remove('bg-gray-300', 'text-black');
+        blockViewBtn.classList.remove('bg-black', 'text-white');
+        blockViewBtn.classList.add('bg-gray-300', 'text-black');
+      }
+    }
+
+    initializeEventListeners();
+    updateResourceList();
   }
 
-  fetch('/data/resources.json')
-    .then(response => response.json())
-    .then(data => {
-      resources = Array.isArray(data.Sheet1) ? data.Sheet1 : [];
-      filteredResources = resources.filter(resource => resource.cluster === 'Business Admin');
-      initializeEventListeners();
-      updateResourceList();
-    })
-    .catch(error => console.error('Error fetching resources:', error));
-});
+  // Run the initialization function when the DOM is ready
+  document.addEventListener('DOMContentLoaded', initializeResourcePage);
 
+  // Re-run the initialization when the page is loaded from the bfcache
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      initializeResourcePage();
+    }
+  });
+
+  // If you're using view transitions, you might also want to add this:
+  document.addEventListener('astro:page-load', initializeResourcePage);
 </script>
