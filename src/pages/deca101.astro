@@ -22,37 +22,36 @@ const competitionTypes = [
   { title: "Role Play", color: "bg-green-200", content: "You're placed in a business situation with a problem that you must pitch to your client (Judge), you have 10 minutes to prepare one sheet of notes and 10 minutes to present. It is offered in both team and individual events." },
   { title: "Virtual Business Challenge", color: "bg-purple-200", content: "Virtual Business Challenge (VBC) is a collection of simulation style games where you are tested on your business acumen when placed in the situation of a retail store owner, accountant, and more." }
 ];
-
 const faqRows = [
   { 
     question: "Business Management and Administration", 
-    answer: "In this sector, you'll dive into the nuts and bolts of running a business. Think case studies where you tackle real issues companies face. You might role-play as a manager or team leader, figuring out how to keep things running smoothly and make smart decisions. It’s all about getting hands-on experience with leadership and operations.", 
-    color: "bg-business-management" 
+    answer: "In this sector, you'll dive into the nuts and bolts of running a business. Think case studies where you tackle real issues companies face. You might role-play as a manager or team leader, figuring out how to keep things running smoothly and make smart decisions. It's all about getting hands-on experience with leadership and operations.", 
+    gradientClass: "gradient-business-management" 
   }, 
   { 
     question: "Entrepreneurship", 
-    answer: "Here, it's all about turning your ideas into reality. You’ll work on crafting a business plan, doing some market research, and pitching your startup concepts. It’s a chance to get creative and think outside the box while learning what it really takes to launch a business from the ground up.", 
-    color: "bg-entrepreneurship" 
+    answer: "Here, it's all about turning your ideas into reality. You'll work on crafting a business plan, doing some market research, and pitching your startup concepts. It's a chance to get creative and think outside the box while learning what it really takes to launch a business from the ground up.", 
+    gradientClass: "gradient-entrepreneurship" 
   },
   { 
     question: "Finance", 
-    answer: "If numbers are your thing, this sector is where you’ll thrive. You’ll analyze financial data, make investment recommendations, and get to grips with budgeting. You might even simulate managing a portfolio or a company’s finances. It's practical stuff that helps you understand how money works in the real world.", 
-    color: "bg-finance" 
+    answer: "If numbers are your thing, this sector is where you'll thrive. You'll analyze financial data, make investment recommendations, and get to grips with budgeting. You might even simulate managing a portfolio or a company's finances. It's practical stuff that helps you understand how money works in the real world.", 
+    gradientClass: "gradient-finance" 
   }, 
   { 
     question: "Hospitality and Tourism", 
-    answer: "This sector is perfect if you're into travel and service. You’ll explore everything from marketing a hotel to planning events for tourists. You’ll also get to think about how to provide great customer service and create memorable experiences. It's a fun way to learn about an industry that’s all about people and enjoyment.", 
-    color: "bg-hospitality-tourism" 
+    answer: "This sector is perfect if you're into travel and service. You'll explore everything from marketing a hotel to planning events for tourists. You'll also get to think about how to provide great customer service and create memorable experiences. It's a fun way to learn about an industry that's all about people and enjoyment.", 
+    gradientClass: "gradient-hospitality-tourism" 
   }, 
   { 
     question: "Marketing", 
-    answer: "In marketing, you’ll learn how to promote products and connect with customers. You'll get to create marketing campaigns, analyze what works, and think creatively about branding. You might even pitch your ideas to a panel, which is a great way to build your confidence and communication skills.", 
-    color: "bg-marketing" 
+    answer: "In marketing, you'll learn how to promote products and connect with customers. You'll get to create marketing campaigns, analyze what works, and think creatively about branding. You might even pitch your ideas to a panel, which is a great way to build your confidence and communication skills.", 
+    gradientClass: "gradient-marketing" 
   }, 
   { 
     question: "Personal Financial Literacy", 
-    answer: "This is all about getting smart with your money. You’ll learn how to budget, save, and plan for your financial future. It’s practical stuff that helps you understand things like credit, loans, and investments. It’s the kind of knowledge that’ll stick with you long after high school.", 
-    color: "bg-personal-financial-literacy" 
+    answer: "This is all about getting smart with your money. You'll learn how to budget, save, and plan for your financial future. It's practical stuff that helps you understand things like credit, loans, and investments. It's the kind of knowledge that'll stick with you long after high school.", 
+    gradientClass: "gradient-personal-financial-literacy" 
   }
 ];
 
@@ -145,7 +144,7 @@ const tabContent = [
     <div class="faq-section">
       {faqRows.map((row, index) => (
         <div class="mb-2 faq-item rounded-lg overflow-hidden">
-          <button class={`faq-question w-full text-left p-4 ${row.color} hover:bg-opacity-80 flex justify-between items-center font-bold`}>
+          <button class={`faq-question w-full text-left p-4 ${row.gradientClass} hover:opacity-90 flex justify-between items-center font-bold text-white`}>
             {row.question}
             <Icon name="tabler:chevron-down" class="w-5 h-5 transform transition-transform duration-300" />
           </button>
@@ -221,6 +220,24 @@ const tabContent = [
   }
   .faq-question.active .tabler\:chevron-down {
     transform: rotate(180deg);
+  }
+  .gradient-business-management {
+    background: linear-gradient(to right, #181818,20%, #f6bb26);
+  }
+  .gradient-entrepreneurship {
+    background: linear-gradient(to right, #181818, 20%, #7c8689);
+  }
+  .gradient-finance {
+    background: linear-gradient(to right, #181818,20%, #119b49);
+  }
+  .gradient-hospitality-tourism {
+    background: linear-gradient(to right, #181818,20%, #1775bd);
+  }
+  .gradient-marketing {
+    background: linear-gradient(to right, #181818,20%, #ca1a39);
+  }
+  .gradient-personal-financial-literacy {
+    background: linear-gradient(to right, #181818,20%, #92c65e);
   }
 </style>
 
