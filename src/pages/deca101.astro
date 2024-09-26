@@ -2,25 +2,58 @@
 import HeroText from '~/components/widgets/HeroText.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import DECAGlass from '../assets/images/DECAGlass.jpeg';
+import RegionalImage from '../assets/images/regional-competition.jpg';
+import StateImage from '../assets/images/marriot.jpg';
 
 const metadata = {
   title: 'DECA 101',
 };
 
 const competitionTypes = [
-  { title: "Written", color: "bg-blue-200", content: "Written competition details..." },
-  { title: "Role Play", color: "bg-green-200", content: "Role play competition details..." },
-  { title: "Presentation", color: "bg-yellow-200", content: "Presentation competition details..." },
-  { title: "Virtual Business Challenge", color: "bg-purple-200", content: "Virtual Business Challenge details..." }
+  {
+  title: "Written",
+  color: "bg-blue-200",
+  content: `
+  DECA written events challenge students to present a detailed poster or set of slides they've prepared over several months, all within a 15-minute window. These events are ideal for students who excel at planning ahead and avoiding procrastination.`
+  },
+  
+  { title: "Role Play", color: "bg-green-200", content: "You're placed in a business situation with a problem that you must pitch to your client (Judge), you have 10 minutes to prepare one sheet of notes and 10 minutes to present. It is offered in both team and individual events." },
+  { title: "Virtual Business Challenge", color: "bg-purple-200", content: "Virtual Business Challenge (VBC) is a collection of simulation style games where you are tested on your business acumen when placed in the situation of a retail store owner, accountant, and more." }
 ];
 
 const faqRows = [
-  { question: "Business Management and Administration", answer: "DECA is...", color: "bg-business-management" }, 
-  { question: "Entrepreneurship", answer: "DECA membership is...", color: "bg-entrepreneurship" },
-  { question: "Finance", answer: "DECA offers...", color: "bg-finance" }, 
-  { question: "Hospitality and Tourism", answer: "To prepare for DECA competitions...", color: "bg-hospitality-tourism" }, 
-  { question: "Marketing", answer: "DECA supports various career paths including...", color: "bg-marketing" }, 
-  { question: "Personal Financial Literacy", answer: "DECA provides resources for personal financial literacy...", color: "bg-personal-financial-literacy" }
+  { 
+    question: "Business Management and Administration", 
+    answer: "In this sector, you'll dive into the nuts and bolts of running a business. Think case studies where you tackle real issues companies face. You might role-play as a manager or team leader, figuring out how to keep things running smoothly and make smart decisions. It’s all about getting hands-on experience with leadership and operations.", 
+    color: "bg-business-management" 
+  }, 
+  { 
+    question: "Entrepreneurship", 
+    answer: "Here, it's all about turning your ideas into reality. You’ll work on crafting a business plan, doing some market research, and pitching your startup concepts. It’s a chance to get creative and think outside the box while learning what it really takes to launch a business from the ground up.", 
+    color: "bg-entrepreneurship" 
+  },
+  { 
+    question: "Finance", 
+    answer: "If numbers are your thing, this sector is where you’ll thrive. You’ll analyze financial data, make investment recommendations, and get to grips with budgeting. You might even simulate managing a portfolio or a company’s finances. It's practical stuff that helps you understand how money works in the real world.", 
+    color: "bg-finance" 
+  }, 
+  { 
+    question: "Hospitality and Tourism", 
+    answer: "This sector is perfect if you're into travel and service. You’ll explore everything from marketing a hotel to planning events for tourists. You’ll also get to think about how to provide great customer service and create memorable experiences. It's a fun way to learn about an industry that’s all about people and enjoyment.", 
+    color: "bg-hospitality-tourism" 
+  }, 
+  { 
+    question: "Marketing", 
+    answer: "In marketing, you’ll learn how to promote products and connect with customers. You'll get to create marketing campaigns, analyze what works, and think creatively about branding. You might even pitch your ideas to a panel, which is a great way to build your confidence and communication skills.", 
+    color: "bg-marketing" 
+  }, 
+  { 
+    question: "Personal Financial Literacy", 
+    answer: "This is all about getting smart with your money. You’ll learn how to budget, save, and plan for your financial future. It’s practical stuff that helps you understand things like credit, loans, and investments. It’s the kind of knowledge that’ll stick with you long after high school.", 
+    color: "bg-personal-financial-literacy" 
+  }
 ];
 
 const tabContent = [
@@ -33,7 +66,8 @@ const tabContent = [
       "1st Years are strongly recommended to go to regionals!",
       "A chance for you to get used to DECA (Roleplay or Written)",
       "Your best chance to practice a strategy!"
-    ]
+    ],
+    image: RegionalImage
   },
   { 
     id: "state", 
@@ -42,7 +76,8 @@ const tabContent = [
       "Hosted at College Park Marriot in Febuary (More Details Coming Soon)",
       "In order to qualify you must win Top 3 in your event (This will make sense just keep reading)",
       "Always wear a suit or formal clothing and BRING A PEN!!",
-    ]
+    ],
+    image: StateImage
   },
   { 
     id: "international", 
@@ -52,7 +87,8 @@ const tabContent = [
       "A international competition with thousands of students from across the globe!",
       "Practice your sales skills by trading pins for each state (You'll understand this when you get there)!",
       "A chance for you to win RM the DECA Glass!"
-    ]
+    ],
+    image: DECAGlass
   }
 ];
 ---
@@ -86,9 +122,7 @@ const tabContent = [
                 </ol>
               </div>
               <div class="md:w-1/2 mt-4 md:mt-0">
-                <div class="bg-gray-200 h-64 flex items-center justify-center">
-                  <p class="text-gray-500">Image Placeholder</p>
-                </div>
+                <Image src={tab.image} alt={`${tab.title} Competition`} class="w-full h-auto rounded-lg shadow-md" />
               </div>
             </div>
           </div>
@@ -97,13 +131,15 @@ const tabContent = [
     </div>
 
     <h2 class="text-2xl font-bold mb-4 text-center">Types of Competition</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-      {competitionTypes.map((type) => (
-        <div class={`p-4 ${type.color} rounded-lg shadow`}>
-          <h3 class="text-xl font-bold mb-2">{type.title}</h3>
-          <p>{type.content}</p>
-        </div>
-      ))}
+    <div class="flex justify-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 max-w-4xl">
+        {competitionTypes.map((type) => (
+          <div class="p-4 bg-gradient-card rounded-lg shadow flex flex-col justify-between">
+            <h3 class="text-xl font-bold mb-2 text-center text-white">{type.title}</h3>
+            <p class="text-center text-white">{type.content}</p>
+          </div>
+        ))}
+      </div>
     </div>
 
     <div class="faq-section">
@@ -123,6 +159,10 @@ const tabContent = [
 </Layout>
 
 <style>
+  
+  .bg-gradient-card {
+    background: linear-gradient(to bottom, var(--aw-color-primary), var(--aw-color-secondary));
+  }
   .tabs {
     position: relative;
   }
@@ -164,7 +204,7 @@ const tabContent = [
     overflow: hidden;
   }
   .faq-question.active + .faq-answer {
-    max-height: 500px; /* Adjust this value based on your content */
+    max-height: 500px;
     opacity: 1;
     transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
   }
@@ -186,7 +226,6 @@ const tabContent = [
 
 <script>
   function initDynamicFeatures() {
-    // Tab functionality
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
     const tabIndicator = document.querySelector('.tab-indicator');
@@ -199,58 +238,37 @@ const tabContent = [
     }
 
     tabBtns.forEach((btn, index) => {
-      if (index === 0) setIndicatorPosition(btn);
-      
+      if (index === 0) {
+        setIndicatorPosition(btn);
+      }
+
       btn.addEventListener('click', () => {
-        const tabId = btn.getAttribute('data-tab');
-        
         tabBtns.forEach(b => b.classList.remove('active'));
         tabContents.forEach(content => content.classList.remove('active'));
-        
+
         btn.classList.add('active');
-        const activeContent = document.getElementById(tabId);
-        if (activeContent) activeContent.classList.add('active');
-        
+        tabContents[index].classList.add('active');
+
         setIndicatorPosition(btn);
       });
     });
 
-    // FAQ functionality
     const faqQuestions = document.querySelectorAll('.faq-question');
-
-    faqQuestions.forEach(question => {
+    faqQuestions.forEach((question) => {
       question.addEventListener('click', () => {
+        question.classList.toggle('active');
         const answer = question.nextElementSibling;
-        const icon = question.querySelector('.tabler\\:chevron-down');
-
-        if (question.classList.contains('active')) {
-          question.classList.remove('active');
-          answer.style.maxHeight = '0px';
-          answer.style.opacity = '0';
-          icon.style.transform = 'rotate(0deg)';
-        } else {
-          // Close any open FAQ items
-          faqQuestions.forEach(q => {
-            if (q !== question && q.classList.contains('active')) {
-              q.classList.remove('active');
-              q.nextElementSibling.style.maxHeight = '0px';
-              q.nextElementSibling.style.opacity = '0';
-              q.querySelector('.tabler\\:chevron-down').style.transform = 'rotate(0deg)';
-            }
-          });
-
-          question.classList.add('active');
+        if (answer) {
           answer.style.maxHeight = answer.scrollHeight + 'px';
-          answer.style.opacity = '1';
-          icon.style.transform = 'rotate(180deg)';
+          setTimeout(() => {
+            if (!question.classList.contains('active')) {
+              answer.style.maxHeight = 0;
+            }
+          }, 300);
         }
       });
     });
   }
 
-  // Initialize dynamic features on page load
-  document.addEventListener('DOMContentLoaded', initDynamicFeatures);
-
-  // Re-initialize dynamic features when Astro swaps the page content
-  document.addEventListener('astro:page-load', initDynamicFeatures);
+  initDynamicFeatures();
 </script>
