@@ -1,13 +1,13 @@
 {
   "Sheet1": [
     {
-      "name": "ENT Sample Roleplay 2024 (1)",
+      "name": "Entrepreneurship Series Sample Roleplay 2024 (1)",
       "type": "Sample Roleplay",
       "cluster": "Entrepreneurship",
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcdc39f0df8b7a80fd8a04_DECA_ENT_2024_District_Event_1.pdf"
     },
     {
-      "name": "ENT Sample Roleplay 2024 (2)",
+      "name": "Entrepreneurship Series Sample Roelplay 2024 (2)",
       "type": "Sample Roleplay",
       "cluster": "Entrepreneurship",
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcdbdc9386043358922a77_DECA_ENT_2024_District_Event_2.pdf"
@@ -19,34 +19,58 @@
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df4655119eda9d94bed97e_HS_Entrepreneurship_Sample_Exam_24.pdf"
     },
     {
-      "name": "Entrepreneurship Cluster Exam 2024",
+      "name": "Buisness Administration Cluster Exam 2024",
       "type": "Practice Test",
-      "cluster": "Entrepreneurship",
-      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df4655119eda9d94bed97e_HS_Entrepreneurship_Sample_Exam_24.pdf"
+      "cluster": "Business Admin",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df472e70f0de9ce043e49a_HS_Business_Management_Cluster_Sample_Exam_24.pdf"
     },
     {
-      "name": "Entrepreneurship Cluster Exam 2024",
-      "type": "Practice Test",
-      "cluster": "Entrepreneurship",
-      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df4655119eda9d94bed97e_HS_Entrepreneurship_Sample_Exam_24.pdf"
+      "name": "Buisness Law & Ethics Sample Roleplay 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Business Admin",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dca740622fb7dc57b6d180_DECA_BLTDM_2024_District_Event.pdf"
     },
     {
-      "name": "Entrepreneurship Cluster Exam 2024",
+      "name": "Finance Cluster Exam 2024",
+      "type": "Practice Test",
+      "cluster": "Finance",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df466d6a2308ca0ec22693_HS_Finance_Cluster_Sample_Exam_24.pdf"
+    },
+    {
+      "name": "Buisness Finance Roleplay 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Finance",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dce1f09b73715bb850d70a_DECA_BFS_2024_District_Event_2.pdf"
+    },
+    {
+      "name": "Hospitality & Tourism Cluster Exam 2024",
+      "type": "Practice Test",
+      "cluster": "Hospitality & Tourism",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df456cc893216a14f3663d_HS_Hospitality_Tourism_Cluster_Sample_Exam_24.pdf"
+    },
+    {
+      "name": "Marketing Cluster Exam 2024",
       "type": "Practice Test",
       "cluster": "Marketing",
-      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df4655119eda9d94bed97e_HS_Entrepreneurship_Sample_Exam_24.pdf"
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df42a3765c3c9af7ef6459_HS_Marketing_Cluster_Sample_Exam_24.pdf"
     },
     {
-      "name": "Entrepreneurship Cluster Exam 2024",
-      "type": "Practice Test",
-      "cluster": "Finance",
-      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df4655119eda9d94bed97e_HS_Entrepreneurship_Sample_Exam_24.pdf"
+      "name": "Marketing Communications Sample Roleplay 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Marketing",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcb0655e623028e2a94110_DECA_MCS_2024_District_Event_1.pdf"
     },
     {
-      "name": "Entrepreneurship Cluster Exam 2024",
+      "name": "Personal Financial Literacy Cluster Exam 2024",
       "type": "Practice Test",
-      "cluster": "Finance",
-      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df4655119eda9d94bed97e_HS_Entrepreneurship_Sample_Exam_24.pdf"
+      "cluster": "Personal Financial Literacy",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df42888df75e7ada201bcd_HS_Personal_Financial_Literacy_Sample_Exam_24.pdf"
+    },
+    {
+      "name": "Personal Financial Literacy Sample Roleplay 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Personal Financial Literacy",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dca78f3bd9ae1d3a3fd612_DECA_PFL_2024_District_Event.pdf"
     }
   ]
 }
