@@ -5,6 +5,9 @@ import { getResources } from '../data/resources'; // Assume this function exists
 const metadata = {
   title: 'Resources',
 };
+export function getResources() {
+  return Array.isArray(resourcesData.Sheet1) ? resourcesData.Sheet1 : [];
+}
 
 const resources = await getResources(); // Fetch resources at build time
 
