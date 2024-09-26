@@ -193,7 +193,7 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
       }
     }
 
-    fetch('/data/resources.json')
+    fetch('/resources.json')
       .then(response => response.json())
       .then(data => {
         resources = Array.isArray(data.Sheet1) ? data.Sheet1 : [];
