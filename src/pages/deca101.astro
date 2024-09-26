@@ -1,48 +1,58 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-
-const metadata = {
-  title: 'Coming Soon',
-};
----
-
-<Layout metadata={metadata}>
-  <div class="flex items-center justify-center min-h-screen bg-gray-100">
-    <div class="text-center">
-      <h1 class="text-4xl font-bold mb-4">Coming Soon</h1>
-      <p class="text-xl mb-8">This is going to be a great informational page!</p>
-    </div>
-  </div>
-</Layout>
-
-<style>
-  /* Add any custom styles here */
-</style>
-
-<!-- Original code commented out
----
 import HeroText from '~/components/widgets/HeroText.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import DECAGlass from '../assets/images/DECAGlass.jpeg';
+import RegionalImage from '../assets/images/regional-competition.jpg';
+import StateImage from '../assets/images/marriot.jpg';
 
 const metadata = {
   title: 'DECA 101',
 };
 
 const competitionTypes = [
-  { title: "Written", color: "bg-blue-200", content: "Written competition details..." },
-  { title: "Role Play", color: "bg-green-200", content: "Role play competition details..." },
-  { title: "Presentation", color: "bg-yellow-200", content: "Presentation competition details..." },
-  { title: "Virtual Business Challenge", color: "bg-purple-200", content: "Virtual Business Challenge details..." }
+  {
+  title: "Written",
+  color: "bg-blue-200",
+  content: `
+  DECA written events challenge students to present a detailed poster or set of slides they've prepared over several months, all within a 15-minute window. These events are ideal for students who excel at planning ahead and avoiding procrastination.`
+  },
+  
+  { title: "Role Play", color: "bg-green-200", content: "You're placed in a business situation with a problem that you must pitch to your client (Judge), you have 10 minutes to prepare one sheet of notes and 10 minutes to present. It is offered in both team and individual events." },
+  { title: "Virtual Business Challenge", color: "bg-purple-200", content: "Virtual Business Challenge (VBC) is a collection of simulation style games where you are tested on your business acumen when placed in the situation of a retail store owner, accountant, and more." }
 ];
-
 const faqRows = [
-  { question: "Business Management and Administration", answer: "DECA is...", color: "bg-business-management" }, 
-  { question: "Entrepreneurship", answer: "DECA membership is...", color: "bg-entrepreneurship" },
-  { question: "Finance", answer: "DECA offers...", color: "bg-finance" }, 
-  { question: "Hospitality and Tourism", answer: "To prepare for DECA competitions...", color: "bg-hospitality-tourism" }, 
-  { question: "Marketing", answer: "DECA supports various career paths including...", color: "bg-marketing" }, 
-  { question: "Personal Financial Literacy", answer: "DECA provides resources for personal financial literacy...", color: "bg-personal-financial-literacy" }
+  { 
+    question: "Business Management and Administration", 
+    answer: "In this sector, you'll dive into the nuts and bolts of running a business. Think case studies where you tackle real issues companies face. You might role-play as a manager or team leader, figuring out how to keep things running smoothly and make smart decisions. It's all about getting hands-on experience with leadership and operations.", 
+    gradientClass: "gradient-business-management" 
+  }, 
+  { 
+    question: "Entrepreneurship", 
+    answer: "Here, it's all about turning your ideas into reality. You'll work on crafting a business plan, doing some market research, and pitching your startup concepts. It's a chance to get creative and think outside the box while learning what it really takes to launch a business from the ground up.", 
+    gradientClass: "gradient-entrepreneurship" 
+  },
+  { 
+    question: "Finance", 
+    answer: "If numbers are your thing, this sector is where you'll thrive. You'll analyze financial data, make investment recommendations, and get to grips with budgeting. You might even simulate managing a portfolio or a company's finances. It's practical stuff that helps you understand how money works in the real world.", 
+    gradientClass: "gradient-finance" 
+  }, 
+  { 
+    question: "Hospitality and Tourism", 
+    answer: "This sector is perfect if you're into travel and service. You'll explore everything from marketing a hotel to planning events for tourists. You'll also get to think about how to provide great customer service and create memorable experiences. It's a fun way to learn about an industry that's all about people and enjoyment.", 
+    gradientClass: "gradient-hospitality-tourism" 
+  }, 
+  { 
+    question: "Marketing", 
+    answer: "In marketing, you'll learn how to promote products and connect with customers. You'll get to create marketing campaigns, analyze what works, and think creatively about branding. You might even pitch your ideas to a panel, which is a great way to build your confidence and communication skills.", 
+    gradientClass: "gradient-marketing" 
+  }, 
+  { 
+    question: "Personal Financial Literacy", 
+    answer: "This is all about getting smart with your money. You'll learn how to budget, save, and plan for your financial future. It's practical stuff that helps you understand things like credit, loans, and investments. It's the kind of knowledge that'll stick with you long after high school.", 
+    gradientClass: "gradient-personal-financial-literacy" 
+  }
 ];
 
 const tabContent = [
@@ -50,31 +60,34 @@ const tabContent = [
     id: "regional", 
     title: "Regional", 
     content: [
-      "Registration process for regional competitions",
-      "Overview of regional event categories",
-      "Preparation tips for regional competitions",
-      "Regional awards and advancement opportunities"
-    ]
+      "Hosted @ Montgomery Blair High School on Jan 4th",
+      "You're automatically qualified for states so there are no stakes during this competition! (Try your best)",
+      "1st Years are strongly recommended to go to regionals!",
+      "A chance for you to get used to DECA (Roleplay or Written)",
+      "Your best chance to practice a strategy!"
+    ],
+    image: RegionalImage
   },
   { 
     id: "state", 
     title: "State", 
     content: [
-      "Qualification criteria for state competitions",
-      "State-level event structure and schedule",
-      "Networking opportunities at state conferences",
-      "State awards and national qualification process"
-    ]
+      "Hosted at College Park Marriot in Febuary (More Details Coming Soon)",
+      "In order to qualify you must win Top 3 in your event (This will make sense just keep reading)",
+      "Always wear a suit or formal clothing and BRING A PEN!!",
+    ],
+    image: StateImage
   },
   { 
     id: "international", 
     title: "International", 
     content: [
-      "Overview of the ICDC (International Career Development Conference)",
-      "International competition categories and formats",
-      "Cultural exchange and global networking events",
-      "International awards and recognition"
-    ]
+      "Hosted in Orlando Florida 😎 from April 26-29",
+      "A international competition with thousands of students from across the globe!",
+      "Practice your sales skills by trading pins for each state (You'll understand this when you get there)!",
+      "A chance for you to win RM the DECA Glass!"
+    ],
+    image: DECAGlass
   }
 ];
 ---
@@ -83,7 +96,7 @@ const tabContent = [
   <HeroText
     tagline="DECA 101"
     title="What is DECA?"
-    subtitle="DECA is an organization that prepares emerging leaders and entrepreneurs in marketing, finance, hospitality, and management. [More filler text...]"
+    subtitle="DECA prepares emerging leaders and entrepreneurs for careers in marketing, finance, hospitality and management. You'll learn how to speak business, act business, and do business. Keep reading to learn what DECA really is..."
   />
   <div class="container mx-auto px-4">
     <div class="mb-8">
@@ -108,9 +121,7 @@ const tabContent = [
                 </ol>
               </div>
               <div class="md:w-1/2 mt-4 md:mt-0">
-                <div class="bg-gray-200 h-64 flex items-center justify-center">
-                  <p class="text-gray-500">Image Placeholder</p>
-                </div>
+                <Image src={tab.image} alt={`${tab.title} Competition`} class="w-full h-auto rounded-lg shadow-md" />
               </div>
             </div>
           </div>
@@ -119,32 +130,38 @@ const tabContent = [
     </div>
 
     <h2 class="text-2xl font-bold mb-4 text-center">Types of Competition</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-      {competitionTypes.map((type) => (
-        <div class={`p-4 ${type.color} rounded-lg shadow`}>
-          <h3 class="text-xl font-bold mb-2">{type.title}</h3>
-          <p>{type.content}</p>
-        </div>
-      ))}
+    <div class="flex justify-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 max-w-4xl">
+        {competitionTypes.map((type) => (
+          <div class="p-4 bg-gradient-card rounded-lg shadow flex flex-col justify-between">
+            <h3 class="text-xl font-bold mb-2 text-center text-white">{type.title}</h3>
+            <p class="text-center text-white">{type.content}</p>
+          </div>
+        ))}
+      </div>
     </div>
 
     <div class="faq-section">
       {faqRows.map((row, index) => (
         <div class="mb-2 faq-item rounded-lg overflow-hidden">
-          <button class={`faq-question w-full text-left p-4 ${row.color} hover:bg-opacity-80 flex justify-between items-center font-bold`}>
+          <button class={`faq-question w-full text-left p-4 ${row.gradientClass} hover:opacity-90 flex justify-between items-center font-bold text-white`}>
             {row.question}
             <Icon name="tabler:chevron-down" class="w-5 h-5 transform transition-transform duration-300" />
           </button>
-          <div class="faq-answer bg-white overflow-hidden">
+          <div class="faq-answer bg-white">
             <div class="faq-answer-content p-4">{row.answer}</div>
           </div>
         </div>
       ))}
     </div>
-    </div>
+  </div>
 </Layout>
 
 <style>
+  
+  .bg-gradient-card {
+    background: #35a5c2;
+  }
   .tabs {
     position: relative;
   }
@@ -181,63 +198,94 @@ const tabContent = [
   }
   .faq-answer {
     max-height: 0;
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+    overflow: hidden;
   }
   .faq-question.active + .faq-answer {
-    max-height: 500px; /* Adjust this value based on your content */
-    transition: max-height 0.5s ease-in;
+    max-height: 500px;
+    opacity: 1;
+    transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
   }
   .faq-answer-content {
-    opacity: 0;
     transform: translateY(-10px);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
   }
   .faq-question.active + .faq-answer .faq-answer-content {
-    opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+    transition: transform 0.3s ease-in;
+  }
+  .faq-question .tabler\:chevron-down {
+    transition: transform 0.3s ease-in-out;
+  }
+  .faq-question.active .tabler\:chevron-down {
+    transform: rotate(180deg);
+  }
+  .gradient-business-management {
+    background: linear-gradient(to right, #b88c1c,20%, #f6bb26);
+  }
+  .gradient-entrepreneurship {
+    background: linear-gradient(to right, #5e6568, 20%, #7c8689);
+  }
+  .gradient-finance {
+    background: linear-gradient(to right, #0d7537,20%, #119b49);
+  }
+  .gradient-hospitality-tourism {
+    background: linear-gradient(to right, #0f4c7a,20%, #1775bd);
+  }
+  .gradient-marketing {
+    background: linear-gradient(to right, #881227,20%, #ca1a39);
+  }
+  .gradient-personal-financial-literacy {
+    background: linear-gradient(to right, #516e34,20%, #92c65e);
   }
 </style>
 
 <script>
-  // Tab functionality
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
-  const tabIndicator = document.querySelector('.tab-indicator');
+  function initDynamicFeatures() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const tabIndicator = document.querySelector('.tab-indicator');
 
-  function setIndicatorPosition(btn) {
-    tabIndicator.style.width = `${btn.offsetWidth}px`;
-    tabIndicator.style.left = `${btn.offsetLeft}px`;
-  }
-
-  tabBtns.forEach((btn, index) => {
-    if (index === 0) setIndicatorPosition(btn);
-    
-    btn.addEventListener('click', () => {
-      const tabId = btn.getAttribute('data-tab');
-      
-      tabBtns.forEach(b => b.classList.remove('active'));
-      tabContents.forEach(content => content.classList.remove('active'));
-      
-      btn.classList.add('active');
-      document.getElementById(tabId).classList.add('active');
-      
-      setIndicatorPosition(btn);
-    });
-  });
-
-  // FAQ functionality
-  const faqQuestions = document.querySelectorAll('.faq-question');
-
-faqQuestions.forEach(question => {
-  question.addEventListener('click', () => {
-    const currentlyActive = document.querySelector('.faq-question.active');
-    if (currentlyActive && currentlyActive !== question) {
-      currentlyActive.classList.remove('active');
+    function setIndicatorPosition(btn) {
+      if (tabIndicator) {
+        tabIndicator.style.width = `${btn.offsetWidth}px`;
+        tabIndicator.style.left = `${btn.offsetLeft}px`;
+      }
     }
 
-    question.classList.toggle('active');
-  });
-});
+    tabBtns.forEach((btn, index) => {
+      if (index === 0) {
+        setIndicatorPosition(btn);
+      }
+
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        btn.classList.add('active');
+        tabContents[index].classList.add('active');
+
+        setIndicatorPosition(btn);
+      });
+    });
+
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach((question) => {
+      question.addEventListener('click', () => {
+        question.classList.toggle('active');
+        const answer = question.nextElementSibling;
+        if (answer) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          setTimeout(() => {
+            if (!question.classList.contains('active')) {
+              answer.style.maxHeight = 0;
+            }
+          }, 300);
+        }
+      });
+    });
+  }
+
+  initDynamicFeatures();
 </script>
--->

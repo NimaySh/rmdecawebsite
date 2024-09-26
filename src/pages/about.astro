@@ -1,5 +1,4 @@
 ---
-// Import images and other necessary components
 import Layout from '../layouts/PageLayout.astro';
 import '../assets/styles/tailwind.css';
 import { Image } from 'astro:assets';
@@ -37,11 +36,11 @@ const presidents = [
 ];
 
 const vicePresidents = [
-  { name: "Daisy Wong", title: "Vice President of Training", image: daisyHeadshot, description: "Daisy excels in digital marketing and brand development." },
+  { name: "Daisy Wong", title: "Vice President of Training", image: daisyHeadshot, description: "Daisy excels in digital marketing and brand development.", objectPosition: "center 40%" },
   { name: "Gloria Lang", title: "Vice President of Public Relations", image: gloriaHeadshot, description: "Gloria is an expert in financial planning and analysis.", objectPosition: "center 30%" },
   { name: "Maria Yu", title: "Vice President of Public Relations ", image: mariaHeadshot, description: "Maria ensures smooth day-to-day operations of our chapter.", objectPosition: "center 30%" },
   { name: "Jennifer Wan", title: "Vice President of Outreach", image: jenniferHeadshot, description: "Jennifer orchestrates our chapter's engaging events and competitions.", objectPosition: "center 30%" },
-  { name: "Anya Kleinman", title: "Vice President of Operations", image: anyaHeadshot, description: "Anya focuses on member recruitment and retention strategies." }
+  { name: "Anya Kleinman", title: "Vice President of Operations", image: anyaHeadshot, description: "Anya focuses on member recruitment and retention strategies.", objectPosition: "center 40%" }
 ];
 ---
 
@@ -60,10 +59,9 @@ const vicePresidents = [
       <strong><span class="bg-gradient-title">California</span></strong>.
     </p>
   </section>
-
   <!-- Logo Carousel Section -->
   <section class="py-16">
-    <div class="swiper-container max-w-5xl mx-auto relative">
+    <div id="swiperContainer" class="swiper-container max-w-5xl mx-auto relative">
       <div class="swiper-wrapper">
         {images.map((image) => (
           <div class="swiper-slide">
@@ -140,10 +138,11 @@ const vicePresidents = [
 </Layout>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.swiper-container', {
+<script>
+  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
+
+  function initSwiper() {
+    new Swiper('#swiperContainer', {
       loop: true,
       slidesPerView: 1,
       spaceBetween: 0,
@@ -159,8 +158,15 @@ const vicePresidents = [
         prevEl: '.swiper-button-prev',
       },
     });
-  });
+  }
+
+  // Initialize Swiper on page load
+  document.addEventListener('DOMContentLoaded', initSwiper);
+
+  // Re-initialize Swiper when Astro swaps the page content
+  document.addEventListener('astro:page-load', initSwiper);
 </script>
+
 
 <style>
   .swiper-container {
