@@ -2,9 +2,6 @@
 // pages/resources.astro
 import Layout from '~/layouts/PageLayout.astro';
 
-// Access the array inside the "Sheet1" property
-const resources = Array.isArray(resourcesData.Sheet1) ? resourcesData.Sheet1 : [];
-
 const metadata = {
   title: 'Resources',
 };
@@ -30,7 +27,13 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
   <!-- Resource Filter System -->
   <div class="flex flex-col md:flex-row p-4 space-y-4 md:space-y-0" id="resourceFilterSystem">
     <div class="md:w-1/4 w-full p-4 rounded-lg">
-      <!-- Filter checkboxes and view toggle -->
+      <!-- View toggle -->
+      <div class="flex text-sm mb-6">
+        <button id="listViewBtn" class="px-3 py-1 bg-black text-white rounded-l-md">List</button>
+        <button id="blockViewBtn" class="px-3 py-1 bg-gray-300 rounded-r-md">Block</button>
+      </div>
+
+      <!-- Filter checkboxes -->
       <h3 class="font-semibold mb-3">Resource Type</h3>
       {filterOptions.map(filter => (
         <div class="flex items-center mb-2">
@@ -44,12 +47,6 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
           <label for={filter} class="ml-2 text-gray-700">{filter}</label>
         </div>
       ))}
-      
-      <!-- View toggle moved here -->
-      <div class="flex text-sm mt-4">
-        <button id="listViewBtn" class="px-3 py-1 bg-black text-white rounded-l-md">List</button>
-        <button id="blockViewBtn" class="px-3 py-1 bg-gray-300 rounded-r-md">Block</button>
-      </div>
     </div>
 
     <!-- Main content area -->
@@ -74,6 +71,7 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
       <!-- Resource list -->
       <div id="resourceList" class="space-y-2">
         <!-- Resources will be populated here by JavaScript -->
+        <div class="text-center text-gray-500">Loading resources...</div>
       </div>
     </div>
   </div>
@@ -92,6 +90,15 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
     const listViewBtn = document.getElementById('listViewBtn');
     const blockViewBtn = document.getElementById('blockViewBtn');
 
+    function getYearFromName(name) {
+      const match = name.match(/\b(20\d{2})\b(?:\s*\(\d+\))?/);
+      return match ? match[0] : '';
+    }
+
+    function getNameWithoutYear(name) {
+      return name.replace(/\s*\b(20\d{2})\b(?:\s*\(\d+\))?/, '');
+    }
+
     function updateResourceList() {
       if (!resourceList) {
         console.error('Resource list element not found');
@@ -100,24 +107,54 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
       resourceList.innerHTML = '';
 
       if (isBlockView) {
-        resourceList.className = 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4';
+        resourceList.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4';
       } else {
         resourceList.className = 'space-y-2';
       }
 
+      if (filteredResources.length === 0) {
+        const noResults = document.createElement('div');
+        noResults.className = 'text-center text-gray-500 py-4';
+        noResults.textContent = 'No resources found for the selected filters';
+        resourceList.appendChild(noResults);
+        return;
+      }
+
       filteredResources.forEach(resource => {
         const div = document.createElement('div');
+        const year = getYearFromName(resource.name);
+        const nameWithoutYear = getNameWithoutYear(resource.name);
+        
         if (isBlockView) {
-          div.className = 'p-4 border rounded shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden';
+          div.className = 'bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden';
           div.innerHTML = `
-            <div class="absolute top-0 left-0 w-1 h-full ${getTabColor(resource.cluster)}"></div>
-            <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="block mt-2 text-black">${resource.name}</a>
+            <div class="absolute top-0 left-0 w-2 h-full ${getTabColor(resource.cluster)}"></div>
+            <div class="p-4">
+              <div class="w-12 h-12 mb-3 flex items-center justify-center bg-gray-200 rounded-full">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+              <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="block">
+                <div class="text-black hover:text-blue-600 transition-colors font-medium">
+                  ${nameWithoutYear}
+                </div>
+                <div class="text-sm text-gray-500 mt-1">
+                  ${year}
+                </div>
+              </a>
+            </div>
           `;
         } else {
           div.className = 'flex items-center p-2 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 rounded relative overflow-hidden';
           div.innerHTML = `
-            <div class="absolute top-0 left-0 w-1 h-full ${getTabColor(resource.cluster)}"></div>
-            <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="flex-grow ml-3 text-black">${resource.name}</a>
+            <div class="absolute top-0 left-0 w-2 h-full ${getTabColor(resource.cluster)}"></div>
+            <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="flex-grow ml-4">
+              <span class="text-sm">
+                <span class="text-black hover:text-blue-600 transition-colors">${nameWithoutYear}</span>
+                <span class="text-gray-500 ml-2">${year}</span>
+              </span>
+            </a>
           `;
         }
         resourceList.appendChild(div);
@@ -126,9 +163,9 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
 
     function getTabColor(cluster) {
       const tabOptions = ['Business Admin', 'Entrepreneurship', 'Finance', 'Hospitality & Tourism', 'Marketing', 'Personal Financial Literacy'];
-      const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-finance', 'text-hospitality-tourism', 'text-marketing', 'text-personal-financial-literacy'];
+      const tabColors = ['bg-business-management', 'bg-entrepreneurship', 'bg-finance', 'bg-hospitality-tourism', 'bg-marketing', 'bg-personal-financial-literacy'];
       const index = tabOptions.indexOf(cluster);
-      return index !== -1 ? tabColors[index].replace('text-', 'bg-') : 'bg-gray-500';
+      return index !== -1 ? tabColors[index] : 'bg-gray-500';
     }
 
     function applyFilters() {
@@ -152,26 +189,27 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
         });
       });
 
-      tabContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('tab-button')) {
-          selectedTab = e.target.dataset.tab;
+      tabContainer?.addEventListener('click', (e) => {
+        const button = e.target.closest('.tab-button');
+        if (button) {
+          selectedTab = button.dataset.tab;
           document.querySelectorAll('.tab-button').forEach(btn => {
             btn.classList.remove('border-current');
             btn.classList.add('border-transparent');
           });
-          e.target.classList.remove('border-transparent');
-          e.target.classList.add('border-current');
+          button.classList.remove('border-transparent');
+          button.classList.add('border-current');
           applyFilters();
         }
       });
 
-      listViewBtn.addEventListener('click', () => {
+      listViewBtn?.addEventListener('click', () => {
         isBlockView = false;
         updateViewButtons();
         updateResourceList();
       });
 
-      blockViewBtn.addEventListener('click', () => {
+      blockViewBtn?.addEventListener('click', () => {
         isBlockView = true;
         updateViewButtons();
         updateResourceList();
@@ -180,27 +218,38 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
 
     function updateViewButtons() {
       if (isBlockView) {
-        blockViewBtn.classList.add('bg-black', 'text-white');
-        blockViewBtn.classList.remove('bg-gray-300', 'text-black');
-        listViewBtn.classList.remove('bg-black', 'text-white');
-        listViewBtn.classList.add('bg-gray-300', 'text-black');
+        blockViewBtn?.classList.add('bg-black', 'text-white');
+        blockViewBtn?.classList.remove('bg-gray-300', 'text-black');
+        listViewBtn?.classList.remove('bg-black', 'text-white');
+        listViewBtn?.classList.add('bg-gray-300', 'text-black');
       } else {
-        listViewBtn.classList.add('bg-black', 'text-white');
-        listViewBtn.classList.remove('bg-gray-300', 'text-black');
-        blockViewBtn.classList.remove('bg-black', 'text-white');
-        blockViewBtn.classList.add('bg-gray-300', 'text-black');
+        listViewBtn?.classList.add('bg-black', 'text-white');
+        listViewBtn?.classList.remove('bg-gray-300', 'text-black');
+        blockViewBtn?.classList.remove('bg-black', 'text-white');
+        blockViewBtn?.classList.add('bg-gray-300', 'text-black');
       }
     }
 
+    // Fetch resources data
     fetch('/resources.json')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => {
         resources = Array.isArray(data.Sheet1) ? data.Sheet1 : [];
         filteredResources = resources.filter(resource => resource.cluster === 'Business Admin');
         initializeEventListeners();
         updateResourceList();
       })
-      .catch(error => console.error('Error fetching resources:', error));
+      .catch(error => {
+        console.error('Error fetching resources:', error);
+        if (resourceList) {
+          resourceList.innerHTML = '<div class="text-center text-red-500 py-4">Error loading resources. Please try again later.</div>';
+        }
+      });
   }
 
   // Run the initialization function when the DOM is ready
@@ -216,4 +265,3 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
   // If you're using view transitions, you might also want to add this:
   document.addEventListener('astro:page-load', initializeResourcePage);
 </script>
-
