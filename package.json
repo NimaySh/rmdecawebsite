@@ -28,6 +28,7 @@
     "astro-icon": "^1.1.0",
     "limax": "4.1.0",
     "lodash.merge": "^4.6.2",
+    "lucide-react": "^0.453.0",
     "swiper": "^11.1.9",
     "unpic": "^3.18.0"
   },

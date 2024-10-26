@@ -16,15 +16,15 @@ export const headerData = {
       href: getPermalink('/deca101'),
     },
     {
-      text: 'Learn',
+      text: 'Prepare',
       links: [
         {
           text: 'Resources',
           href: ['/resources'],
         },
         {
-          text: 'Live Test',
-          href: ['/live-test'],
+          text: 'Practice Test',
+          href: ['/practice-test'],
         },
       ],
     },
@@ -126,9 +126,11 @@ export const headerData = {
 //      ],
 //    },
   ],
- actions: [{ text: 'Join DECA', 
-              href: 'https://docs.google.com/forms/d/e/1FAIpQLScon8NKldIHd9s-PYxtfF9g-AVJP51jail6gPO83FaG2rKL3Q/viewform', 
-              target: '_blank' }],
+  
+  
+// actions: [{ text: 'Join DECA', 
+//              href: 'https://docs.google.com/forms/d/e/1FAIpQLScon8NKldIHd9s-PYxtfF9g-AVJP51jail6gPO83FaG2rKL3Q/viewform', 
+//              target: '_blank' }],
 };
 
 export const footerData = {

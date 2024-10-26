@@ -1,0 +1,400 @@
+---
+// pages/practice-exam.astro
+import Layout from '~/layouts/PageLayout.astro';
+import { readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+
+const metadata = {
+  title: 'Practice Exam',
+};
+
+// Get the directory path for the current file
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Read questions from test.json during SSR
+const examQuestionsPath = path.join(__dirname, '../../public/test.json');
+const examQuestions = JSON.parse(
+  await readFile(examQuestionsPath, 'utf-8')
+);
+---
+
+<Layout metadata={metadata}>
+  <section class="text-center py-12 md:py-16 bg-blue-50">
+    <div class="inline-block relative">
+      <h1 class="text-4xl md:text-5xl font-bold bg-gradient-title from-blue-800 to-blue-400 bg-clip-text text-transparent mb-1">
+        Live Practice Test
+      </h1>
+    </div>
+    <h2 class="text-lg md:text-xl text-gray-600 max-w-md md:max-w-2xl mx-auto mt-4 leading-relaxed">
+      Take a full-length marketing practice test to prep for regionals!
+    </h2>
+  </section>      
+
+  <div class="max-w-4xl mx-auto px-4 py-8 relative">
+    <!-- Timer (Fixed position) -->
+    <div id="timer-container" class="fixed top-4 right-4 bg-white p-4 rounded-lg shadow-md z-50 hidden">
+      <div class="flex items-center space-x-4">
+        <div id="timer" class="text-xl font-semibold">Time: 9:00</div>
+        <button id="pause-button" class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">
+          Pause
+        </button>
+      </div>
+    </div>
+
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="text-center space-y-6">
+      <div class="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
+        <h2 class="text-2xl font-semibold mb-4">Instructions</h2>
+        <ul class="text-left space-y-3 mb-6">
+          <li>• This is a full-length marketing exam from ICDC</li>
+          <li>• You will have 9 minutes to complete the exam</li>
+          <li>• You may pause the timer at any time</li>
+          <li>• The exam will auto-submit when time expires</li>
+          <li>• Explanations for each question will be provided</li>
+          <li><strong>You will lose your progress if you exit this tab</strong></li>
+        </ul>
+        
+        <button
+          id="start-exam"
+          class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 px-8 rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all text-lg">
+          Start Exam
+        </button>
+      </div>
+    </div>
+
+    <!-- Exam Container -->
+    <div id="exam-container" class="space-y-8 hidden">
+      <h1 class="text-3xl font-bold text-center mb-8">Marketing Practice Exam</h1>
+
+      <form id="exam-form" class="space-y-6">
+        {examQuestions.map((q, index) => (
+          <div class="question-card bg-white p-6 rounded-lg shadow-md">
+            <p class="font-medium mb-4">{q.question}</p>
+            <div class="space-y-2">
+              {['a', 'b', 'c', 'd'].map((option) => (
+                <label class="flex items-center space-x-3 p-2 rounded hover:bg-gray-50 cursor-pointer">
+                  <input
+                    type="radio"
+                    name={`question-${index}`}
+                    value={option}
+                    class="form-radio"
+                  />
+                  <span>{q[option]}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <button
+          type="submit"
+          class="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 px-6 rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all"
+        >
+          Submit Exam
+        </button>
+      </form>
+
+      <!-- Results Section -->
+      <div id="results" class="space-y-6 hidden">
+        <!-- Results Summary -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <div class="flex justify-between items-center">
+            <div>
+              <h2 class="text-2xl font-bold mb-2">Exam Results</h2>
+              <p class="text-lg">Score: <span id="score">0</span>%</p>
+              <p class="text-gray-600 mt-2">Keep practicing to improve your score!</p>
+            </div>
+            <div class="flex gap-4">
+              <a href="#review-section" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+                Review Questions
+              </a>
+              <a href="/resources" class="bg-gray-200 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-300">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Review Section -->
+        <div id="review-section">
+          <!-- Incorrect Answers -->
+          <div id="incorrect-answers" class="space-y-4">
+            <div class="flex justify-between items-center cursor-pointer section-header bg-red-50 p-4 rounded-t-lg" onclick="toggleSection('incorrect-answers-content')">
+              <h3 class="text-xl font-semibold">Questions to Review:</h3>
+              <span class="toggle-icon">▼</span>
+            </div>
+            <div id="incorrect-answers-content"></div>
+          </div>
+
+          <!-- Correct Answers -->
+          <div id="correct-answers" class="space-y-4 mt-8">
+            <div class="flex justify-between items-center cursor-pointer section-header bg-green-50 p-4 rounded-t-lg" onclick="toggleSection('correct-answers-content')">
+              <h3 class="text-xl font-semibold">Correct Answers:</h3>
+              <span class="toggle-icon">▼</span>
+            </div>
+            <div id="correct-answers-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script define:vars={{ examQuestions }}>
+  let examState = {
+    timeLeft: 9 * 60,
+    timer: null,
+    examSubmitted: false,
+    isPaused: false
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleExplanation(elementId) {
+    const content = document.getElementById(elementId);
+    if (content) {
+      content.classList.toggle('hidden');
+      const icon = content.previousElementSibling.querySelector('.toggle-icon');
+      icon.textContent = content.classList.contains('hidden') ? '▼' : '▲';
+    }
+  }
+
+  function toggleSection(sectionId) {
+    const content = document.getElementById(sectionId);
+    if (content) {
+      content.classList.toggle('hidden');
+      const icon = content.parentElement.querySelector('.toggle-icon');
+      icon.textContent = content.classList.contains('hidden') ? '▼' : '▲';
+    }
+  }
+
+  function updateTimer(timerElement) {
+    const minutes = Math.floor(examState.timeLeft / 60);
+    const seconds = examState.timeLeft % 60;
+    const timeString = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+    
+    if (examState.timeLeft <= 300) { // 5 minutes or less
+      timerElement.classList.add('text-red-600');
+    } else {
+      timerElement.classList.remove('text-red-600');
+    }
+    
+    timerElement.textContent = timeString;
+  }
+
+  function cleanupExam() {
+    if (examState.timer) {
+      clearInterval(examState.timer);
+      examState.timer = null;
+    }
+  }
+
+  function initializeExam() {
+    // Clean up any existing state
+    cleanupExam();
+    
+    // Reset the state
+    examState = {
+      timeLeft: 9 * 60,
+      timer: null,
+      examSubmitted: false,
+      isPaused: false
+    };
+
+    // Get DOM elements
+    const timerContainer = document.getElementById('timer-container');
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const examContainer = document.getElementById('exam-container');
+    const examForm = document.getElementById('exam-form');
+    const pauseButton = document.getElementById('pause-button');
+    const startButton = document.getElementById('start-exam');
+    const resultsDiv = document.getElementById('results');
+
+    // Reset UI state
+    if (welcomeScreen) welcomeScreen.classList.remove('hidden');
+    if (examContainer) examContainer.classList.add('hidden');
+    if (timerContainer) timerContainer.classList.add('hidden');
+    if (resultsDiv) {
+      resultsDiv.classList.add('hidden');
+      resultsDiv.style.removeProperty('display');
+    }
+    if (examForm) examForm.style.removeProperty('display');
+
+    function startExam() {
+      scrollToTop();
+      welcomeScreen?.classList.add('hidden');
+      examContainer?.classList.remove('hidden');
+      timerContainer?.classList.remove('hidden');
+      startTimer();
+    }
+
+    function togglePause() {
+      examState.isPaused = !examState.isPaused;
+      if (pauseButton) {
+        pauseButton.textContent = examState.isPaused ? 'Resume' : 'Pause';
+      }
+      if (examState.isPaused) {
+        clearInterval(examState.timer);
+        examState.timer = null;
+      } else {
+        startTimer();
+      }
+    }
+
+    function startTimer() {
+      if (examState.timer) {
+        clearInterval(examState.timer);
+      }
+      
+      const timerElement = document.getElementById('timer');
+      
+      examState.timer = setInterval(() => {
+        if (!examState.isPaused) {
+          examState.timeLeft--;
+          updateTimer(timerElement);
+          
+          if (examState.timeLeft <= 0) {
+            submitExam();
+          }
+        }
+      }, 1000);
+    }
+
+    function submitExam(event) {
+      if (event) {
+        event.preventDefault();
+      }
+      
+      if (examState.examSubmitted) return;
+      
+      scrollToTop();
+      examState.examSubmitted = true;
+      cleanupExam();
+      
+      if (timerContainer) {
+        timerContainer.classList.add('hidden');
+      }
+
+      const answers = [];
+      const questions = document.querySelectorAll('.question-card');
+      
+      questions.forEach((question, index) => {
+        const selected = question.querySelector('input[type="radio"]:checked')?.value;
+        answers.push({
+          questionIndex: index,
+          selected: selected || null,
+          correct: examQuestions[index].correct.toLowerCase()
+        });
+      });
+
+      displayResults(answers);
+    }
+
+function displayResults(answers) {
+  const examForm = document.getElementById('exam-form');
+  const resultsDiv = document.getElementById('results');
+  const incorrectAnswersContent = document.getElementById('incorrect-answers-content');
+  const correctAnswersContent = document.getElementById('correct-answers-content');
+  const scoreSpan = document.getElementById('score');
+
+  // Calculate score
+  const correctAnswers = answers.filter(a => a.selected === a.correct).length;
+  const score = Math.round((correctAnswers / answers.length) * 100);
+
+  // Update score display
+  if (scoreSpan) {
+    scoreSpan.textContent = score.toString();
+  }
+
+  // Hide exam form and show results
+  if (examForm) {
+    examForm.style.display = 'none';
+  }
+
+  if (resultsDiv) {
+    resultsDiv.classList.remove('hidden');
+    resultsDiv.style.display = 'block';
+  }
+
+  // Display incorrect answers with explanations
+  if (incorrectAnswersContent) {
+    const incorrectAnswers = answers.filter(a => a.selected !== a.correct);
+    incorrectAnswersContent.innerHTML = incorrectAnswers.map((answer, idx) => {
+      const questionData = examQuestions[answer.questionIndex];
+      return `
+        <div class="bg-red-50 p-4 rounded-lg mb-4">
+          <div class="flex justify-between items-center cursor-pointer" onclick="toggleExplanation('incorrect-${idx}')">
+            <p class="font-medium">${questionData.question}</p>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div id="incorrect-${idx}" class="hidden">
+            ${['a', 'b', 'c', 'd'].map(option => `
+              <p class="${option === questionData.correct ? 'text-green-600 font-bold' : 'text-gray-800'}">
+                ${option.toUpperCase()}. ${questionData[option]}
+              </p>
+            `).join('')}
+            <p class="mt-4"><strong>Explanation:</strong> ${questionData.explanation}</p>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  // Display correct answers with explanations
+  if (correctAnswersContent) {
+    const correctAnswers = answers.filter(a => a.selected === a.correct);
+    correctAnswersContent.innerHTML = correctAnswers.map((answer, idx) => {
+      const questionData = examQuestions[answer.questionIndex];
+      return `
+        <div class="bg-green-50 p-4 rounded-lg mb-4">
+          <div class="flex justify-between items-center cursor-pointer" onclick="toggleExplanation('correct-${idx}')">
+            <p class="font-medium">${questionData.question}</p>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div id="correct-${idx}" class="hidden">
+            ${['a', 'b', 'c', 'd'].map(option => `
+              <p class="${option === questionData.correct ? 'text-green-600 font-bold' : 'text-gray-800'}">
+                ${option.toUpperCase()}. ${questionData[option]}
+              </p>
+            `).join('')}
+            <p class="mt-4"><strong>Explanation:</strong> ${questionData.explanation}</p>
+          </div>
+        </div>`;
+    }).join('');
+  }
+}
+
+
+    // Remove any existing event listeners
+    startButton?.removeEventListener('click', startExam);
+    pauseButton?.removeEventListener('click', togglePause);
+    examForm?.removeEventListener('submit', submitExam);
+
+    // Add new event listeners
+    startButton?.addEventListener('click', startExam);
+    pauseButton?.addEventListener('click', togglePause);
+    examForm?.addEventListener('submit', submitExam);
+  }
+
+  // Initialize on first load
+  document.addEventListener('DOMContentLoaded', initializeExam);
+
+  // Clean up when navigating away
+  document.addEventListener('astro:before-preparation', cleanupExam);
+
+  // Re-initialize on navigation
+  document.addEventListener('astro:page-load', initializeExam);
+
+  // Handle back/forward navigation
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      initializeExam();
+    }
+  });
+  
+  
+</script>
+</Layout>
