@@ -6,7 +6,7 @@ const metadata = {
   title: 'Resources',
 };
 
-const filterOptions = ['Sample Roleplay', 'Practice Test', 'Quizlet', 'Other'];
+const filterOptions = ['Sample Roleplay', 'Practice Test', 'Quizlet', 'Study Guide', 'Other'];
 const tabOptions = ['Business Admin', 'Entrepreneurship', 'Finance', 'Hospitality & Tourism', 'Marketing', 'Personal Financial Literacy'];
 const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-finance', 'text-hospitality-tourism', 'text-marketing', 'text-personal-financial-literacy'];
 ---
@@ -76,6 +76,27 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
     </div>
   </div>
 </Layout>
+
+<style>
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-wrap {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  
+  .tab-button {
+    scroll-snap-align: start;
+  }
+</style>
 
 <script>
   function initializeResourcePage() {
@@ -169,13 +190,13 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
     }
 
     function applyFilters() {
-      filteredResources = resources.filter(resource => {
-        const typeMatch = selectedFilters.length === 0 || selectedFilters.includes(resource.type);
-        const clusterMatch = resource.cluster === selectedTab;
-        return typeMatch && clusterMatch;
-      });
-      updateResourceList();
-    }
+    filteredResources = resources.filter(resource => {
+      const typeMatch = selectedFilters.length === 0 || selectedFilters.includes(resource.type);
+      const clusterMatch = resource.cluster === selectedTab;
+      return typeMatch && clusterMatch;
+    });
+    updateResourceList();
+  }
 
     function initializeEventListeners() {
       document.querySelectorAll('input[name="filter"]').forEach(checkbox => {

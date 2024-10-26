@@ -1,22 +1,40 @@
 {
   "Sheet1": [
     {
-      "name": "Entrepreneurship Series Sample Roleplay 2024 (1)",
+      "name": "Entrepreneurship Cluster Exam 2024",
+      "type": "Practice Test",
+      "cluster": "Entrepreneurship",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df4655119eda9d94bed97e_HS_Entrepreneurship_Sample_Exam_24.pdf"
+    },
+    {
+      "name": "Entrepreneurship Series 2024",
       "type": "Sample Roleplay",
       "cluster": "Entrepreneurship",
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcdc39f0df8b7a80fd8a04_DECA_ENT_2024_District_Event_1.pdf"
     },
     {
-      "name": "Entrepreneurship Series Sample Roelplay 2024 (2)",
+      "name": "Entrepreneurship Team Decision Making 2024",
       "type": "Sample Roleplay",
       "cluster": "Entrepreneurship",
-      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcdbdc9386043358922a77_DECA_ENT_2024_District_Event_2.pdf"
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dca6718bb551f553b7d6f4_DECA_ETDM_2024_District_Event.pdf"
     },
     {
-      "name": "Entrepreneurship Cluster Exam 2024",
-      "type": "Practice Test",
+      "name": "Principles of Entrepreneurship 2024",
+      "type": "Sample Roleplay",
       "cluster": "Entrepreneurship",
-      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df4655119eda9d94bed97e_HS_Entrepreneurship_Sample_Exam_24.pdf"
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/66351527008c44d45e7bcf9a_DECA_PEN_Sample_Event.pdf"
+    },
+    {
+      "name": "Performance Indicators Quizlet",
+      "type": "Quizlet",
+      "cluster": "Entrepreneurship",
+      "link": "https://quizlet.com/777675075/deca-entrepeneurship-performance-indicators-pis-flash-cards/"
+    },
+    {
+      "name": "Buisness Administration Study Guide",
+      "type": "Study Guide",
+      "cluster": "Business Admin",
+      "link": "https://drive.google.com/file/d/1gvnor3m07E8M-yTDG_xPT07d6CW2klSF/view?usp=drive_link"
     },
     {
       "name": "Buisness Administration Cluster Exam 2024",
@@ -25,10 +43,34 @@
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df472e70f0de9ce043e49a_HS_Business_Management_Cluster_Sample_Exam_24.pdf"
     },
     {
-      "name": "Buisness Law & Ethics Sample Roleplay 2024",
+      "name": "Buisness Law & Ethics 2024",
       "type": "Sample Roleplay",
       "cluster": "Business Admin",
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dca740622fb7dc57b6d180_DECA_BLTDM_2024_District_Event.pdf"
+    },
+    {
+      "name": "Human Resources Management 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Business Admin",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcd80b1f7465420907adbc_DECA_HRM_2024_District_Event_1.pdf"
+    },
+    {
+      "name": "Principles of Buisness Management & Administration 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Business Admin",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65e2139d190a5c9517f35782_DECA_PBM_2024_District_Event.pdf"
+    },
+    {
+      "name": "Performance Indicators Quizlet",
+      "type": "Quizlet",
+      "cluster": "Business Admin",
+      "link": "https://quizlet.com/199981187/deca-business-administration-core-performance-indicators-flash-cards/"
+    },
+    {
+      "name": "Finance Study Guide",
+      "type": "Study Guide",
+      "cluster": "Finance",
+      "link": "https://drive.google.com/file/d/11TTGkNN5DrASsEoTY02XiZJT26ccOiMo/view?usp=drive_link"
     },
     {
       "name": "Finance Cluster Exam 2024",
@@ -37,10 +79,40 @@
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df466d6a2308ca0ec22693_HS_Finance_Cluster_Sample_Exam_24.pdf"
     },
     {
-      "name": "Buisness Finance Roleplay 2024",
+      "name": "Accounting Applications 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Finance",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dce381c54fb417604c9c8a_DECA_ACT_2024_District_Event_2.pdf"
+    },
+    {
+      "name": "Buisness Finance 2024",
       "type": "Sample Roleplay",
       "cluster": "Finance",
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dce1f09b73715bb850d70a_DECA_BFS_2024_District_Event_2.pdf"
+    },
+    {
+      "name": "Financial Services Team Decision Making 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Finance",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dca63bcb761d412507b2fe_DECA_FTDM_2024_District_Event.pdf"
+    },
+    {
+      "name": "Principles of Finance 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Finance",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dca888517b1fd383e5e6f2_DECA_PFN_2024_District_Event.pdf"
+    },
+    {
+      "name": "Performance Indicators Quizlet",
+      "type": "Quizlet",
+      "cluster": "Finance",
+      "link": "https://quizlet.com/250648333/finance-deca-performance-indicators-flash-cards/"
+    },
+    {
+      "name": "Hospitality & Tourism Study Guide",
+      "type": "Study Guide",
+      "cluster": "Hospitality & Tourism",
+      "link": "https://drive.google.com/file/d/1WdWZb3ETNadQhYVjUCiOFIpU_TbK5YQV/view?usp=drive_link"
     },
     {
       "name": "Hospitality & Tourism Cluster Exam 2024",
@@ -49,16 +121,100 @@
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df456cc893216a14f3663d_HS_Hospitality_Tourism_Cluster_Sample_Exam_24.pdf"
     },
     {
+      "name": "Hospitality Services Team Decision Making 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Hospitality & Tourism",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dca5ed308eb9bf64e427c0_DECA_HTDM_2024_District_Event.pdf"
+    },
+    {
+      "name": "Hotel & Lodging Management 2024 ",
+      "type": "Sample Roleplay",
+      "cluster": "Hospitality & Tourism",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcd77b77bfeab621ab2d5a_DECA_HLM_2024_District_Event_1.pdf"
+    },
+    {
+      "name": "Principles of Hospitality & Tourism 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Hospitality & Tourism",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dca85382f4a53d97fe8596_DECA_PHT_2024_District_Event.pdf"
+    },
+    {
+      "name": "Quick Serve Restaurant Management 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Hospitality & Tourism",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcaf81d748029bb2a57bcb_DECA_QSRM_2024_District_Event_1.pdf"
+    },
+    {
+      "name": "Restaurant & Food Service Management 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Hospitality & Tourism",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcaeb2713f8a6c5be6953c_DECA_RFSM_2024_District_Event_2.pdf"
+    },
+    {
+      "name": "Travel & Tourism Team Decision Making 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Hospitality & Tourism",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dca5266031994507dbddbf_DECA_TTDM_2024_District_Event.pdf"
+    },
+    {
+      "name": "Performance Indicators Quizlet",
+      "type": "Quizlet",
+      "cluster": "Hospitality & Tourism",
+      "link": "https://quizlet.com/214600833/deca-principles-of-hospitality-and-tourism-instructional-areas-performance-indicators-detailed-flash-cards/"
+    },
+    {
+      "name": "Marketing Study Guide",
+      "type": "Study Guide",
+      "cluster": "Marketing",
+      "link": "https://drive.google.com/file/d/14CLrpGIJUPRkWLOQ6k_ktBQHnDW3LizA/view?usp=drive_link"
+    },
+    {
       "name": "Marketing Cluster Exam 2024",
       "type": "Practice Test",
       "cluster": "Marketing",
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df42a3765c3c9af7ef6459_HS_Marketing_Cluster_Sample_Exam_24.pdf"
     },
     {
-      "name": "Marketing Communications Sample Roleplay 2024",
+      "name": "Marketing Communications 2024",
       "type": "Sample Roleplay",
       "cluster": "Marketing",
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcb0655e623028e2a94110_DECA_MCS_2024_District_Event_1.pdf"
+    },
+    {
+      "name": "Apparel & Accesories Marketing 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Marketing",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcd8f51785ad8b1c127de6_DECA_AAM_2024_District_Event_1.pdf"
+    },
+    {
+      "name": "Automotive Services Marketing 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Marketing",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dce34a35afbeca4a0257e7_DECA_ASM_2024_District_Event_1.pdf"
+    },
+    {
+      "name": "Business Services Marketing 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Marketing",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcdc7e938604335892b6fe_DECA_BSM_2024_District_Event_1.pdf"
+    },
+    {
+      "name": "Buying & Merchandising Team Decision Making 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Marketing",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dca6ff82f4a53d97fd400b_DECA_BTDM_2024_District_Event.pdf"
+    },
+    {
+      "name": "Food Marketing 2024",
+      "type": "Sample Roleplay",
+      "cluster": "Marketing",
+      "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dcd8a76d70615de417f185_DECA_FMS_2024_District_Event_1.pdf"
+    },
+    {
+      "name": "Performance Indicators Quizlet",
+      "type": "Quizlet",
+      "cluster": "Marketing",
+      "link": "https://quizlet.com/241117843/deca-marketing-performance-indicators-flash-cards/"
     },
     {
       "name": "Personal Financial Literacy Cluster Exam 2024",
@@ -67,10 +223,16 @@
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65df42888df75e7ada201bcd_HS_Personal_Financial_Literacy_Sample_Exam_24.pdf"
     },
     {
-      "name": "Personal Financial Literacy Sample Roleplay 2024",
+      "name": "Personal Financial Literacy 2024",
       "type": "Sample Roleplay",
       "cluster": "Personal Financial Literacy",
       "link": "https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65dca78f3bd9ae1d3a3fd612_DECA_PFL_2024_District_Event.pdf"
+    },
+    {
+      "name": "Performance Indicators Quizlet",
+      "type": "Quizlet",
+      "cluster": "Personal Financial Literacy",
+      "link": "https://quizlet.com/412457515/deca-personal-financial-literacy-flash-cards/"
     }
   ]
 }

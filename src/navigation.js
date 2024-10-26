@@ -16,9 +16,19 @@ export const headerData = {
       href: getPermalink('/deca101'),
     },
     {
-      text: 'Resources',
-      href: ['/resources']
+      text: 'Learn',
+      links: [
+        {
+          text: 'Resources',
+          href: ['/resources'],
+        },
+        {
+          text: 'Live Test',
+          href: ['/live-test'],
+        },
+      ],
     },
+    
     
     {
       text: 'Contact',
