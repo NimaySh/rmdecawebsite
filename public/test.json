@@ -2,9 +2,9 @@
     {
       "question": "1. How can researchers protect the integrity of the marketing information they collect?",
       "a": "A. By interpreting it correctly",
-      "b": "B. By organizing it logically",
-      "c": "C. By publishing it openly",
-      "d": "D. By reviewing it frequently",
+      "b": "B. By organizing it logically\r\n",
+      "c": "C. By publishing it openly\r\n",
+      "d": "D. By reviewing it frequently\r\n",
       "correct": "A",
       "explanation": "By interpreting it correctly. Marketing-information managers can protect the integrity of the information they\r\ncollect by interpreting it correctly and not manipulating it in such a way that it agrees with a predetermined\r\nconclusion. Protecting the integrity of marketing information is sometimes difficult because researchers often\r\ncan make the information support either side of an issue depending on how they interpret it. Most researchers\r\ntry to interpret the information correctly because consumers are sometimes suspicious of research findings that\r\nseem to support the opinions of the business that sponsors the research. Researchers do not protect the\r\nintegrity of marketing information by reviewing it frequently, publishing it openly, or organizing it logically.\r\nSOURCE: IM:025 Explain the role of ethics in marketing-information management\r\nSOURCE: Fuggle, L. (2021, June 24). The importance of data integrity for business. Retrieved August 2, 2023,\r\nfrom https://blog.hubspot.com/website/data-integrity"
     },
@@ -24,7 +24,7 @@
       "c": "C. unsolicited junk mail.",
       "d": "D. opt-in email.",
       "correct": "D",
-      "explanation": "Opt-in email. Opt-in email refers to the electronic promotional messages that are sent with a recipient's\r\npermission and allows the recipient to request removal from the subscriber list at any time. Opt-in email is a\r\ngood way for a business to promote goods and services because it allows the business to send information to\r\ncustomers who request the information. This method is also a quick and inexpensive way to send promotional\r\nmessages. Unsolicited junk mail refers to promotional messages that customers do not request. Cookies are\r\ntext files that are put on a website visitor's computer hard drive and then later retrieved during subsequent visits\r\nto the site in order to track internet behavior. Instant messaging is the ability to send, receive, and respond to\r\ncomputer messages in real-time.\r\nSOURCE: PR:100 Describe the use of technology in the promotion function\r\nSOURCE: Kajabi. (2023). What is opt-in email marketing: Definition, example, and template. Retrieved August\r\n3, 2023, from https://kajabi.com/blog/what-is-opt-in-email-marketing-definition-example-and-template\r"
+      "explanation": "Opt-in email. Opt-in email refers to the electronic promotional messages that are sent with a recipient's\r\npermission and allows the recipient to request removal from the subscriber list at any time. Opt-in email is a\r\ngood way for a business to promote goods and services because it allows the business to send information to\r\ncustomers who request the information. This method is also a quick and inexpensive way to send promotional\r\nmessages. Unsolicited junk mail refers to promotional messages that customers do not request. Cookies are\r\ntext files that are put on a website visitor's computer hard drive and then later retrieved during subsequent visits\r\nto the site in order to track internet behavior. Instant messaging is the ability to send, receive, and respond to\r\ncomputer messages in real-time.\r\nSOURCE: PR:100 Describe the use of technology in the promotion function\r\nSOURCE: Kajabi. (2023). What is opt-in email marketing: Definition, example, and template. Retrieved August\r\n3, 2023, from https://kajabi.com/blog/what-is-opt-in-email-marketing-definition-example-and-template\r\n"
     },
     {
       "question": "4. Daily tasks that affect your appearance, such as dental care, showering, and applying deodorant, are an\r\nimportant aspect of your",
@@ -51,7 +51,7 @@
       "c": "C. challenge the bank's authority.",
       "d": "D. incur fees and penalties.",
       "correct": "D",
-      "explanation": "Incur fees and penalties. If you are not aware of the deposits and purchases in your checking account, you\r\nmight incur fees and penalties for overdrawing your account or having a check bounce. Not keeping up with\r\nyour checking account balance will not necessarily lead to having your identity stolen. You will not prevent\r\nfraudulent charges or challenge the bank's authority by not keeping up with the balance of your checking\r\naccount.\r\nSOURCE: FI:069 Maintain financial records\r\nSOURCE: Tropical Financial Credit Union. (2023, August 2). Tips to keep your checking account balanced.\r\nRetrieved August 2, 2023, from https://www.tropicalfcu.com/blog/tips-to-keep-your-checkingaccount-balanced\r"
+      "explanation": "Incur fees and penalties. If you are not aware of the deposits and purchases in your checking account, you\r\nmight incur fees and penalties for overdrawing your account or having a check bounce. Not keeping up with\r\nyour checking account balance will not necessarily lead to having your identity stolen. You will not prevent\r\nfraudulent charges or challenge the bank's authority by not keeping up with the balance of your checking\r\naccount.\r\nSOURCE: FI:069 Maintain financial records\r\nSOURCE: Tropical Financial Credit Union. (2023, August 2). Tips to keep your checking account balanced.\r\nRetrieved August 2, 2023, from https://www.tropicalfcu.com/blog/tips-to-keep-your-checkingaccount-balanced\r\n"
     },
     {
       "question": "7. What best describes the goal of amplified word-of-mouth promotion?",
@@ -88,6 +88,95 @@
       "d": "D. coordinate a regional advertising campaign.",
       "correct": "D",
       "explanation": "Coordinate a regional advertising campaign. Channel members are all of the businesses and individuals that\r\nassist in moving goods and services from the producer to the consumer. In many situations, producers will\r\nassist other channel members (e.g., dealers, distributors, retailers) in sales promotions. One way to assist\r\nchannel members planning a sales promotion in a certain area is by providing resources (e.g., money, product\r\nsamples) to develop an advertising campaign. The goal of the advertising campaign is to communicate\r\ninformation about the sales promotion to consumers in order to stimulate interest and sales. The producer may\r\nprovide assistance by developing new products and identifying market trends, but these activities do not relate\r\nto a specific sales promotion. An accounting system refers to the methods and procedures a business uses in\r\nhandling its financial information.\r\nSOURCE: CM:007 Coordinate channel management with other marketing activities\r\nSOURCE: Featured. (2023, January 5). Why is channel management important for successful marketing?\r\nRetrieved August 2, 2023, from https://blog.featured.com/why-is-channel-management-important-forsuccessful-marketing/"
+    },
+    {
+      "question": "11. Marketers use data to determine pricing strategies such as",
+      "a": "A. what products to offer",
+      "b": "B. how much of the product to create",
+      "c": "C. how much to spend on advertising.",
+      "d": "D. when to offer a discount on the product.",
+      "correct": "D",
+      "explanation": "When to offer a discount on the product. Pricing strategies include determining what to charge for a product and\r\nalso determining when to adjust the product's price by either raising it or offering a discount. Determining how\r\nmuch to spend on advertising is a promotional decision. Determining how much of the product to create is a\r\ndistribution or place decision. Determining what products to offer is a product decision.\r\nSOURCE: IM:012 Describe the need for marketing data\r\nSOURCE: LAP-IM-012—Data Do It (Need for Marketing Data)\r\n"
+    },
+    {
+      "question": "12. The main tools used in synectics, a creative-thinking technique, are",
+      "a": "A. different colored hats.",
+      "b": "B. mind maps.",
+      "c": "C. metaphors and analogies.",
+      "d": "D. brainstorming groups.",
+      "correct": "C",
+      "explanation": "Metaphors and analogies. Creative thinking involves making connections among things. By using metaphors and analogies in different synectics techniques, people can begin to see relationships among things. Use of different colored hats occurs with the Six Thinking Hats technique. Mind maps involve the use of a big sheet of paper on which you'd write a topic in the middle of the page and draw associations with related words. With brainstorming, people throw out their ideas to the group without evaluating the quality of the ideas. SOURCE: PM:127 Identify methods/techniques to generate a product idea SOURCE: LAP-PM-127—Unleash Your Mind (Techniques for Generating Product Ideas)"
+    },
+    {
+      "question": "13. Which of the following is a benefit of whole life insurance:",
+      "a": "A. The policyholder earns interest at current rates.",
+      "b": "B. It combines death benefits with a savings plan.",
+      "c": "C. The policyholder can borrow the policy's cash value.",
+      "d": "D. It has lower premiums than term insurance",
+      "correct": "C",
+      "explanation": "The policyholder can borrow the policy's cash value. A whole life insurance policy builds cash value as the policyholder pays premiums at regular intervals. If, at some point, the policyholder needs a loan, they can borrow the cash value of the policy. Universal life insurance combines death benefits with an investment and savings plan that earns interest at current market rates. Whole life insurance rates are higher than term insurance rates because term insurance only pays death benefits if the policyholder dies during the set period of time covered by the policy. SOURCE: FI:081 Describe the concept of insurance SOURCE: Rose, G. (2023, May 10). Term life vs. whole life insurance: Differences and how to choose. Retrieved August 2, 2023, from https://www.nerdwallet.com/article/insurance/term-vs-whole-lifeinsurance"
+    },
+    {
+      "question": "14. In relation to product grades and standards, why is international standardization needed?",
+      "a": "A. To protect patents, copyrights, and trademarks",
+      "b": "B. To prevent market expansion",
+      "c": "C. To protect developing countries from competition",
+      "d": "D. To prevent technical barriers to trade",
+      "correct": "D",
+      "explanation": "To prevent technical barriers to trade. By establishing worldwide industry standards, technical barriers to trade are minimized because products meet the same standards. This encourages competition between countries and increases markets. Standards also economically assist developing countries by improving productivity, market competitiveness, and export capability. International standards do not affect patents, copyrights, or trademarks. SOURCE: PM:019 Describe the uses of grades and standards in marketing SOURCE: International Organization for Standardization. (2023, March 13). Benefits of standards. Retrieved August 3, 2023, from https://www.iso.org/benefits-of-standards.html"
+    },
+    {
+      "question": "15. A large car manufacturer purchases materials that it will use to create parts for vehicles. The car manufacturer is a(n)",
+      "a": "A. retailer",
+      "b": "B. agent.",
+      "c": "C. wholesaler.",
+      "d": "D. industrial user.",
+      "correct": "D",
+      "explanation": "Industrial user. An industrial user is a business that buys materials, services, or goods that will be used to make other goods or which will be used in the operation of the company. A retailer is a business that buys goods and sells them to the final consumer. Agents are intermediaries who assist in the sale of goods but do not take title to them. Wholesalers are intermediaries who buy goods from producers or agents and resell them to other businesses. SOURCE: CM:003 Explain the nature of channels of distribution SOURCE: LAP-CM-003—Channel It (Channels of Distribution)"
+    },
+    {
+      "question": "16. Which of the following best explains the relationship of intrinsic and extrinsic motivation in most developed countries:",
+      "a": "A. Intrinsic motivation is generally more effective than extrinsic motivation.",
+      "b": "B. Intrinsic motivation and extrinsic motivation are equally effective.",
+      "c": "C. Extrinsic motivation and intrinsic motivation are not effective.",
+      "d": "D. Extrinsic motivation is generally more effective than intrinsic motivation.",
+      "correct": "A",
+      "explanation": "Intrinsic motivation is generally more effective than extrinsic motivation. Intrinsic motivation comes from within the individual and is a result of the work or task itself. Extrinsic motivation comes from outside the individual and their work or task. In most developed countries, people tend to have access to basic necessities like food and shelter. As a result, extrinsic motivation isn't as effective as intrinsic motivation. SOURCE: EI:059 Motivate team members SOURCE: LAP-EI-059—Raise Them Up (Motivating Others)"
+    },
+    {
+      "question": "17. Which of the following activities typically occurs during new employee orientation:",
+      "a": "A. Contact with the employee's references",
+      "b": "B. A tour of the business",
+      "c": "C. A review of the employee's resume",
+      "d": "D. A performance appraisal",
+      "correct": "B",
+      "explanation": "A tour of the business. New employee orientation usually includes activities that will provide new employees with information about the business. Orientation also helps put new employees at ease and helps eliminate many of their anxieties about their new surroundings. Reviewing the employee's resume and contacting the employee's references are usually done before the business hires the employee. A performance appraisal is a tool that evaluates how well the employee performs their job duties. Employees receive performance appraisals after they have worked for a certain amount of time."
+    },
+    {
+      "question": "18. A characteristic of the growth stage of a product's life cycle is",
+      "a": "A. beginning obsolescence.",
+      "b": "B. rising sales",
+      "c": "C. increasing costs",
+      "d": "D. declining distribution.",
+      "correct": "B",
+      "explanation": "Rising sales. A product in the growth stage of the product life cycle has been accepted by consumers, and sales are increasing. Product production is more efficient at this stage, resulting in lower costs of production. Distribution expands as the market expands. Obsolescence does not begin until the product is in late maturity or decline. SOURCE: PM:024 Identify the impact of product life cycles on marketing decisions SOURCE: Kopp, C.M. (2023, March 16). Product life cycle explained: Stage and examples. Retrieved August 3, 2023, from https://www.investopedia.com/terms/p/product-life-cycle.asp"
+    },
+    {
+      "question": "19. Effective budgets should always be",
+      "a": "A. secretive.",
+      "b": "B. evaluated.",
+      "c": "C. optimistic.",
+      "d": "C. optimistic.",
+      "correct": "B",
+      "explanation": "Evaluated. An effective budget is one that is evaluated regularly. The real value of a budget comes in using it to assess the company's progress in achieving its goals. A budget must be evaluated from time to time to move the business forward. Budgets should not be optimistic; rather, they should be realistic. It's important to base budgets on realistic estimates. If a business isn't honest with its budget, the budget won't be very helpful. Because budgets are estimates, it's crucial that they remain flexible. There will always be factors outside a business's control that may require a change in the budget. Budgets shouldn't be secretive; instead, they should be clearly communicated with all employees. When each person in the company is aware of their effect on the company's profits, they will be more motivated to be cost-conscious. SOURCE: FI:106 Describe the nature of budgets SOURCE: LAP-FI-106—Money Tracks (Nature of Budgets)"
+    },
+    {
+      "question": "20. Marissa's new business venture failed because she did not want to work the long hours required to get the business up and running. Marissa lacked",
+      "a": "A. personal commitment.",
+      "b": "B. financial resources.",
+      "c": "C. problem-solving skills.",
+      "d": "D. self-confidence",
+      "correct": "A",
+      "explanation": "Personal commitment. New business ventures require owners to work long and irregular hours to get their businesses up and running. This often interferes with their personal and family time. If a business owner is not willing to commit their time and energy to the venture, the venture is likely to fail. There is not enough information about Marissa's financial resources, her level of self-confidence, or her ability to effectively solve problems to determine if these factors played a role in the failure of her business. SOURCE: PD:066 Explain career opportunities in entrepreneurship SOURCE: LAP-PD-066—Own Your Own (Career Opportunities in Entrepreneurship)"
     }
   ]
-
