@@ -70,7 +70,7 @@ const examQuestions = JSON.parse(
       
       <form id="exam-form" class="space-y-6">
         {examQuestions.map((q, index) => (
-          <div class="question-card bg-white p-6 rounded-lg shadow-md">
+          <div class="question-card bg-white p-6 rounded-lg">
             <p class="font-medium mb-4">{q.question}</p>
             <div class="space-y-2">
               {['a', 'b', 'c', 'd'].map((option) => (
