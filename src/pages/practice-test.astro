@@ -58,7 +58,7 @@ const examQuestions = JSON.parse(
         
         <button
           id="start-exam"
-          class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 px-8 rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all text-lg">
+          class="bg-gradient-to-r from-blue-800 to-blue-400 text-white py-3 px-8 rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all text-lg">
           Start Exam
         </button>
       </div>
@@ -67,7 +67,7 @@ const examQuestions = JSON.parse(
     <!-- Exam Container -->
     <div id="exam-container" class="space-y-8 hidden">
       <h1 class="text-3xl font-bold text-center mb-8">Marketing Practice Exam</h1>
-
+      
       <form id="exam-form" class="space-y-6">
         {examQuestions.map((q, index) => (
           <div class="question-card bg-white p-6 rounded-lg shadow-md">
@@ -90,7 +90,7 @@ const examQuestions = JSON.parse(
 
         <button
           type="submit"
-          class="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 px-6 rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all"
+          class="w-full bg-gradient-to-r from-blue-800 to-blue-400 text-white py-3 px-6 rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all"
         >
           Submit Exam
         </button>
@@ -104,14 +104,14 @@ const examQuestions = JSON.parse(
             <div>
               <h2 class="text-2xl font-bold mb-2">Exam Results</h2>
               <p class="text-lg">Score: <span id="score">0</span>%</p>
-              <p class="text-gray-600 mt-2">Keep practicing to improve your score!</p>
+              <p class="text-gray-600 mt-2">Congratulations!</p>
             </div>
             <div class="flex gap-4">
               <a href="#review-section" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
                 Review Questions
               </a>
               <a href="/resources" class="bg-gray-200 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-300">
-                Learn More
+                Practice More
               </a>
             </div>
           </div>
@@ -121,7 +121,7 @@ const examQuestions = JSON.parse(
         <div id="review-section">
           <!-- Incorrect Answers -->
           <div id="incorrect-answers" class="space-y-4">
-            <div class="flex justify-between items-center cursor-pointer section-header bg-red-50 p-4 rounded-t-lg" onclick="toggleSection('incorrect-answers-content')">
+            <div class="flex justify-between items-center cursor-pointer section-header bg-red-50 p-4 rounded-t-lg">
               <h3 class="text-xl font-semibold">Questions to Review:</h3>
               <span class="toggle-icon">▼</span>
             </div>
@@ -130,7 +130,7 @@ const examQuestions = JSON.parse(
 
           <!-- Correct Answers -->
           <div id="correct-answers" class="space-y-4 mt-8">
-            <div class="flex justify-between items-center cursor-pointer section-header bg-green-50 p-4 rounded-t-lg" onclick="toggleSection('correct-answers-content')">
+            <div class="flex justify-between items-center cursor-pointer section-header bg-green-50 p-4 rounded-t-lg">
               <h3 class="text-xl font-semibold">Correct Answers:</h3>
               <span class="toggle-icon">▼</span>
             </div>
@@ -143,6 +143,25 @@ const examQuestions = JSON.parse(
 </Layout>
 
 <script define:vars={{ examQuestions }}>
+  // First, declare the toggle functions in the global scope
+  window.toggleExplanation = function(elementId) {
+    const content = document.getElementById(elementId);
+    if (content) {
+      content.classList.toggle('hidden');
+      const icon = content.previousElementSibling.querySelector('.toggle-icon');
+      icon.textContent = content.classList.contains('hidden') ? '▼' : '▲';
+    }
+  };
+
+  window.toggleSection = function(sectionId) {
+    const content = document.getElementById(sectionId);
+    if (content) {
+      content.classList.toggle('hidden');
+      const icon = content.parentElement.querySelector('.toggle-icon');
+      icon.textContent = content.classList.contains('hidden') ? '▼' : '▲';
+    }
+  };
+
   let examState = {
     timeLeft: 9 * 60,
     timer: null,
@@ -154,30 +173,12 @@ const examQuestions = JSON.parse(
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function toggleExplanation(elementId) {
-    const content = document.getElementById(elementId);
-    if (content) {
-      content.classList.toggle('hidden');
-      const icon = content.previousElementSibling.querySelector('.toggle-icon');
-      icon.textContent = content.classList.contains('hidden') ? '▼' : '▲';
-    }
-  }
-
-  function toggleSection(sectionId) {
-    const content = document.getElementById(sectionId);
-    if (content) {
-      content.classList.toggle('hidden');
-      const icon = content.parentElement.querySelector('.toggle-icon');
-      icon.textContent = content.classList.contains('hidden') ? '▼' : '▲';
-    }
-  }
-
   function updateTimer(timerElement) {
     const minutes = Math.floor(examState.timeLeft / 60);
     const seconds = examState.timeLeft % 60;
     const timeString = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
     
-    if (examState.timeLeft <= 300) { // 5 minutes or less
+    if (examState.timeLeft <= 300) {
       timerElement.classList.add('text-red-600');
     } else {
       timerElement.classList.remove('text-red-600');
@@ -193,11 +194,100 @@ const examQuestions = JSON.parse(
     }
   }
 
+  function displayResults(answers) {
+    const examForm = document.getElementById('exam-form');
+    const resultsDiv = document.getElementById('results');
+    const incorrectAnswersContent = document.getElementById('incorrect-answers-content');
+    const correctAnswersContent = document.getElementById('correct-answers-content');
+    const scoreSpan = document.getElementById('score');
+
+    // Calculate score
+    const correctAnswers = answers.filter(a => a.selected === a.correct).length;
+    const score = Math.round((correctAnswers / answers.length) * 100);
+
+    // Update score display
+    if (scoreSpan) {
+      scoreSpan.textContent = score.toString();
+    }
+
+    // Hide exam form and show results
+    if (examForm) {
+      examForm.style.display = 'none';
+    }
+
+    if (resultsDiv) {
+      resultsDiv.classList.remove('hidden');
+      resultsDiv.style.display = 'block';
+    }
+
+// Display incorrect answers with explanations
+if (incorrectAnswersContent) {
+  const incorrectAnswers = answers.filter(a => a.selected !== a.correct);
+  incorrectAnswersContent.innerHTML = incorrectAnswers.map((answer, idx) => {
+    const questionData = examQuestions[answer.questionIndex];
+    const correctAnswer = questionData.correct
+    return `
+      <div class="bg-red-50 p-4 rounded-lg mb-4">
+        <div class="flex justify-between items-center cursor-pointer" onclick="toggleExplanation('incorrect-${idx}')">
+          <p class="font-medium">${questionData.question}</p>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div id="incorrect-${idx}" class="hidden">
+          ${['a', 'b', 'c', 'd'].map(option => {
+            const optionText = questionData[option].replace(/^[A-D]\.\s*/, ''); // Remove existing prefix if any
+            return `
+              <p class="${option === correctAnswer ? 'text-green-600 font-bold' : option === answer.selected ? 'text-red-600 font-bold' : 'text-gray-800'}">
+                ${option.toUpperCase()}. ${optionText}
+              </p>`;
+          }).join('')}
+          <p class="mt-4"><strong>Correct Answer:</strong> ${correctAnswer}</p>
+          <p class="mt-4"><strong>Explanation:</strong> ${questionData.explanation}</p>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// Display correct answers with explanations
+if (correctAnswersContent) {
+  const correctAnswers = answers.filter(a => a.selected === a.correct);
+  correctAnswersContent.innerHTML = correctAnswers.map((answer, idx) => {
+    const questionData = examQuestions[answer.questionIndex];
+    const correctAnswer = questionData.correct
+    return `
+      <div class="bg-green-50 p-4 rounded-lg mb-4">
+        <div class="flex justify-between items-center cursor-pointer" onclick="toggleExplanation('correct-${idx}')">
+          <p class="font-medium">${questionData.question}</p>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div id="correct-${idx}" class="hidden">
+          ${['a', 'b', 'c', 'd'].map(option => {
+            const optionText = questionData[option].replace(/^[A-D]\.\s*/, ''); // Remove existing prefix if any
+            return `
+              <p class="${option === questionData.correct ? 'text-green-600 font-bold' : 'text-gray-800'}">
+                ${option.toUpperCase()}. ${optionText}
+              </p>`;
+          }).join('')}
+          <p class="mt-4"><strong>Correct Answer:</strong> ${correctAnswer}</p>
+          <p class="mt-4"><strong>Explanation:</strong> ${questionData.explanation}</p>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+
+
+
+    // Add click handlers for section headers
+    document.querySelectorAll('.section-header').forEach(header => {
+      const content = header.nextElementSibling;
+      const contentId = content.id;
+      header.onclick = () => toggleSection(contentId);
+    });
+  }
+
   function initializeExam() {
-    // Clean up any existing state
     cleanupExam();
     
-    // Reset the state
     examState = {
       timeLeft: 9 * 60,
       timer: null,
@@ -205,7 +295,6 @@ const examQuestions = JSON.parse(
       isPaused: false
     };
 
-    // Get DOM elements
     const timerContainer = document.getElementById('timer-container');
     const welcomeScreen = document.getElementById('welcome-screen');
     const examContainer = document.getElementById('exam-container');
@@ -214,7 +303,6 @@ const examQuestions = JSON.parse(
     const startButton = document.getElementById('start-exam');
     const resultsDiv = document.getElementById('results');
 
-    // Reset UI state
     if (welcomeScreen) welcomeScreen.classList.remove('hidden');
     if (examContainer) examContainer.classList.add('hidden');
     if (timerContainer) timerContainer.classList.add('hidden');
@@ -294,107 +382,19 @@ const examQuestions = JSON.parse(
       displayResults(answers);
     }
 
-function displayResults(answers) {
-  const examForm = document.getElementById('exam-form');
-  const resultsDiv = document.getElementById('results');
-  const incorrectAnswersContent = document.getElementById('incorrect-answers-content');
-  const correctAnswersContent = document.getElementById('correct-answers-content');
-  const scoreSpan = document.getElementById('score');
-
-  // Calculate score
-  const correctAnswers = answers.filter(a => a.selected === a.correct).length;
-  const score = Math.round((correctAnswers / answers.length) * 100);
-
-  // Update score display
-  if (scoreSpan) {
-    scoreSpan.textContent = score.toString();
-  }
-
-  // Hide exam form and show results
-  if (examForm) {
-    examForm.style.display = 'none';
-  }
-
-  if (resultsDiv) {
-    resultsDiv.classList.remove('hidden');
-    resultsDiv.style.display = 'block';
-  }
-
-  // Display incorrect answers with explanations
-  if (incorrectAnswersContent) {
-    const incorrectAnswers = answers.filter(a => a.selected !== a.correct);
-    incorrectAnswersContent.innerHTML = incorrectAnswers.map((answer, idx) => {
-      const questionData = examQuestions[answer.questionIndex];
-      return `
-        <div class="bg-red-50 p-4 rounded-lg mb-4">
-          <div class="flex justify-between items-center cursor-pointer" onclick="toggleExplanation('incorrect-${idx}')">
-            <p class="font-medium">${questionData.question}</p>
-            <span class="toggle-icon">▼</span>
-          </div>
-          <div id="incorrect-${idx}" class="hidden">
-            ${['a', 'b', 'c', 'd'].map(option => `
-              <p class="${option === questionData.correct ? 'text-green-600 font-bold' : 'text-gray-800'}">
-                ${option.toUpperCase()}. ${questionData[option]}
-              </p>
-            `).join('')}
-            <p class="mt-4"><strong>Explanation:</strong> ${questionData.explanation}</p>
-          </div>
-        </div>`;
-    }).join('');
-  }
-
-  // Display correct answers with explanations
-  if (correctAnswersContent) {
-    const correctAnswers = answers.filter(a => a.selected === a.correct);
-    correctAnswersContent.innerHTML = correctAnswers.map((answer, idx) => {
-      const questionData = examQuestions[answer.questionIndex];
-      return `
-        <div class="bg-green-50 p-4 rounded-lg mb-4">
-          <div class="flex justify-between items-center cursor-pointer" onclick="toggleExplanation('correct-${idx}')">
-            <p class="font-medium">${questionData.question}</p>
-            <span class="toggle-icon">▼</span>
-          </div>
-          <div id="correct-${idx}" class="hidden">
-            ${['a', 'b', 'c', 'd'].map(option => `
-              <p class="${option === questionData.correct ? 'text-green-600 font-bold' : 'text-gray-800'}">
-                ${option.toUpperCase()}. ${questionData[option]}
-              </p>
-            `).join('')}
-            <p class="mt-4"><strong>Explanation:</strong> ${questionData.explanation}</p>
-          </div>
-        </div>`;
-    }).join('');
-  }
-}
-
-
-    // Remove any existing event listeners
-    startButton?.removeEventListener('click', startExam);
-    pauseButton?.removeEventListener('click', togglePause);
-    examForm?.removeEventListener('submit', submitExam);
-
-    // Add new event listeners
-    startButton?.addEventListener('click', startExam);
+startButton?.addEventListener('click', startExam);
     pauseButton?.addEventListener('click', togglePause);
     examForm?.addEventListener('submit', submitExam);
   }
 
-  // Initialize on first load
   document.addEventListener('DOMContentLoaded', initializeExam);
-
-  // Clean up when navigating away
   document.addEventListener('astro:before-preparation', cleanupExam);
-
-  // Re-initialize on navigation
   document.addEventListener('astro:page-load', initializeExam);
-
-  // Handle back/forward navigation
   window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
       initializeExam();
     }
   });
-  
-  
 </script>
 </Layout>
+
