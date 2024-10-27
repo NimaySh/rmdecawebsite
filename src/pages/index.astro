@@ -7,208 +7,149 @@ import Stats from '~/components/widgets/Stats.astro';
 import { YouTube } from 'astro-embed';
 import Steps from '~/components/widgets/Steps.astro';
 
-
 const metadata = {
   title: 'Home',
 };
 
+// Constants
 const heroBackgroundImage = "https://lh3.googleusercontent.com/pw/AP1GczO5o3TIs1gbqKgOhPwlItgErgCwUXw5qXoOUTgUkGh_5Sj5i-nIFZ0wS-3QAEISS4qQLk6e_VdBRsZbW0Jf7VVx797xl-XLg2MV3nWykO6Hvow1cY7I4xM7hi-MmkY63B90DFZRaE4j1JzCVAs6_M2RFw=w671-h839-s-no-gm?authuser=0";
+
+// Component Data
+const statsData = [
+  { title: 'Members', amount: '140+' },
+  { title: 'ICDC Qualifiers', amount: '49' },
+  { title: 'Chapter in Maryland', amount: '#1' },
+];
+
+const featuredCards = [
+  {
+    title: 'DECA 101',
+    description: '<strong><span class="bg-gradient-title">Are you a new to DECA??</span></strong><br>Learn everything about DECA from registration and competitions to choosing an event and practicing.',
+    icon: '',
+    callToAction: {
+      text: 'Learn More',
+      variant: 'primary',
+      href: '/deca101',
+      class: 'bg-primary hover:bg-secondary text-white py-2 px-6 rounded-md',
+      icon: 'tabler:link'
+    }
+  },
+  {
+    title: 'RM x Holton-Arms Training Event',
+    description: 'Mock competition with Holton-Arms at the Rockville Memorial Library on <strong><span class="bg-gradient-title">November 9th</span></strong>.',
+    icon: '',
+    callToAction: {
+      text: 'Sign-up',
+      target: '_blank',
+      variant: 'primary',
+      class: 'bg-primary hover:bg-secondary text-white py-2 px-6 rounded-md',
+      href: 'https://forms.gle/teHaHChji1T3ZkBU6',
+      icon: 'tabler:link'
+    }
+  },
+  {
+    title: 'Regionals coming soon!',
+    description: 'Regionals will be at Montgomery Blair HS on <strong><span class="bg-gradient-title"><br>December 14th</span></strong>. More info coming soon!',
+    icon: '',
+    callToAction: {
+      text: 'Coming soon',
+      variant: 'primary',
+      target: '_blank',
+      href: '/',
+      class: 'bg-primary hover:bg-secondary text-white py-2 px-6 rounded-md',
+      icon: 'tabler:link'
+    }
+  },
+];
+
+const upcomingMeetings = [
+  {
+    title: 'Business Basics Training<br><span class="font-normal">November 7th</span><br><span class="text-sm font-normal">Room 158</span>',
+    description: '',
+    icon: 'tabler:calendar',
+  },
+  {
+    title: 'Entrepreneurship + Marketing Training<br><span class="font-normal">November 21st</span><br><span class="text-sm font-normal">Room 158</span>',
+    description: '',
+    icon: 'tabler:calendar',
+  },
+  {
+    title: 'Hospitality & Tourism + Finance Training<br><span class="font-normal">December 5th</span><br><span class="text-sm font-normal">Room 158</span>',
+    description: '',
+    icon: 'tabler:calendar',
+  },
+];
+
+const competitionDates = [
+  {
+    title: '<span class="text-primary">Regionals</span><br><span class="font-normal">December 14th, 2025</span><br><span class="text-sm font-normal">Montgomery Blair High School</span>',
+    description: '',
+  },
+  {
+    title: '<span class="text-primary">SCDC - States</span><br><span class="font-normal">February</span><br><span class="text-sm font-normal">College Park Marriot</span>',
+    description: '',
+  },
+  {
+    title: '<span class="text-primary">ICDC - Internationals</span><br><span class="font-normal">April 26-29</span><br><span class="text-sm font-normal">Orlando, Florida</span>',
+    description: '',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    tagline="#1 Chapter in Maryland"
-    backgroundImage={heroBackgroundImage}
-    >
-    <Fragment slot="title" >
-    Richard Montgomery <span class="bg-gradient-title">DECA</span>
+  <!-- Hero Section -->
+  <Hero tagline="#1 Chapter in Maryland" backgroundImage={heroBackgroundImage}>
+    <Fragment slot="title">
+      Richard Montgomery <span class="bg-gradient-title">DECA</span>
     </Fragment>
 
     <Fragment slot="additionalContent">
-      <Stats
-        stats={[
-          { title: 'Members', amount: '140+' },
-          { title: 'ICDC Qualifiers', amount: '49' },
-          { title: 'Chapter in Maryland', amount: '#1' },
-        ]}
-      />
+      <Stats stats={statsData} />
     </Fragment>
   </Hero>
 
-  <!-- Features2 Widget ************** -->
-<Features2
-  items={[
-    {
-      title: 'DECA 101',
-      description:
-        '<strong> <span class="bg-gradient-title">Are you a new to DECA??</span></strong> <br> Learn everything about DECA from registration and competitions to choosing an event and practicing.',
-      icon: '',
-      callToAction: {
-        text: 'Learn More',
-        variant: 'primary',
-        href: '/deca101',
-        class: 'bg-primary hover:bg-secondary text-white py-2 px-6 rounded-md',
-        icon: 'tabler:link'
-      }
-    },
-    {
-      title: 'RM x Holton-Arms Training Event',
-      description:
-        'Mock competition with Holton-Arms at the Rockville Memorial Library on <strong> <span class="bg-gradient-title"> November 9th</span></strong>.',
-      icon: '',
-      callToAction: {
-        text: 'Sign-up',
-        target: '_blank',
-        variant: 'primary',
-        class: 'bg-primary hover:bg-secondary text-white py-2 px-6 rounded-md',
-        href: 'https://forms.gle/teHaHChji1T3ZkBU6',
-        icon: 'tabler:link'
-      }
-    },
-    {
-      title: 'Regionals coming soon! ',
-      description:
-        'Regionals will be at Montgomery Blair HS on   <strong> <span class="bg-gradient-title"> <br> December 14th</span></strong>. More info coming soon!',
-      icon: '',
-      callToAction: {
-        text: 'Coming soon',
-        variant: 'primary',
-        target: '_blank',
-        href: '/',
-        class: 'bg-primary hover:bg-secondary text-white py-2 px-6 rounded-md',
-        icon: 'tabler:link'
-      }
-    },
-  ]
-  }
->
-  <Fragment slot="bg">
-    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-  </Fragment>
-</Features2>
+  <!-- Featured Cards Section -->
+  <Features2 items={featuredCards}>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
 
+  <!-- Schedule Section -->
+  <div class="flex justify-center items-start">
+    <Steps
+      id="upcoming-meetings"
+      title="Upcoming Meetings"
+      items={upcomingMeetings}
+      classes={{ container: 'max-w-3xl' }}
+    />
+    
+    <Steps
+      id="competition-dates"
+      title="Competition Dates"
+      items={competitionDates}
+      classes={{ container: 'max-w-3xl' }}
+    />
+  </div>
 
-<div class="flex justify-center items-start">
-  <Steps
-    id="resume"
-    title="Upcoming Meetings"
-    items={[
-      {
-        title:
-          'Business Basics Training <br /> <span class="font-normal">November 7th</span> <br /> <span class="text-sm font-normal">Room 158</span>',
-        description: ``,
-        icon: 'tabler:calendar',
-      },
-      {
-        title:
-          'Entrepreneurship + Marketing Training <br /> <span class="font-normal">November 21st</span> <br /> <span class="text-sm font-normal">Room 158</span>',
-        description: ``,
-        icon: 'tabler:calendar',
-      },
-      {
-        title:
-          'Hospitality & Tourism + Finance Training <br /> <span class="font-normal">December 5th</span> <br /> <span class="text-sm font-normal">Room 158</span>',
-        description: ``,
-        icon: 'tabler:calendar',
-      },
-    ]}
-    classes={{ container: 'max-w-3xl' }}
-  />
-   
-  <Steps
-    id="resume"
-    title="Competition Dates"
-    items={[
-      {
-        title:
-        '<span class="text-primary">Regionals</span> <br /> <span class="font-normal">December 14th, 2025</span> <br /> <span class="text-sm font-normal">Montgomery Blair High School</span>',
-        description: ``,
-      },
-      {
-        title:
-          '<span class="text-primary">SCDC - States</span> <br /> <span class="font-normal">February</span> <br /> <span class="text-sm font-normal">College Park Marriot</span>',
-        description: ``,
-      },
-      {
-        title:
-          '<span class="text-primary">ICDC - Internationals</span> <br /> <span class="font-normal">April 26-29</span> <br /> <span class="text-sm font-normal">Orlando, Florida</span>',
-        description: ``,
-      },
-    ]}
-    classes={{ container: 'max-w-3xl' }}
-  />
-</div>
-
-<!-- Features2 Widget ************** -->
-
-<Features2
-  title='Why <span class="bg-gradient-title">DECA</span>?'
-  subtitle={`DECA empowers you to develop <strong><span class="bg-gradient-title">business knowledge</span></strong>, leadership abilities, and communication skills while having fun and making friends. Join us to learn, compete, and <strong><span class="bg-gradient-title">travel to Orlando</span></strong> for internationals. 
-  It's a great way to build your resume. <br> <br> <strong><span class="bg-gradient-title">NO prior experience is required.</span></strong> We provide training. There's a place for <strong><span class="bg-gradient-title">EVERYONE. </span></strong> You can compete in business roleplays, prepared presentations, or simulations.`}
-  <br><br>
+  <!-- Why DECA Section -->
+  <Features2
+    title='Why <span class="bg-gradient-title">DECA</span>?'
+    subtitle={`DECA empowers you to develop <strong><span class="bg-gradient-title">business knowledge</span></strong>, leadership abilities, and communication skills while having fun and making friends. Join us to learn, compete, and <strong><span class="bg-gradient-title">travel to Orlando</span></strong> for internationals. 
+    It's a great way to build your resume.<br><br><strong><span class="bg-gradient-title">NO prior experience is required.</span></strong> We provide training. There's a place for <strong><span class="bg-gradient-title">EVERYONE.</span></strong> You can compete in business roleplays, prepared presentations, or simulations.`}
   >
-  <Fragment slot="image">
-    <YouTube id="m8bvnkiV_yo" title="DECA Membership Promo 2024-25" />
-    <style is:inline>
-      lite-youtube {
-        margin: 0 auto;
-        max-width: 80%;
-      }
-    </style>
-  </Fragment>
-  
-  <Fragment slot="bg">
-    <div class="absolute inset-0 bg-blue-30 dark:bg-transparent"></div>
-  </Fragment>
-</Features2>
-
-<!-- CallToAction Widget *********** 
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        target: '_blank',
-        text: 'Join DECA',
-        href: 'https://forms.gle/vk91XU91U2yYy1ix7',
-      },
-    ]}
-  >
-<Fragment slot="title"> 
-  <span class="bg-gradient-title">Join DECA Now</span>
-</Fragment>    
-<Fragment slot="subtitle">
-      Fly to Orlando and Disney world. <br> Learn, compete, and have fun!
-</Fragment>
-  </CallToAction>
-  -->
-
-
-<!-- 
-Features Widget ***************
-  <Features
-    id="features"
-    title="Competition Dates"
-    columns={3}
-    items={[
-      {
-        title: 'Regionals',
-        description:
-          'December 14th, 2025 <br> Montgomery Blair High School',
-        icon: 'tabler:artboard',
-      },
-      {
-        title: 'SCDC - States',
-        description: 'February <br> College Park Marriot',
-        icon: 'tabler:map',
-      },
-      {
-        title: 'ICDC - Internationals',
-        description:
-          'April 26-29 <br> Orlando, Florida',
-        icon: 'tabler:rocket',
-      },
-    ]}
-  />
--->
+    <Fragment slot="image">
+      <YouTube id="m8bvnkiV_yo" title="DECA Membership Promo 2024-25" />
+      <style is:inline>
+        lite-youtube {
+          margin: 0 auto;
+          max-width: 80%;
+        }
+      </style>
+    </Fragment>
+    
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-30 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
 </Layout>

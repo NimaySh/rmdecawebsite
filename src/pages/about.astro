@@ -47,19 +47,30 @@ const vicePresidents = [
 <Layout metadata={metadata}>
   <!-- Hero Section -->
   <section class="text-center py-16 bg-blue-50">
-    <div class="inline-block relative">
-    <h1 class="text-5xl font-bold bg-gradient-title from-blue-800 to-blue-400 bg-clip-text text-transparent mb-1">
-        About Us
-      </h1>
+    <div class="container mx-auto px-4">
+      <div class="inline-block relative">
+        <h1 class="text-5xl font-bold bg-gradient-title from-blue-800 to-blue-400 bg-clip-text text-transparent mb-1">
+          About Us
+        </h1>
+      </div>
+      <div class="flex flex-wrap justify-center gap-8 mt-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <span class="text-2xl font-bold bg-gradient-title">#1 Chapter</span>
+          <p class="text-[#555] mt-2">in all of Maryland</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <span class="text-2xl font-bold bg-gradient-title">Over 50%</span>
+          <p class="text-[#555] mt-2">qualified for ICDC</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <span class="text-2xl font-bold bg-gradient-title">BEST</span>
+          <p class="text-[#555] mt-2">club at RM</p>
+        </div>
+      </div>
     </div>
-    <p class="text-[#555] max-w-2xl mx-auto my-4 leading-6">
-      RM DECA is the <strong><span class="bg-gradient-title">#1 Chapter</span></strong> in all of Maryland. <br>
-      Our team is dedicated to providing you with the best experiences and training. <br>
-      <strong><span class="bg-gradient-title">Over 50% </span></strong> of DECA members at SCDC qualified for ICDC and traveled to 
-      <strong><span class="bg-gradient-title">California</span></strong>.
-    </p>
   </section>
-  <!-- Logo Carousel Section -->
+
+  <!-- Enhanced Carousel Section -->
   <section class="py-16">
     <div id="swiperContainer" class="swiper-container max-w-5xl mx-auto relative">
       <div class="swiper-wrapper">
@@ -70,16 +81,16 @@ const vicePresidents = [
               alt={image.alt} 
               width={1200} 
               height={600} 
-              class="w-full h-full object-cover" 
+              class="w-full h-full object-cover rounded-lg" 
               style={image.objectPosition ? `object-position: ${image.objectPosition};` : ''}
             />
           </div>
         ))}
       </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev !w-12 !h-12 !bg-black/50 !rounded-full"></div>
+      <div class="swiper-button-next !w-12 !h-12 !bg-black/50 !rounded-full"></div>
+      <div class="swiper-pagination !relative !bottom-0 mt-6"></div>
     </div>
-    <div class="swiper-pagination mt-4"></div>
   </section>
 
   <!-- Team Section -->
@@ -92,14 +103,20 @@ const vicePresidents = [
         <h3 class="text-center text-2xl font-semibold text-[#35a5c2] mb-8">Presidents</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           {presidents.map((president) => (
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <div class="md:flex">
                 <div class="md:flex-shrink-0">
-                  <Image class="h-48 w-full object-cover md:w-48" src={president.image} alt={president.name} width={200} height={200} />
+                  <Image 
+                    class="h-48 w-full object-cover md:w-48" 
+                    src={president.image} 
+                    alt={president.name} 
+                    width={200} 
+                    height={200} 
+                  />
                 </div>
                 <div class="p-8">
                   <div class="uppercase tracking-wide text-sm text-[#07377e] font-semibold">{president.title}</div>
-                  <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{president.name}</a>
+                  <h4 class="block mt-1 text-lg leading-tight font-medium text-black">{president.name}</h4>
                   <p class="mt-2 text-gray-500">{president.description}</p>
                 </div>
               </div>
@@ -111,12 +128,12 @@ const vicePresidents = [
       <!-- Vice Presidents -->
       <div>
         <h3 class="text-center text-2xl font-semibold text-[#35a5c2] mb-8">Vice Presidents</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center lg:justify-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {vicePresidents.map((vp) => (
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 max-w-sm">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl max-w-sm w-full">
               <div class="h-56 overflow-hidden">
                 <Image 
-                  class="w-full h-full object-cover object-center" 
+                  class="w-full h-full object-cover" 
                   src={vp.image} 
                   alt={vp.name} 
                   width={300} 
@@ -126,7 +143,7 @@ const vicePresidents = [
               </div>
               <div class="p-6">
                 <div class="uppercase tracking-wide text-sm text-[#07377e] font-semibold">{vp.title}</div>
-                <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{vp.name}</a>
+                <h4 class="block mt-1 text-lg leading-tight font-medium text-black">{vp.name}</h4>
                 <p class="mt-2 text-gray-500">{vp.description}</p>
               </div>
             </div>
@@ -138,35 +155,6 @@ const vicePresidents = [
 </Layout>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-<script>
-  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
-
-  function initSwiper() {
-    new Swiper('#swiperContainer', {
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 0,
-      autoplay: {
-        delay: 3000,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  }
-
-  // Initialize Swiper on page load
-  document.addEventListener('DOMContentLoaded', initSwiper);
-
-  // Re-initialize Swiper when Astro swaps the page content
-  document.addEventListener('astro:page-load', initSwiper);
-</script>
-
 
 <style>
   .swiper-container {
@@ -187,16 +175,58 @@ const vicePresidents = [
   .bg-gradient-title {
     @apply bg-gradient-to-r from-[#07377e] to-[#35a5c2] bg-clip-text text-transparent;
   }
+  /* Enhanced Swiper Navigation */
   .swiper-button-prev,
   .swiper-button-next {
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 30px 20px;
+    transition: all 0.3s ease;
+  }
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #07377e;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+  }
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 20px;
     border-radius: 5px;
   }
-  .swiper-pagination {
-    position: relative;
-    bottom: 0;
-    margin-top: 10px;
-  }
 </style>
+
+<script>
+  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
+
+  function initSwiper() {
+    new Swiper('#swiperContainer', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      effect: 'fade', // Add fade transition
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+  // Initialize Swiper on page load
+  document.addEventListener('DOMContentLoaded', initSwiper);
+
+  // Re-initialize Swiper when Astro swaps the page content
+  document.addEventListener('astro:page-load', initSwiper);
+</script>

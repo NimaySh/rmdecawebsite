@@ -1,5 +1,4 @@
 ---
-// pages/resources.astro
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
@@ -12,70 +11,85 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Section -->
-  <section class="text-center py-12 md:py-16 bg-blue-50">
-    <div class="inline-block relative">
-      <h1 class="text-4xl md:text-5xl font-bold bg-gradient-title from-blue-800 to-blue-400 bg-clip-text text-transparent mb-1">
-        Resources
-      </h1>
-    </div>
-    <h2 class="text-lg md:text-xl text-gray-600 max-w-md md:max-w-2xl mx-auto mt-4 leading-relaxed">
-      Find sample roleplays, practice tests, quizlets, and more!
-    </h2>
-  </section>
-
-  <!-- Resource Filter System -->
-  <div class="flex flex-col md:flex-row p-4 space-y-4 md:space-y-0" id="resourceFilterSystem">
-    <div class="md:w-1/4 w-full p-4 rounded-lg">
-      <!-- View toggle -->
-      <div class="flex text-sm mb-6">
-        <button id="listViewBtn" class="px-3 py-1 bg-black text-white rounded-l-md">List</button>
-        <button id="blockViewBtn" class="px-3 py-1 bg-gray-300 rounded-r-md">Block</button>
-      </div>
-
-      <!-- Filter checkboxes -->
-      <h3 class="font-semibold mb-3">Resource Type</h3>
-      {filterOptions.map(filter => (
-        <div class="flex items-center mb-2">
-          <input
-            type="checkbox"
-            id={filter}
-            name="filter"
-            value={filter}
-            class="form-checkbox h-5 w-5 text-blue-600 rounded"
-          />
-          <label for={filter} class="ml-2 text-gray-700">{filter}</label>
+  <main class="min-h-screen bg-gray-50">
+    <!-- Hero Section -->
+    <section class="text-center py-12 md:py-16 bg-blue-50">
+      <div class="container mx-auto px-4">
+        <div class="inline-block relative">
+          <h1 class="text-4xl md:text-5xl font-bold bg-gradient-title from-blue-800 to-blue-400 bg-clip-text text-transparent mb-1">
+            Resources
+          </h1>
         </div>
-      ))}
-    </div>
-
-    <!-- Main content area -->
-    <div class="md:w-3/4 w-full ml-0 md:ml-4">
-      <!-- Tab selection -->
-      <div class="flex flex-wrap justify-center md:justify-start mb-4 border-b" id="tabContainer">
-        {tabOptions.map((tab, index) => (
-          <button
-            class={`px-4 py-2 font-semibold transition-all duration-300 tab-button border-b-2 border-transparent ${tabColors[index]} ${tab === 'Business Admin' ? 'border-current' : ''}`}
-            data-tab={tab}
-            data-color={tabColors[index]}
-          >
-            {tab}
-          </button>
-        ))}
+        <h2 class="text-lg md:text-xl text-gray-600 max-w-md md:max-w-2xl mx-auto mt-4 leading-relaxed">
+          Find sample roleplays, practice tests, quizlets, and more!
+        </h2>
       </div>
+    </section>
 
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="text-2xl bg-gradient-title font-bold"></h2>
-      </div>
+    <!-- Resource Filter System -->
+    <section class="container mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- Sidebar Filters -->
+        <aside class="md:w-1/4 space-y-6">
+          <!-- View Toggle -->
+          <div class="bg-white p-4 rounded-lg shadow-sm">
+            <div class="inline-flex rounded-md shadow-sm">
+              <button id="listViewBtn" class="px-4 py-2 text-sm font-medium rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                List
+              </button>
+              <button id="blockViewBtn" class="px-4 py-2 text-sm font-medium rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                Block
+              </button>
+            </div>
+          </div>
 
-      <!-- Resource list -->
-      <div id="resourceList" class="space-y-2">
-        <!-- Resources will be populated here by JavaScript -->
-        <div class="text-center text-gray-500">Loading resources...</div>
+          <!-- Filter Options -->
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold mb-4">Resource Type</h3>
+            <div class="space-y-3">
+              {filterOptions.map(filter => (
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    id={filter}
+                    name="filter"
+                    value={filter}
+                    class="form-checkbox h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-colors"
+                  />
+                  <span class="text-gray-700 group-hover:text-gray-900">{filter}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="md:w-3/4">
+          <!-- Tab Navigation -->
+          <nav class="bg-white p-1 rounded-lg shadow-sm mb-6 overflow-x-auto hide-scrollbar">
+            <div class="flex space-x-1 no-wrap" id="tabContainer">
+              {tabOptions.map((tab, index) => (
+                <button
+                  class={`px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 tab-button 
+                    hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+                    ${tabColors[index]} ${tab === 'Business Admin' ? 'bg-gray-50 shadow-sm' : ''}`}
+                  data-tab={tab}
+                  data-color={tabColors[index]}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+          </nav>
+
+          <!-- Resource List -->
+          <div id="resourceList" class="min-h-[400px] transition-all duration-300">
+            <div class="text-center text-gray-500 py-8">Loading resources...</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  
+    </section>
+  </main>
 </Layout>
 
 <style>
@@ -96,6 +110,16 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
   
   .tab-button {
     scroll-snap-align: start;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  #resourceList {
+    animation: fadeIn 0.3s ease-in-out;
   }
 </style>
 
@@ -122,21 +146,19 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
     }
 
     function updateResourceList() {
-      if (!resourceList) {
-        console.error('Resource list element not found');
-        return;
-      }
+      if (!resourceList) return;
+      
       resourceList.innerHTML = '';
-
+      
       if (isBlockView) {
-        resourceList.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4';
+        resourceList.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6';
       } else {
-        resourceList.className = 'space-y-2';
+        resourceList.className = 'space-y-3';
       }
 
       if (filteredResources.length === 0) {
         const noResults = document.createElement('div');
-        noResults.className = 'text-center text-gray-500 py-4';
+        noResults.className = 'text-center text-gray-500 py-8 bg-white rounded-lg shadow-sm';
         noResults.textContent = 'No resources found for the selected filters';
         resourceList.appendChild(noResults);
         return;
@@ -148,34 +170,35 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
         const nameWithoutYear = getNameWithoutYear(resource.name);
         
         if (isBlockView) {
-          div.className = 'bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden';
+          div.className = 'group bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden';
           div.innerHTML = `
-            <div class="absolute top-0 left-0 w-2 h-full ${getTabColor(resource.cluster)}"></div>
-            <div class="p-4">
-              <div class="w-12 h-12 mb-3 flex items-center justify-center bg-gray-200 rounded-full">
+            <div class="absolute top-0 left-0 w-1.5 h-full ${getTabColor(resource.cluster)}"></div>
+            <div class="p-6">
+              <div class="w-12 h-12 mb-4 flex items-center justify-center bg-gray-100 rounded-full group-hover:bg-gray-200 transition-colors">
                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
               </div>
-              <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="block">
-                <div class="text-black hover:text-blue-600 transition-colors font-medium">
+              <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="block group-hover:transform group-hover:-translate-y-0.5 transition-transform">
+                <h3 class="text-gray-900 group-hover:text-blue-600 font-medium transition-colors">
                   ${nameWithoutYear}
-                </div>
-                <div class="text-sm text-gray-500 mt-1">
+                </h3>
+                <p class="text-sm text-gray-500 mt-2">
                   ${year}
-                </div>
+                </p>
               </a>
             </div>
           `;
         } else {
-          div.className = 'flex items-center p-2 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 rounded relative overflow-hidden';
+          div.className = 'group bg-white hover:bg-gray-50 rounded-lg shadow-sm transition-all duration-300 relative overflow-hidden';
           div.innerHTML = `
-            <div class="absolute top-0 left-0 w-2 h-full ${getTabColor(resource.cluster)}"></div>
-            <a href="${resource.link}" target="_blank" rel="noopener noreferrer" class="flex-grow ml-4">
-              <span class="text-sm">
-                <span class="text-black hover:text-blue-600 transition-colors">${nameWithoutYear}</span>
-                <span class="text-gray-500 ml-2">${year}</span>
-              </span>
+            <div class="absolute top-0 left-0 w-1.5 h-full ${getTabColor(resource.cluster)}"></div>
+            <a href="${resource.link}" target="_blank" rel="noopener noreferrer" 
+               class="block px-6 py-4 ml-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-900 group-hover:text-blue-600 transition-colors">${nameWithoutYear}</span>
+                <span class="text-sm text-gray-500">${year}</span>
+              </div>
             </a>
           `;
         }
@@ -191,13 +214,13 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
     }
 
     function applyFilters() {
-    filteredResources = resources.filter(resource => {
-      const typeMatch = selectedFilters.length === 0 || selectedFilters.includes(resource.type);
-      const clusterMatch = resource.cluster === selectedTab;
-      return typeMatch && clusterMatch;
-    });
-    updateResourceList();
-  }
+      filteredResources = resources.filter(resource => {
+        const typeMatch = selectedFilters.length === 0 || selectedFilters.includes(resource.type);
+        const clusterMatch = resource.cluster === selectedTab;
+        return typeMatch && clusterMatch;
+      });
+      updateResourceList();
+    }
 
     function initializeEventListeners() {
       document.querySelectorAll('input[name="filter"]').forEach(checkbox => {
@@ -216,11 +239,9 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
         if (button) {
           selectedTab = button.dataset.tab;
           document.querySelectorAll('.tab-button').forEach(btn => {
-            btn.classList.remove('border-current');
-            btn.classList.add('border-transparent');
+            btn.classList.remove('bg-gray-50', 'shadow-sm');
           });
-          button.classList.remove('border-transparent');
-          button.classList.add('border-current');
+          button.classList.add('bg-gray-50', 'shadow-sm');
           applyFilters();
         }
       });
@@ -240,24 +261,25 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
 
     function updateViewButtons() {
       if (isBlockView) {
-        blockViewBtn?.classList.add('bg-black', 'text-white');
-        blockViewBtn?.classList.remove('bg-gray-300', 'text-black');
-        listViewBtn?.classList.remove('bg-black', 'text-white');
-        listViewBtn?.classList.add('bg-gray-300', 'text-black');
+        blockViewBtn?.classList.add('bg-blue-600', 'text-white');
+        blockViewBtn?.classList.remove('bg-gray-100', 'text-gray-700');
+        listViewBtn?.classList.remove('bg-blue-600', 'text-white');
+        listViewBtn?.classList.add('bg-gray-100', 'text-gray-700');
       } else {
-        listViewBtn?.classList.add('bg-black', 'text-white');
-        listViewBtn?.classList.remove('bg-gray-300', 'text-black');
-        blockViewBtn?.classList.remove('bg-black', 'text-white');
-        blockViewBtn?.classList.add('bg-gray-300', 'text-black');
+        listViewBtn?.classList.add('bg-blue-600', 'text-white');
+        listViewBtn?.classList.remove('bg-gray-100', 'text-gray-700');
+        blockViewBtn?.classList.remove('bg-blue-600', 'text-white');
+        blockViewBtn?.classList.add('bg-gray-100', 'text-gray-700');
       }
     }
+
+    // Initialize view buttons
+    updateViewButtons();
 
     // Fetch resources data
     fetch('/resources.json')
       .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         return response.json();
       })
       .then(data => {
@@ -269,21 +291,26 @@ const tabColors = ['text-business-management', 'text-entrepreneurship', 'text-fi
       .catch(error => {
         console.error('Error fetching resources:', error);
         if (resourceList) {
-          resourceList.innerHTML = '<div class="text-center text-red-500 py-4">Error loading resources. Please try again later.</div>';
+          resourceList.innerHTML = `
+            <div class="text-center py-8 bg-white rounded-lg shadow-sm">
+              <p class="text-red-500">Error loading resources. Please try again later.</p>
+              <button onclick="location.reload()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                Retry
+              </button>
+            </div>
+          `;
         }
       });
   }
 
-  // Run the initialization function when the DOM is ready
+  // Initialize on DOM ready
   document.addEventListener('DOMContentLoaded', initializeResourcePage);
 
-  // Re-run the initialization when the page is loaded from the bfcache
+  // Handle back/forward cache
   window.addEventListener('pageshow', (event) => {
-    if (event.persisted) {
-      initializeResourcePage();
-    }
+    if (event.persisted) initializeResourcePage();
   });
 
-  // If you're using view transitions, you might also want to add this:
+  // Handle Astro view transitions
   document.addEventListener('astro:page-load', initializeResourcePage);
 </script>

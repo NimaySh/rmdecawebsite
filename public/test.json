@@ -1,4 +1,4 @@
-[
+ [
     {
       "question": "1. How can researchers protect the integrity of the marketing information they collect?",
       "a": "A. By interpreting it correctly",
@@ -18,7 +18,7 @@
       "explanation": "The average U.S. male buys frozen pizza four times every 30 days. A measure of central tendency is a term\r\nused in marketing research that indicates the center of distribution. The number represents a value derived by a\r\nsample taken that falls between the lowest and highest value rating, which can be measured as mode, mean, or\r\nmedian. A mean is an average. The mean is determined by adding the sum of the data values and dividing by\r\nthe number of values in the set (e.g., sample size). Specific distances between two points, members of a swim\r\nteam, and increases in gasoline taxes state exact values and do not necessarily represent or state data in terms\r\nof averages.\r\nSOURCE: IM:191 Explain the use of descriptive statistics in marketing decision making\r\nSOURCE: Frost, J. (2023). Mean, median, and mode: Measures of central tendency. Retrieved August 2, 2023,\r\nfrom https://statisticsbyjim.com/basics/measures-central-tendency-mean-median-mode/"
     },
     {
-      "question": "3. The EFG Company verifies that its customers would like to receive promotional information digitally. This is an\r\nexample of",
+      "question": ". The EFG Company verifies that its customers would like to receive promotional information digitally. This is an\r\nexample of",
       "a": "A. online cookies.",
       "b": "B. instant messaging.",
       "c": "C. unsolicited junk mail.",
@@ -166,7 +166,7 @@
       "a": "A. secretive.",
       "b": "B. evaluated.",
       "c": "C. optimistic.",
-      "d": "C. optimistic.",
+      "d": "D. inflexible.",
       "correct": "B",
       "explanation": "Evaluated. An effective budget is one that is evaluated regularly. The real value of a budget comes in using it to assess the company's progress in achieving its goals. A budget must be evaluated from time to time to move the business forward. Budgets should not be optimistic; rather, they should be realistic. It's important to base budgets on realistic estimates. If a business isn't honest with its budget, the budget won't be very helpful. Because budgets are estimates, it's crucial that they remain flexible. There will always be factors outside a business's control that may require a change in the budget. Budgets shouldn't be secretive; instead, they should be clearly communicated with all employees. When each person in the company is aware of their effect on the company's profits, they will be more motivated to be cost-conscious. SOURCE: FI:106 Describe the nature of budgets SOURCE: LAP-FI-106—Money Tracks (Nature of Budgets)"
     },
@@ -178,5 +178,275 @@
       "d": "D. self-confidence",
       "correct": "A",
       "explanation": "Personal commitment. New business ventures require owners to work long and irregular hours to get their businesses up and running. This often interferes with their personal and family time. If a business owner is not willing to commit their time and energy to the venture, the venture is likely to fail. There is not enough information about Marissa's financial resources, her level of self-confidence, or her ability to effectively solve problems to determine if these factors played a role in the failure of her business. SOURCE: PD:066 Explain career opportunities in entrepreneurship SOURCE: LAP-PD-066—Own Your Own (Career Opportunities in Entrepreneurship)"
+    },
+    {
+      "question": "21. A national fast-food chain test markets its new sandwich in a few cities to gather data about its sales potential. Which type of marketing research is this?",
+      "a": "A. Exploratory",
+      "b": "B. Descriptive",
+      "c": "C. Statistical",
+      "d": "D. Causal",
+      "correct": "D",
+      "explanation": "Causal. Marketing research that focuses on cause and effect and tests “what if?” theories is called causal research. Causal research is typically completed by conducting experiments or simulations, which must be carefully designed and tightly controlled. This type of research is often very expensive. Examples of causal research include test marketing, allowing customers to shop in a simulated store and recording their actions, and conducting a clinical trial for a new medication. Exploratory research collects information to help the business define its issue, situation, or concern and decide the direction in which to go to address it. Descriptive research (also referred to as statistical research) gathers specific information related to an identified issue, situation, or concern. SOURCE: IM:284 Describe methods used to design marketing research studies (i.e., descriptive, exploratory, and causal) SOURCE: LAP-IM-284—Better by Design (Marketing Research Designs)"
+    },
+    {
+      "question": "22. During a manager's meeting, Jon says, \"In relation to Marilee's previous remark, our department has a similar problem. Perhaps we should form an internal committee to address these issues.\" In this situation, Jon is contributing to a group discussion by",
+      "a": "A. helping the group summarize what's been said.",
+      "b": "B. pointing out missing information.",
+      "c": "C. building on someone else's comment.",
+      "d": "D. establishing ground rules for the meeting.",
+      "correct": "C",
+      "explanation": "Building on someone else's comment. Jon is building on Marilee's comment by stating that his department has a similar problem. He adds to Marilee's statement by suggesting that the company form an internal committee to look into the problems. Jon is not summarizing what has been said, nor is he pointing out missing information. Ground rules are established before the meeting gets underway. SOURCE: CO:053 Participate in group discussions SOURCE: UNSW Sydney. (2022, March 28). Guide to discussion skills. Retrieved August 2, 2023, from https://www.student.unsw.edu.au/discussion-skills"
+    },
+    {
+      "question": "23. Which of the following is an example of prejudice:",
+      "a": "A. Arnie rarely hires women to work as engineers for his company.",
+      "b": "B. A juror believes a defendant is guilty before the trial begins.",
+      "c": "C. Students compare grades and realize their teacher is unfair.",
+      "d": "D. A taxi driver refuses to pick up passengers of a certain ethnicity.",
+      "correct": "B",
+      "explanation": "A juror believes a defendant is guilty before the trial begins. Prejudice is an opinion or judgment that is based on feeling or hearsay, rather than fact. If a juror already has a feeling that the defendant is guilty, without any facts or proof before the trial begins, this is prejudice. There is no indication that the classmates who have compared grades and realized their teacher is unfair are prejudiced. If Arnie rarely hires women to work as engineers for his company, that is discrimination rather than prejudice because it is an action rather than an opinion or judgment. A taxi driver who refuses to pick up passengers of a certain ethnicity is also discriminating rather than just demonstrating prejudiced feelings. SOURCE: EI:017 Recognize and overcome personal biases and stereotypes SOURCE: LAP-EI-917—Don't Jump to Conclusions! (Recognizing and Overcoming Personal Biases and Stereotypes)"
+    },
+    {
+      "question": "24. When Trisha's marketing plan doesn't succeed, she does not give up or get upset. Trisha is demonstrating",
+      "a": "A. open-mindedness.",
+      "b": "B. creativity.",
+      "c": "C. fortitude.",
+      "d": "D. caution.",
+      "correct": "C",
+      "explanation": "Fortitude. Fortitude is courage and endurance. In situations that are uncertain, a person with fortitude maintains their strength no matter what goes wrong. Trisha is demonstrating fortitude by refusing to give up. Trisha is not necessarily demonstrating open-mindedness, caution, or creativity. SOURCE: EI:092 Develop tolerance for ambiguity SOURCE: LAP-EI-092—Embrace the Unknown (Developing a Tolerance for Ambiguity)"
+    },
+    {
+      "question": "25. One of the roles of ethics in information management involves an individual's right to",
+      "a": "A. equity.",
+      "b": "B. privacy.",
+      "c": "C. safety.",
+      "d": "D. dignity.",
+      "correct": "B",
+      "explanation": "Privacy. Information management is the process of accessing, processing, maintaining, evaluating, and disseminating knowledge, facts, or data for the purpose of assisting business decision-making. Some of this information may be personal data that businesses obtain about their employees, customers, suppliers, etc. Individuals have the right to expect that the privacy of their personal information will be maintained. Businesses that are ethical do everything they can to protect private information and make sure it is not misused or made available to unauthorized users. Safety is freedom from danger or risk. Dignity is a high degree of calmness and self-possession. Equity is fairness. SOURCE: NF:111 Explain the role of ethics in information management SOURCE: Osano. (2023, January 24). What is data privacy management? Retrieved August 2, 2023, from https://www.osano.com/articles/data-privacy-management"
+    },
+    {
+      "question": "26. When assessing risks associated with an upcoming event, sports/event organizations should acquire input from all levels of management and",
+      "a": "A. financial consultants.",
+      "b": "B. public relations agencies",
+      "c": "C. local personnel inspectors",
+      "d": "D. vertical staff members.",
+      "correct": "D",
+      "explanation": "Vertical staff members. Vertical staff members refers to all employees who are not in management. Ticket takers, security guards, guest relations representatives, and merchandise sales personnel are examples of employees who might provide insight when conducting risk assessment. For example, sales personnel can provide information regarding shoplifting and its risks. By gathering as much information as possible from staff members, sports/event organizations can conduct comprehensive risk assessments in many areas and develop appropriate procedures to handle each situation or issue. Public relations agencies are hired by a business to develop and manage public relations activities for the business. Financial consultants are hired by a business to manage the business's financial matters. Local personnel inspector is not a term widely used by sports/event organizations. SOURCE: SM:076 Conduct a risk assessment of an event SOURCE: Indeed. (2023, February 20). Comparing horizontal vs. vertical organizational structures. Retrieved August 2, 2023, from https://www.indeed.com/career-advice/career-development/horizontal-vsvertical-organizational-structure"
+    },
+    {
+      "question": "27. The corrective action that the government might require an advertiser to take if the advertiser does not advise consumers about important facts about a product is called affirmative",
+      "a": "A. disclosure.",
+      "b": "B. endorsement.",
+      "c": "C. testimonial.",
+      "d": "D. briefing.",
+      "correct": "A",
+      "explanation": "Disclosure. When a business violates a government regulation, corrective action is the manner in which the government requires the business to put right or fix the wrongdoing. Affirmative disclosure is a type of corrective action in which the government orders the advertiser to include product information in future advertisements that it omitted in its previous advertisements. An endorsement is approval by a reputable external source. A testimonial is a statement by an identified product user proclaiming the benefits received from the use of the product. A briefing is an update or status report. SOURCE: PR:101 Describe the regulation of promotion SOURCE: UpCounsel. (2023). Affirmative disclosure: Everything you need to know. Retrieved August 3, 2023, from https://www.upcounsel.com/affirmative-disclosure"
+    },
+    {
+      "question": "28. Channel members of a supply chain should be familiar with antitrust laws so they do not engage in activities that",
+      "a": "A. prohibit authority.",
+      "b": "B. limit monopolies.",
+      "c": "C. hinder competition.",
+      "d": "D. restrict efficiency.",
+      "correct": "C",
+      "explanation": "Hinder competition. Antitrust laws are regulations that prevent a person or company from taking any actions to restrain free trade and competition in the marketplace. Businesses should understand the types of business activities that violate antitrust laws, so they do not engage in them. If a business requires tying agreements or attempts to create a monopoly, it may be violating antitrust laws. The government fines a business when it violates antitrust laws. Actions that restrict efficiency or prohibit authority do not violate antitrust laws. SOURCE: CM:005 Explain legal considerations in channel management SOURCE: Twin, A. (2023, January 21). Antitrust laws: What they are, how they work, major examples. Retrieved August 2, 2023, from https://www.investopedia.com/terms/a/antitrust.asp"
+    },
+    {
+      "question": "29. A business that writes letters to customers to confirm their orders or requests should make sure that the letters contain",
+      "a": "A. exchange rates.",
+      "b": "B. a map of all business locations",
+      "c": "C. all the necessary information.",
+      "d": "D. product ratings and grades",
+      "correct": "C",
+      "explanation": "All the necessary information. When preparing written communication, one of the most important rules is to be thorough and provide all the necessary information because the receiver may not have the opportunity to ask questions in person. Letters confirming customer orders should answer the questions of who, what, when, and where by including specific information about ordered items, quantity, delivery address, etc. The letters should contain all the necessary information to verify that what the business intends to provide is exactly what the customers have requested. Whether product ratings and grades, exchange rates, and a map of all business locations are necessary information to include in a confirmation letter depends on the type of business and the customer's needs. SOURCE: CO:016 Explain the nature of effective written communications SOURCE: Indeed. (2023, February 27). 12 templates to use when writing letters to clients (with tips). Retrieved August 2, 2023, from https://www.indeed.com/career-advice/career-development/letters-to-clients"
+    },
+    {
+      "question": "30. To reduce the risk of bribery in selling situations, it is a good idea for businesses to develop",
+      "a": "A. product delivery policies.",
+      "b": "B. promotional budgets.",
+      "c": "C. entertainment guidelines.",
+      "d": "D. diversity training manuals.",
+      "correct": "C",
+      "explanation": "Entertainment guidelines. During the selling process, salespeople often encounter situations that are not clearly right or wrong. Salespeople tend to judge these situations differently—according to their personal code of ethics. One of the questionable situations that salespeople might encounter involves entertaining customers. While some businesses view entertainment as a way to build positive customer relationships, others view it as favoritism or bribery. By developing entertainment guidelines for their salespeople, businesses can clearly communicate acceptable and unacceptable entertainment activities. A promotional budget is a forecast of the money that the business plans to spend on promoting its goods and services during a certain timeframe. Diversity training manuals are designed to help employees understand diversity issues in the workplace. Product delivery policies are the business's guidelines for delivering products to its customers. SOURCE: SE:106 Explain legal and ethical considerations in selling SOURCE: LAP-SE-106—Keep It Real—In Sales (Legal and Ethical Considerations in Selling)"
+    },
+    {
+      "question": "31. Which of the following typically addresses conflicts of interest, harassment, discrimination, and confidentiality:",
+      "a": "A. Annual report",
+      "b": "B. Operating statement",
+      "c": "C. Mission statement",
+      "d": "D. Code of conduct",
+      "correct": "D",
+      "explanation": "Code of conduct. A code of conduct is a set of rules and standards that govern the expected practices, decisions, procedures, and systems within an organization. Codes of conduct typically address topics such as conflicts of interest, harassment, discrimination, use of property, confidentiality, etc. An operating statement, also known as an income statement, summarizes a business's income and expenses over a period of time. An annual report is a document outlining the financial status of a business. A mission statement is a brief summary of what a business owner wants a business to be doing. SOURCE: PD:251 Follow rules of conduct SOURCE: LAP-PD-251—Know the Code (Following Rules of Conduct)"
+    },
+    {
+      "question": "32. Which of the following would be most appropriate for mass marketing:",
+      "a": "A. Diapers",
+      "b": "B. Toothpaste",
+      "c": "C. Winter coats",
+      "d": "D. Toy trucks",
+      "correct": "B",
+      "explanation": "Toothpaste. Mass marketing is designing products and directing marketing activities to appeal to the whole market. Of the items listed, toothpaste is the most likely to be marketed in this manner because it appeals to and is used by many types of consumers. The market for diapers would be limited to those with babies and toddlers. The market for toy trucks would be limited to children and teens. The market for winter coats would be limited to individuals who live and work in cold climates. SOURCE: MP:003 Explain the concept of market and market identification SOURCE: LAP-MP-003—Have We Met? (Market Identification)"
+    },
+    {
+      "question": "33. What is the most important economic resource?",
+      "a": "A. People",
+      "b": "B. Energy",
+      "c": "C. Minerals",
+      "d": "D. Equipment",
+      "correct": "A",
+      "explanation": "People. Human resources, people, are the most important economic resource because they combine the other resources to produce goods and services. Without the work of people, land would not be used to grow crops, roads would not be built, and equipment would not be used to manufacture goods. Minerals and energy are natural resources. Equipment is capital goods. SOURCE: EC:003 Explain the concept of economic resources SOURCE: LAP-EC-903—Be Resourceful (Economic Resources)"
+    },
+    {
+      "question": "34. Bread for a family would best be classified as a(n) __________ product.",
+      "a": "A. installation",
+      "b": "B. shopping",
+      "c": "C. convenience",
+      "d": "D. specialty",
+      "correct": "C",
+      "explanation": "Convenience. A convenience good or service is a consumer product purchased quickly and without much thought or effort. It may be a staple item, such as bread, or an impulse item. When buying shopping goods and services, consumers compare products and stores by \"shopping around\" to get the best quality, price, or service. Specialty goods and services are items that have special or unique characteristics that customers are willing to exert special efforts to obtain. Installation is a category of industrial goods and services. SOURCE: EC:002 Distinguish between economic goods and services SOURCE: LAP-EC-902—Get the Goods on Goods and Services (Economic Goods and Services)"
+    },
+    {
+      "question": "35. How does selling help create possession utility?",
+      "a": "A. By affecting employment",
+      "b": "B. By increasing competition",
+      "c": "C. By creating desire for products",
+      "d": "D. By keeping the economy moving",
+      "correct": "C",
+      "explanation": "By creating desire for products. Possession utility is usefulness created when ownership of a product is transferred from the seller to the user. Skilled salespeople are able to create desire for products by discussing product features and benefits, thereby encouraging possession utility. Selling also helps keep our economy moving, increase competition, and affect employment, but those factors are not related to possession utility. SOURCE: SE:017 Explain the nature and scope of the selling function SOURCE: LAP-SE-017—Sell Away (The Nature and Scope of Selling)"
+    },
+    {
+      "question": "36. An employee notifying a government agency that their business is violating health and safety regulations is an example of",
+      "a": "A. unethical behavior.",
+      "b": "B. verbal communication",
+      "c": "C. reporting noncompliance",
+      "d": "D. spreading gossip.",
+      "correct": "C",
+      "explanation": "Reporting noncompliance. Certain government agencies have developed health and safety regulations that businesses are expected to follow to provide employees with a safe work environment. If businesses do not comply with these regulations, they should be reported for noncompliance so the necessary action can be taken to solve the problem and make the workplace safe for employees. The goal is to correct dangerous situations and keep the workplace safe. An employee notifying a government agency is not an example of spreading gossip, unethical behavior, or verbal communication. In fact, the employee is exhibiting ethical behavior. Also, the employee may have notified the agency in writing, which is nonverbal communication. SOURCE: OP:005 Report noncompliance with business health and safety regulations SOURCE: OSHA Education Center. (2023). How to report labor violations. Retrieved August 2, 2023, from https://www.oshaeducationcenter.com/articles/reporting-labor-violations/"
+    },
+    {
+      "question": "37. Coca-Cola's \"Always the real thing\" campaign is an example of what type of promotion?",
+      "a": "A. Taste",
+      "b": "B. Company",
+      "c": "C. Service",
+      "d": "D. Product",
+      "correct": "D",
+      "explanation": "Product. Product promotion aims to persuade consumers to buy a good or service. Coca-Cola is promoting its soft drink. Coca-Cola is not promoting the specific company. Service and taste are not types of promotion. SOURCE: PR:002 Explain the types of promotion (i.e., institutional, product) SOURCE: LAP-PR-902—Know Your Options (Product and Institutional Promotion)"
+    },
+    {
+      "question": "38. Brea, Robert, and Lincoln are college friends who want to start a business. Brea has creative ability, Robert's expertise is selling, and Lincoln's expertise is management. However, each has limited capital. Their ideal type of business ownership is a",
+      "a": "A. merger",
+      "b": "B. partnership.",
+      "c": "C. franchise",
+      "d": "D. corporation.",
+      "correct": "B",
+      "explanation": "Partnership. A partnership is a form of business ownership in which the business is owned by two or more persons. Often, the purpose of forming a partnership is to combine the capital, the experience, or the abilities of the partners. A corporation is a form of business ownership owned by stockholders who have purchased stock. A franchise is an agreement between a parent company and a franchisee to distribute goods and services. A merger is when two individual businesses combine to form one organization. SOURCE: BL:003 Explain types of business ownership SOURCE: LAP-BL-003—Own It Your Way (Types of Business Ownership)"
+    },
+    {
+      "question": "39. Which of the following is an example of a persuasive message that businesses write:",
+      "a": "A. Handwritten note",
+      "b": "B. Email",
+      "c": "C. Collection letter",
+      "d": "D. Interoffice memo",
+      "correct": "C",
+      "explanation": "Collection letter. A collection letter is a type of persuasive message that many businesses write to customers who are delinquent in making payments on their accounts. The purpose of the collection letter is to persuade customers to send payment or to contact the business to make some type of arrangement. Collection letters should not offend customers but should convince them to respond immediately. Many businesses write emails, handwritten notes, and interoffice memos, but these types of messages are not necessarily persuasive. SOURCE: CO:031 Write persuasive messages SOURCE: Indeed. (2023). Letters of collection: Tips for small businesses (with template). Retrieved August 2, 2023, from https://www.indeed.com/hire/c/info/letters-of-collection"
+    },
+    {
+      "question": "40. Facts about demographic shifts, the competition, and product demand gathered to solve a business's problem are examples of",
+      "a": "A. data analysis.",
+      "b": "B. situation analysis",
+      "c": "C. primary data.",
+      "d": "D. marketing research.",
+      "correct": "C",
+      "explanation": "Primary data. Primary data are collected specifically for the problem or project at hand. They may be used to solve a problem, to explore an opportunity, or for any other purpose useful to the business. Marketing research is the systematic gathering, recording, and analyzing of data about a specific problem. Data analysis is the process of evaluating information. A situation analysis is a determination of a firm's current business situation and the direction in which the business is headed. SOURCE: IM:001 Explain the nature and scope of the marketing-information management function SOURCE: LAP-IM-001—Get the Facts Straight (Marketing-Information Management)"
+    },
+    {
+      "question": "41. Which of the following is an example of corporate social responsibility:",
+      "a": "A. A business provides three weeks of vacation time to all employees.",
+      "b": "B. A retail store refuses to accept returns once 30 days have passed.",
+      "c": "C. A company donates a portion of its proceeds to charity each year.",
+      "d": "D. A startup business runs a public relations campaign about its mission.",
+      "correct": "C",
+      "explanation": "A company donates a portion of its proceeds to charity each year. Many people believe that businesses have a moral obligation to give back to their communities. This is called corporate social responsibility, and an example is a company donating a portion of its proceeds to charity each year. Providing vacation time to employees is a nice gesture, but it is not necessarily an example of a company giving back to its community. Return policies and public relations campaigns are not examples of corporate social responsibility. SOURCE: EN:044 Describe the use of business ethics in entrepreneurship SOURCE: LAP-EN-044—Ethical Excellence (Ethics in Entrepreneurship)"
+    },
+    {
+      "question": "42. Which of the following is an example of how building a clientele benefits the business:",
+      "a": "A. Increased knowledge",
+      "b": "B. Personal satisfaction",
+      "c": "C. Increased sales volume",
+      "d": "D. Increased selling costs",
+      "correct": "C",
+      "explanation": "Increased sales volume. A clientele is a group of regular, repeat customers. An increase in sales is a direct result of building a clientele. Loyal customers return to buy regularly, thus providing the financial backbone for a growing business. Building a clientele helps reduce selling costs, not increase them. Personal satisfaction and increased knowledge are salesperson benefits of building a clientele, not business benefits. SOURCE: SE:828 Explain key factors in building a clientele SOURCE: LAP-SE-828—Keep Them Loyal (Key Factors in Building Clientele)"
+    },
+    {
+      "question": "43. Which of the following actions would demonstrate initiative on the part of an employee who has no customers at the moment:",
+      "a": "A. Doing routine housekeeping",
+      "b": "B. Checking their appearance",
+      "c": "C. Catching up on company news",
+      "d": "D. Paying their bills",
+      "correct": "A",
+      "explanation": "Doing routine housekeeping. Initiative is the willingness to act without having to be told to do so. An employee who demonstrates initiative by carrying out tasks without being asked to do so is appreciated by most employers. The other alternatives are personal activities that should be carried out in the employee's free time. SOURCE: EI:024 Demonstrate initiative SOURCE: LAP-EI-240—Hustle! (Taking Initiative at Work)"
+    },
+    {
+      "question": "44. Companies A, B, and C meet secretly and agree to coordinate their prices. This is an example of",
+      "a": "A. price fixing.",
+      "b": "B. black-market pricing.",
+      "c": "C. price discrimination",
+      "d": "D. predatory pricing",
+      "correct": "A",
+      "explanation": "Price fixing. Price fixing is an illegal business agreement in which businesses agree on prices of their goods or services, resulting in little choice for the customer. Because the businesses are coordinating their prices, this is an example of price fixing. Predatory pricing is the illegal practice of setting prices unrealistically low to eliminate competition. Price discrimination is the practice in which a business charges different customers different prices for the same product. This is not an example of predatory pricing or price discrimination. Black-market pricing is a fictitious term. SOURCE: PI:015 Describe the role of business ethics in pricing SOURCE: LAP-PI-015—Pricing With Purpose (Ethics in Pricing)"
+    },
+    {
+      "question": "45. During one scene of a popular TV show, an actor pours a box of brand-name cereal into a bowl and begins to eat it. What does this exemplify?",
+      "a": "A. Product placement",
+      "b": "B. Product programming",
+      "c": "C. Brand identification",
+      "d": "D. Brand awareness",
+      "correct": "A",
+      "explanation": "Product placement. Product placement is a sales-promotion strategy in which a product or brand is mentioned or used as a prop by types of media such as TV, film, or the theater. For example, fans of the TV series Friday Night Lights will often see the characters eat in an Applebee's restaurant. The intent of product placement is to generate and reinforce brand awareness with a target market. Brand identification is the process by which all of the branding elements work together to generate instant consumer recognition of a company or product. The use of props in TV shows and movies is not called product programming. SOURCE: PR:249 Identify communications channels used in sales promotion SOURCE: Shopify. (2023, July 12). How does product placement work? Examples and benefits. Retrieved August 3, 2023, from https://www.shopify.com/blog/product-placement"
+    },
+    {
+      "question": "46. Which of the following is an example of a business behaving ethically in an effort to protect consumers:",
+      "a": "A. Explaining the new manufacturing process",
+      "b": "B. Wrapping products in plain paper",
+      "c": "C. Placing informative commercials on TV",
+      "d": "D. Using tamper-resistant packaging",
+      "correct": "D",
+      "explanation": "Using tamper-resistant packaging. Many businesses produce products that might be harmful to consumers if the products are tampered with or become contaminated. To protect consumers, businesses often use tamperresistant packaging which makes it extremely difficult for someone to get to the product without damaging the packaging. As a result, customers are able to easily determine if this type of packaging has been tampered with, which warns them not to buy the products. Using tamper-resistant packaging is an ethical procedure that businesses follow in an effort to protect their products and ensure the safety of their customers. Products usually are not wrapped in plain paper. Placing informative commercials on TV and explaining the new manufacturing process are not ways of protecting consumers. SOURCE: PM:040 Explain business ethics in product/service management SOURCE: Container and Packaging. (2021, July 16). What is tamper-resistant packaging? Retrieved August 3, 2023, from https://www.containerandpackaging.com/resources/what-is-tamper-resistant-packaging"
+    },
+    {
+      "question": "47. Because product quality and price can easily be matched, customer service becomes a key component in business",
+      "a": "A. communications",
+      "b": "B. competition.",
+      "c": "C. careers",
+      "d": "D. forecasts.",
+      "correct": "B",
+      "explanation": "Competition. Because product quality and price can easily be matched, customer service becomes a key component in business competition. In selling, customer service is where the real competition among businesses begins. As a salesperson, you need to show your prospects that your company meets (and hopefully exceeds) customer service expectations. Customer service is not a key component in business careers, business communication, or business forecasts. SOURCE: SE:076 Explain the role of customer service as a component of selling relationships SOURCE: LAP-SE-076—Go Beyond the Sale (Customer Service in Selling)"
+    },
+    {
+      "question": "48. An indisputable or accepted fact is a(n)",
+      "a": "A. error.",
+      "b": "B. deception.",
+      "c": "C. truth.",
+      "d": "D. ethic.",
+      "correct": "C",
+      "explanation": "Truth. Individuals with honesty and integrity are truthful to others. Ethics are the basic principles by which you live—the philosophy that guides your behavior. Deception is the opposite of truthful, authentic, and honorable. An error is a mistake. SOURCE: EI:022 Demonstrate honesty and integrity SOURCE: LAP-EI-138—Sincerely Yours (Demonstrating Honesty and Integrity)"
+    },
+    {
+      "question": "49. Which of the following is an example of product bundling:",
+      "a": "A. Business selling computer, printer, and ink cartridges as a unit",
+      "b": "B. Theme park charging admission and selling ride tickets",
+      "c": "C. Lumber company selling wood chips as small-animal bedding",
+      "d": "D. Garden shop discounting prices of seasonal merchandise",
+      "correct": "A",
+      "explanation": "Business selling computer, printer, and ink cartridges as a unit. Product bundling involves combining several products and offering them to customers as one product. Usually, the bundled products are offered for one, allinclusive price. An example is a business selling a computer, a printer, and ink cartridges as a unit. In many cases, the bundle is less expensive than the cost of each item sold separately. Sometimes, the products can only be purchased as a unit and are not available separately. A lumber company selling wood chips as smallanimal bedding is an example of selling by-products. A theme park charging admission and then selling ride tickets is an example of two-part pricing. A garden shop discounting prices of seasonal merchandise is an example of adjusting prices. SOURCE: PM:041 Describe the nature of product bundling SOURCE: Leonard, K. (2018, October 23). Product bundling strategy. Retrieved August 3, 2023, from https://smallbusiness.chron.com/product-bundling-strategy-41789.html"
+    },
+    {
+      "question": "50. An arrangement that allows customers to purchase and use goods or services and pay for them at a future time is referred to as a __________ sale.",
+      "a": "A. credit",
+      "b": "B. cash",
+      "c": "C. budget",
+      "d": "D. layaway",
+      "correct": "A",
+      "explanation": "Credit. There are different kinds of credit accounts that allow customers to buy now and pay later. These include budget accounts, which are usually short-term credit arrangements, but the sales are not referred to as budget sales. In a cash sale, the full price is paid at the time of purchase. A layaway sale is a type of credit sale in which the customer does not take possession of the good or service until all payments have been made. SOURCE: FI:002 Explain the purposes and importance of credit SOURCE: LAP-FI-002—Give Credit Where Credit Is Due (Credit and Its Importance)"
     }
   ]
