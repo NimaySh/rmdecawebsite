@@ -4,114 +4,95 @@
 @tailwind utilities;
 
 :root {
-  /* Light theme variables */
   --aw-color-text-page: #2d3748;
   --aw-color-text-muted: #718096;
   --aw-color-primary: #2979a2;
   --aw-color-secondary: #35a5c2;
-  --aw-color-bg-page: #ffffff;
+
 }
 
-/* Dark theme variables */
-:root.dark {
-  --aw-color-text-page: #f7fafc;
-  --aw-color-text-muted: #a0aec0;
-  --aw-color-primary: #3498db;
-  --aw-color-secondary: #4ac3e0;
-  --aw-color-bg-page: #1a202c;
-}
 
 /* Define additional utilities using the variables */
 @layer utilities {
   .bg-page {
-    @apply bg-white dark:bg-[#1a202c];
+    background-color: var(--aw-color-bg-page);
   }
-  
   .bg-light {
-    @apply bg-white dark:bg-[#1a202c];
+    background-color: var(--aw-color-bg-page);
   }
-  
   .text-page {
     color: var(--aw-color-text-page);
   }
-  
   .text-muted {
     color: var(--aw-color-text-muted);
   }
   
-  /* Custom Color Classes - with dark mode variants */
+  /* Custom Color Classes */
   .bg-business-management {
-    @apply bg-[#f6bb26] dark:bg-[#ab831a];
+    background-color: #f6bb26; /* Yellow */
   }
-  
   .bg-entrepreneurship {
-    @apply bg-[#7c8689] dark:bg-[#5c6366];
+    background-color: #7c8689; /* Gray */
   }
-  
   .bg-finance {
-    @apply bg-[#119b49] dark:bg-[#0d7537];
+    background-color: #119b49; /* Green */
   }
-  
   .bg-hospitality-tourism {
-    @apply bg-[#1775bd] dark:bg-[#125a91];
+    background-color: #1775bd; /* Blue */
   }
-  
   .bg-marketing {
-    @apply bg-[#ca1a39] dark:bg-[#98142b];
+    background-color: #ca1a39; /* Red */
   }
-  
   .bg-personal-financial-literacy {
-    @apply bg-[#92c65e] dark:bg-[#6e9647];
+    background-color: #92c65e; /* Light Green */
   }
 
-  /* Gradient Titles - with dark mode */
+  /* Gradient Titles */
   .bg-gradient-title {
-    @apply bg-gradient-to-r from-[#07377e] to-[#2979a2] dark:from-[#1a4b9d] dark:to-[#35a5c2] bg-clip-text text-transparent inline;
+    background: linear-gradient(to right, #07377e, #2979a2);
+    -webkit-background-clip: text; /* For Chrome/Safari */
+    -webkit-text-fill-color: transparent; /* For Chrome/Safari */
+    background-clip: text; /* For other browsers */
+    color: transparent; /* Fallback for other browsers */
+    display: inline; /* Ensures the gradient text fits its content */
   }
   
   .text-secondary {
-    color: var(--aw-color-secondary);
+    color: #35a5c2;
   }
   
   .bg-gradient-icon {
-    @apply bg-gradient-to-r from-[#07377e] to-[#2979a2] dark:from-[#1a4b9d] dark:to-[#35a5c2] bg-clip-text text-transparent;
+    background: linear-gradient(to right, #07377e, #2979a2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
 /* Define components using the variables */
 @layer components {
+  
   .navbar {
     @apply flex items-center justify-between;
   }
 
   .navbar-links {
-    @apply flex gap-4;
+    @apply flex gap-4; /* Adjust gap as needed */
   }
 
   .navbar-link {
-    @apply whitespace-nowrap;
+    @apply whitespace-nowrap; /* Prevent line breaks */
   }
 
   .navbar-item-deca {
-    @apply flex-shrink-0;
+    @apply flex-shrink-0; /* Prevent shrinking */
   }
   
   .btn {
-    @apply inline-flex items-center justify-center rounded-full border-gray-400 border 
-           bg-transparent font-medium text-center text-base text-page leading-snug 
-           transition py-3.5 px-6 md:px-8 ease-in duration-200 
-           focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 
-           hover:bg-gray-100 hover:border-gray-600 
-           dark:text-slate-300 dark:border-slate-500 
-           dark:hover:bg-slate-800 dark:hover:border-slate-800 
-           cursor-pointer;
+    @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800 cursor-pointer;
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-primary text-white border-primary 
-           hover:bg-secondary hover:border-secondary hover:text-white 
-           dark:text-white dark:bg-primary dark:border-primary 
-           dark:hover:border-secondary dark:hover:bg-secondary;
+    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
   }
 
   .btn-secondary {
@@ -119,9 +100,7 @@
   }
 
   .btn-tertiary {
-    @apply btn border-none shadow-none text-muted 
-           hover:text-gray-900 
-           dark:text-gray-400 dark:hover:text-white;
+    @apply btn border-none shadow-none text-muted hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
   }
 }
 
@@ -130,7 +109,6 @@
   @apply bg-page md:bg-white/90 md:backdrop-blur-md;
   box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
 }
-
 .dark #header.scroll > div:first-child,
 #header.scroll.dark > div:first-child {
   @apply bg-page md:bg-[#030621e6] border-b border-gray-500/20;
@@ -138,31 +116,36 @@
 }
 
 #header.expanded nav {
-  @apply fixed top-[70px] left-0 right-0 bottom-[70px] px-[5px] !important;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 70px !important;
+  padding: 0 5px;
 }
 
 .border-gradient {
-  @apply border-[1px] border-[linear-gradient(to_right,#07377e,#35a5c2)];
+  border-image: linear-gradient(to right, #07377e, #35a5c2);
+  border-image-slice: 1;
 }
 
-.dropdown:hover .dropdown-menu,
 .dropdown:focus .dropdown-menu,
-.dropdown:focus-within .dropdown-menu {
-  @apply block;
+.dropdown:focus-within .dropdown-menu,
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
 [astro-icon].icon-light > * {
-  @apply stroke-[1.2];
+  stroke-width: 1.2;
 }
 
 [astro-icon].icon-bold > * {
-  @apply stroke-[2.4];
+  stroke-width: 2.4;
 }
 
 [data-aw-toggle-menu] path {
   @apply transition;
 }
-
 [data-aw-toggle-menu].expanded g > path:first-child {
   @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
 }
@@ -171,12 +154,8 @@
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
 
-/* Add to your existing CSS */
-.stats-number {
-  @apply text-[#2979a2] dark:text-[#35a5c2]; /* Using your existing color scheme */
-}
+/* To deprecated */
 
-.stats-text {
-  @apply text-[#2d3748] dark:text-slate-200 uppercase tracking-wider text-sm; /* Adjust colors as needed */
+.dd *:first-child {
+  margin-top: 0;
 }
-
