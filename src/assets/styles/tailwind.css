@@ -171,3 +171,12 @@
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
 
+/* Add to your existing CSS */
+.stats-number {
+  @apply text-[#2979a2] dark:text-[#35a5c2]; /* Using your existing color scheme */
+}
+
+.stats-text {
+  @apply text-[#2d3748] dark:text-slate-200 uppercase tracking-wider text-sm; /* Adjust colors as needed */
+}
+
