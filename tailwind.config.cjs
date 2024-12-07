@@ -8,13 +8,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--aw-color-primary)',
-        secondary: 'var(--aw-color-secondary)',
+        primary: '#2979a2',
+        secondary: '#35a5c2',
         accent: 'var(--aw-color-accent)',
       },
       textColor: {
         default: 'var(--aw-color-text-default)',
-        muted: 'var(--aw-color-text-muted)',
+        muted: '#718096',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
