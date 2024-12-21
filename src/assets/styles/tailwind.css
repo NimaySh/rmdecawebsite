@@ -4,7 +4,6 @@
 @tailwind utilities;
 
 
-
 /* Define additional utilities using the variables */
 @layer utilities {
   .bg-page {
