@@ -3,6 +3,7 @@ import typographyPlugin from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: false,  // Disables dark mode
   content: ['./src/**/*.{astro,html,js,jsx,json,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
@@ -31,4 +32,5 @@ export default {
       },
     },
   },
+  plugins: [typographyPlugin],
 };
