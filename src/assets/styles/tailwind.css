@@ -1,13 +1,12 @@
-/* Import Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :global {
-  --aw-color-text-page: #000000; /* Text Color */
-  --aw-color-text-muted: #6b7280; /* Muted Text Color */
-  --aw-color-primary: #6ca1cd; /* Primary Button Background */
-  --aw-color-secondary: #557fa2; /* Secondary Button Hover */
+  --aw-color-text-page: #000000; 
+  --aw-color-text-muted: #6b7280; 
+  --aw-color-primary: #6ca1cd; 
+  --aw-color-secondary: #557fa2; 
 }
 
 /* Define additional utilities using the variables */
@@ -27,22 +26,22 @@
   
   /* Custom Color Classes */
   .bg-business-management {
-    background-color: #f6bb26; /* Yellow */
+    background-color: #f6bb26; 
   }
   .bg-entrepreneurship {
-    background-color: #7c8689; /* Gray */
+    background-color: #7c8689; 
   }
   .bg-finance {
-    background-color: #119b49; /* Green */
+    background-color: #119b49;
   }
   .bg-hospitality-tourism {
-    background-color: #1775bd; /* Blue */
+    background-color: #1775bd; 
   }
   .bg-marketing {
-    background-color: #ca1a39; /* Red */
+    background-color: #ca1a39;
   }
   .bg-personal-financial-literacy {
-    background-color: #92c65e; /* Light Green */
+    background-color: #92c65e; 
   }
 
   /* Gradient Titles */
@@ -146,8 +145,6 @@
 [data-aw-toggle-menu].expanded g > path:last-child {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
-
-/* To deprecated */
 
 .dd *:first-child {
   margin-top: 0;
