@@ -31,20 +31,20 @@ const {
       <div class="text-center max-w-5xl mx-auto">
         {tagline && (
           <p
-            class={`text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase ${taglineClassName}`}
+            class={`text-base text-secondary font-bold tracking-wide uppercase ${taglineClassName}`}
             set:html={tagline}
           />
         )}
         {title && (
           <h1
-            class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+            class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading"
             set:html={title}
           />
         )}
         <div class="max-w-3xl mx-auto">
           {subtitle && (
             <p
-              class="text-xl text-muted mb-6 dark:text-slate-300"
+              class="text-xl text-muted mb-6"
               set:html={subtitle}
             />
           )}

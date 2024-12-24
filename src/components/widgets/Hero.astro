@@ -18,7 +18,6 @@ const {
   bg = await Astro.slots.render('bg'),
   backgroundImage,
 
-  // Add new slot for additional content
   additionalContent = await Astro.slots.render('additionalContent'),
 } = Astro.props;
 ---
@@ -49,7 +48,7 @@ const {
         )}
         {title && (
           <h1
-            class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-8 font-heading dark:text-gray-200"
+            class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-8 font-heading"
             set:html={title}
           />
         )}
