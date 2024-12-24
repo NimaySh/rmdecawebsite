@@ -114,28 +114,33 @@ const competitionDates = [
     </Fragment>
   </Features2>
 
-  <!-- Schedule Section -->
-  <div class="flex justify-center items-start">
-    <Steps
-      id="upcoming-meetings"
-      title="Upcoming Meetings"
-      items={upcomingMeetings}
-      classes={{ container: 'max-w-3xl' }}
-    />
-    
-    <Steps
-      id="competition-dates"
-      title="Competition Dates"
-      items={competitionDates}
-      classes={{ container: 'max-w-3xl' }}
-    />
-  </div>
+  <!-- Schedule Section -->      
+      <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white rounded-lg">
+          <Steps
+            id="upcoming-meetings"
+            title="Upcoming Meetings"
+            items={upcomingMeetings}
+            client:load
+          />
+        </div>
+
+        <div class="bg-white rounded-lg">
+          <Steps
+            id="competition-dates"
+            title="Competition Dates"
+            items={competitionDates}
+            client:load
+          />
+        </div>
+      </div>
+    </div>
 
   <!-- Why DECA Section -->
   <Features2
     title='Why <span class="bg-gradient-title">DECA</span>?'
     subtitle={`DECA empowers you to develop <strong><span class="bg-gradient-title">business knowledge</span></strong>, leadership abilities, and communication skills while having fun and making friends. Join us to learn, compete, and <strong><span class="bg-gradient-title">travel to Orlando</span></strong> for internationals. 
-    It's a great way to build your resume.<br><br><strong><span class="bg-gradient-title">NO prior experience is required.</span></strong> We provide training. There's a place for <strong><span class="bg-gradient-title">EVERYONE.</span></strong> You can compete in business roleplays, prepared presentations, or simulations.`}
+    It's a great way to build your resume.<br><br><strong><span class="bg-gradient-title">NO prior experience is required.</span></strong> as we provide training. You can compete in business roleplays, prepared presentations, or simulations.`}
   >
     <Fragment slot="image">
       <YouTube id="m8bvnkiV_yo" title="DECA Membership Promo 2024-25" />
