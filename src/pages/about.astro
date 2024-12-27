@@ -70,87 +70,97 @@ const vicePresidents = [
     </div>
   </section>
 
-  <!-- Enhanced Carousel Section -->
-  <section class="py-16">
-    <div id="swiperContainer" class="swiper-container max-w-5xl mx-auto relative">
-      <div class="swiper-wrapper">
-        {images.map((image) => (
-          <div class="swiper-slide">
-            <Image 
-              src={image.src} 
-              alt={image.alt} 
-              width={1200} 
-              height={600} 
-              class="w-full h-full object-cover rounded-lg" 
-              style={image.objectPosition ? `object-position: ${image.objectPosition};` : ''}
-            />
+ <!-- Carousel Section -->
+<section class="py-16">
+  <div id="swiperContainer" class="swiper-container max-w-5xl mx-auto relative">
+    <div class="swiper-wrapper">
+      {
+        images.map((image) => (
+          <div class="swiper-slide aspect-[16/9]"> <!-- Fixed aspect ratio container -->
+            <div class="relative w-full h-full">
+              <Image 
+                src={image.src}
+                alt={image.alt}
+                widths={[240, 540, 720, 1200]}
+                sizes={`(max-width: 360px) 240px,
+                        (max-width: 720px) 540px,
+                        (max-width: 1200px) 720px,
+                        1200px`}
+                class="absolute inset-0 w-full h-full object-cover rounded-lg"
+                style={image.objectPosition ? `object-position: ${image.objectPosition};` : ''}
+              />
+            </div>
           </div>
-        ))}
-      </div>
-      <div class="swiper-button-prev !w-12 !h-12 !bg-black/50 !rounded-full"></div>
-      <div class="swiper-button-next !w-12 !h-12 !bg-black/50 !rounded-full"></div>
-      <div class="swiper-pagination !relative !bottom-0 mt-6"></div>
+        ))
+      }
     </div>
-  </section>
+    <div class="swiper-button-prev !hidden md:!flex !w-12 !h-12 !bg-black/50 !rounded-full" />
+    <div class="swiper-button-next !hidden md:!flex !w-12 !h-12 !bg-black/50 !rounded-full" />
+    <div class="swiper-pagination !relative !bottom-0 mt-6" />
+  </div>
+</section>
 
   <!-- Team Section -->
   <section class="py-16 bg-[#f0f8ff]">
     <div class="container mx-auto px-4">
       <h2 class="text-center text-4xl font-bold text-[#07377e] mb-12">Our Leadership</h2>
       
-      <!-- Presidents -->
-      <div class="mb-16">
-        <h3 class="text-center text-2xl font-semibold text-[#35a5c2] mb-8">Presidents</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {presidents.map((president) => (
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              <div class="md:flex">
-                <div class="md:flex-shrink-0">
-                  <Image 
-                    class="h-48 w-full object-cover md:w-48" 
-                    src={president.image} 
-                    alt={president.name} 
-                    width={200} 
-                    height={200} 
-                  />
-                </div>
-                <div class="p-8">
-                  <div class="uppercase tracking-wide text-sm text-[#07377e] font-semibold">{president.title}</div>
-                  <h4 class="block mt-1 text-lg leading-tight font-medium text-black">{president.name}</h4>
-                  <p class="mt-2 text-gray-500">{president.description}</p>
-                </div>
-              </div>
+     {/* Presidents Section */}
+<div class="mb-16">
+  <h3 class="text-center text-2xl font-semibold text-[#35a5c2] mb-8">Presidents</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {
+      presidents.map((president) => (
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
+          <div class="flex flex-col md:flex-row">
+            <div class="w-full md:w-56 h-64 relative">
+              <Image 
+                src={president.image}
+                alt={president.name}
+                widths={[320, 400]}
+                sizes="(max-width: 768px) 400px, 320px"
+                class="w-full h-full object-cover"
+              />
             </div>
-          ))}
-        </div>
-      </div>
-      
-      <!-- Vice Presidents -->
-      <div>
-        <h3 class="text-center text-2xl font-semibold text-[#35a5c2] mb-8">Vice Presidents</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-          {vicePresidents.map((vp) => (
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl max-w-sm w-full">
-              <div class="h-56 overflow-hidden">
-                <Image 
-                  class="w-full h-full object-cover" 
-                  src={vp.image} 
-                  alt={vp.name} 
-                  width={300} 
-                  height={300}
-                  style={vp.objectPosition ? `object-position: ${vp.objectPosition};` : ''}
-                />
-              </div>
-              <div class="p-6">
-                <div class="uppercase tracking-wide text-sm text-[#07377e] font-semibold">{vp.title}</div>
-                <h4 class="block mt-1 text-lg leading-tight font-medium text-black">{vp.name}</h4>
-                <p class="mt-2 text-gray-500">{vp.description}</p>
-              </div>
+            <div class="p-6 flex-1">
+              <div class="uppercase tracking-wide text-sm text-[#07377e] font-semibold">{president.title}</div>
+              <h4 class="block mt-1 text-lg leading-tight font-medium text-black">{president.name}</h4>
+              <p class="mt-2 text-gray-500">{president.description}</p>
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </div>
+      ))
+    }
+  </div>
+</div>
+
+{/* Vice Presidents Section */}
+<div>
+  <h3 class="text-center text-2xl font-semibold text-[#35a5c2] mb-8">Vice Presidents</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+    {
+      vicePresidents.map((vp) => (
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl max-w-sm w-full">
+          <div class="h-64 relative overflow-hidden">
+            <Image 
+              src={vp.image}
+              alt={vp.name}
+              widths={[400]}
+              sizes="400px"
+              class="w-full h-full object-cover"
+              style={vp.objectPosition ? `object-position: ${vp.objectPosition};` : ''}
+            />
+          </div>
+          <div class="p-6">
+            <div class="uppercase tracking-wide text-sm text-[#07377e] font-semibold">{vp.title}</div>
+            <h4 class="block mt-1 text-lg leading-tight font-medium text-black">{vp.name}</h4>
+            <p class="mt-2 text-gray-500">{vp.description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
   </section>
 </Layout>
 
@@ -159,32 +169,30 @@ const vicePresidents = [
 <style>
   .swiper-container {
     width: 100%;
-    height: 600px;
   }
+  
   .swiper-slide {
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
   }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  
   .bg-gradient-title {
     @apply bg-gradient-to-r from-[#07377e] to-[#35a5c2] bg-clip-text text-transparent;
   }
-  /* Enhanced Swiper Navigation */
+  
   .swiper-button-prev,
   .swiper-button-next {
     color: white;
     transition: all 0.3s ease;
   }
+  
   .swiper-button-prev:hover,
   .swiper-button-next:hover {
     background-color: rgba(0, 0, 0, 0.7);
   }
+  
   .swiper-pagination-bullet {
     width: 10px;
     height: 10px;
@@ -192,6 +200,7 @@ const vicePresidents = [
     opacity: 0.5;
     transition: all 0.3s ease;
   }
+  
   .swiper-pagination-bullet-active {
     opacity: 1;
     width: 20px;
@@ -207,7 +216,7 @@ const vicePresidents = [
       loop: true,
       slidesPerView: 1,
       spaceBetween: 0,
-      effect: 'fade', // Add fade transition
+      effect: 'fade',
       autoplay: {
         delay: 5000,
         disableOnInteraction: false,
@@ -224,9 +233,6 @@ const vicePresidents = [
     });
   }
 
-  // Initialize Swiper on page load
   document.addEventListener('DOMContentLoaded', initSwiper);
-
-  // Re-initialize Swiper when Astro swaps the page content
   document.addEventListener('astro:page-load', initSwiper);
 </script>
